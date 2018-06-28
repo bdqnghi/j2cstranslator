@@ -1,0 +1,12 @@
+//
+// java.util.logging
+//
+package java.util.logging :: ILOG.J2CsMapping.Util.Logging {
+
+	//
+	// Logger
+	//
+	class java.util.logging.Logger :: ILOG.J2CsMapping.Util.Logging:Logger {
+	};
+	
+}

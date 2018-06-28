@@ -1,0 +1,172 @@
+#WizardProjectImportSelectPage.description=Select the project definitions that are to be imported into the workspace
+#WizardProjectImportSelectPage.title=Projects to import
+#ProjectImportWizard.title=Import existing projects
+ProjectTranslateWizard.title=Translate Projects
+
+WizardProjectTranslateSelectPage.page=wizardProjectExportSelectPage
+WizardProjectTranslateSelectPage.description=Select the projects that are to be translated
+WizardProjectTranslateSelectPage.title=Projects to translate
+
+WizardProjectTranslateSelectPage.selectProjects=Select projects to translate:
+WizardProjectTranslateSelectPage.selectAll=&Select all
+WizardProjectTranslateSelectPage.deselectAll=&Deselect all
+
+
+ProjectTransferHandler.project_already_exists=Project already exists: {0}.
+ProjectTransferHandler.error_importing_project=Error importing project: {0}.
+ProjectTransferHandler.error_importing_projects=Error importing projects
+ProjectTransferHandler.error_copying_projects=Error copying project files: 
+ClasspathProjectAnalyzer.missingClasspathVariable=Missing classpath variable: {0}.\n
+PathProjectAnalyzer.missingPathVariable=Missing path variable: {0}.\n
+UserLibraryProjectAnalyzer.missingUserLibrary=Missing user library: {0}.\n
+ProjectTransferHandler.missingVariables.title=Missing variables
+
+# Translator Options
+WizardProjectTranslateOptionsPage.page=wizardProjectTranslateOptionsPage
+WizardProjectTranslateOptionsPage.title=Translator Options
+WizardProjectTranslateOptionsPage.description=Configure the translator options
+
+
+WizardProjectTranslateOptionsPage.java2csTranslatorOptionsLabel=Java To C# Translator Options:
+WizardProjectTranslateOptionsPage.renamingOptionsLabel=Renaming Options:
+WizardProjectTranslateOptionsPage.projectTranslationOptionsLabel=Project Translation Options:
+WizardProjectTranslateOptionsPage.option.useGenerics=Use Generics
+WizardProjectTranslateOptionsPage.option.useGenerics.tooltip=Transform Java generics type into .NET generics type.
+
+WizardProjectTranslateOptionsPage.option.autoProperties=Auto Properties
+WizardProjectTranslateOptionsPage.option.autoProperties.tooltip=Transform Java Getter/Setter into .NET Properties.
+
+WizardProjectTranslateOptionsPage.option.autoCovariant=Covariant
+WizardProjectTranslateOptionsPage.option.autoCovariant.tooltip=Auto compute covariant return types and transform them into \n\
+no-variant .NET return types and add missing cast
+WizardProjectTranslateOptionsPage.option.addNotBrowsableAttribute=Add Not Browsable Attribute
+WizardProjectTranslateOptionsPage.option.addNotBrowsableAttribute.tooltip=Add Not Browsable Attribute
+
+WizardProjectTranslateOptionsPage.option.autoComputeDepends=Auto Compute Depends
+WizardProjectTranslateOptionsPage.option.autoComputeDepends.tooltip=Auto Compute Depends ???
+
+WizardProjectTranslateOptionsPage.option.vsProject=Generate Visual Studio project file
+WizardProjectTranslateOptionsPage.option.vsProject.tooltip=Generate a Visual Studio project file .csprj
+
+#WizardProjectTranslateOptionsPage.option.generateImplicitMappingfile=Generate Default Mapping File
+#WizardProjectTranslateOptionsPage.option.generateImplicitMappingfile.tooltip=This generates a default mapping file for each projects being translated,\n\
+#into '<sources>\\main\\translator\\configuration' directory
+
+WizardProjectTranslateOptionsPage.option.createTranslatorConfigurationFiles=Save the Project Translator Options
+WizardProjectTranslateOptionsPage.option.createTranslatorConfigurationFiles.tooltip=This generates a file containing all the translator options for this project,\n\
+into '<sources>\\main\\translator' directory
+
+WizardProjectTranslateOptionsPage.option.debug=Log Debug Information
+WizardProjectTranslateOptionsPage.option.debug.tooltip=This logs the translation debug information while the project is being translated
+
+WizardProjectTranslateOptionsPage.option.mappingAssemblyLocation=Mapping assembly location
+WizardProjectTranslateOptionsPage.option.mappingAssemblyLocation.tooltip=The location of the ILOG mapping assembly,\n\
+this can be an Eclipse variable, or an absolute path.
+
+WizardProjectTranslateOptionsPage.option.sourcesOutputDir=Translation Destination Directory
+WizardProjectTranslateOptionsPage.option.sourcesOutputDir.tooltip=The directory where all the C# files will be generated.
+
+WizardProjectTranslateOptionsPage.option.testsDestDir=Tests Destination Directory
+WizardProjectTranslateOptionsPage.option.testsDestDir.tooltip=The directory where all the C# test files will be generated.
+
+WizardProjectTranslateOptionsPage.option.unitTestLibrary=Unit Test Library
+WizardProjectTranslateOptionsPage.option.unitTestLibrary.tooltip=The Java Unit Test Library
+
+WizardProjectTranslateOptionsPage.option.flatPattern=Flat package
+WizardProjectTranslateOptionsPage.option.flatPattern.tooltip=This will flatten the package indicated. The C# sources will be generated at the root directory.
+
+WizardProjectTranslateOptionsPage.option.suffixForGenerated=Suffix for C# files
+WizardProjectTranslateOptionsPage.option.suffixForGenerated.tooltip=Every C# files will be suffixed with the string indicated.
+
+WizardProjectTranslateOptionsPage.option.refreshAndBuild=Refresh the project
+WizardProjectTranslateOptionsPage.option.refreshAndBuild.tooltip=Refresh and build the project before translation. A recommended option.
+ 
+WizardProjectTranslateOptionsPage.option.vsGenerationMode=Visual Studio Project file
+WizardProjectTranslateOptionsPage.option.vsGenerationMode.tooltip=Replaces the previously generated .csproj file, merge new files, generate ???
+
+WizardProjectTranslateOptionsPage.option.vsProjectType=Visual Studio Project Type
+WizardProjectTranslateOptionsPage.option.vsProjectType.tooltip=The type of the Visual Studio project 
+
+WizardProjectTranslateOptionsPage.option.vsVersion=Visual Studio Version
+WizardProjectTranslateOptionsPage.option.vsVersion.tooltip=The Visual Studio version
+
+WizardProjectTranslateOptionsPage.option.vsProjectEntryPoint=VS Project Entry Class
+WizardProjectTranslateOptionsPage.option.vsProjectEntryPoint.tooltip=The Visual Studio Project class that is the entry point to launch the project 
+
+WizardProjectTranslateOptionsPage.option.vsProjectName=VS Project Name
+WizardProjectTranslateOptionsPage.option.vsProjectName.tooltip=The name of the Visual Studio Project
+
+WizardProjectTranslateOptionsPage.option.sourcesReplacementPolicy=Sources replacement policy
+WizardProjectTranslateOptionsPage.option.sourcesReplacementPolicy.tooltip=Replace, Delete ???, or only Add New C# sources.
+
+WizardProjectTranslateOptionsPage.option.sourcesReplacementPolicy=Sources replacement policy
+WizardProjectTranslateOptionsPage.option.sourcesReplacementPolicy.tooltip=Replace, Delete ???, or only Add New C# sources.
+
+WizardProjectTranslateOptionsPage.option.fillRawTypesUse=Fill raw types
+WizardProjectTranslateOptionsPage.option.fillRawTypesUse.tooltip=???
+
+WizardProjectTranslateOptionsPage.option.removeTempProject=Remove temporary project
+WizardProjectTranslateOptionsPage.option.removeTempProject.tooltip=Removes the temporary Eclipse project when the translation finished.
+
+WizardProjectTranslateOptionsPage.option.forceJUnitTest=Force JUnit test
+WizardProjectTranslateOptionsPage.option.forceJUnitTest.tooltip=???
+
+WizardProjectTranslateOptionsPage.option.exactDirectoryName=Exact Directory Name
+WizardProjectTranslateOptionsPage.option.exactDirectoryName.tooltip=Keep the case of the directories as the namespace case
+
+WizardProjectTranslateOptionsPage.option.defaultPackageMappingBehavior=Namespace naming behaviour
+WizardProjectTranslateOptionsPage.option.defaultPackageMappingBehavior.tooltip=Configure the namespace naming behaviour, capitalized (the first char is upper cased),\n\
+none (same case as the original package case)
+
+WizardProjectTranslateOptionsPage.option.defaultMemberMappingBehavior=Class Member naming behaviour
+WizardProjectTranslateOptionsPage.option.defaultMemberMappingBehavior.tooltip=Configure the member naming behaviour, capitalized (the first char is upper cased),\n\
+none (the case is kept from the original member name).
+
+# ADVANCED OPTIONS
+WizardProjectTranslateOptionsPage.option.resourcesOutputDir=Generation Directory for Resources
+WizardProjectTranslateOptionsPage.option.resourcesOutputDir.tooltip=The directory where resources files will be generated
+
+WizardProjectTranslateOptionsPage.option.resourcesIncludePattern=Resource Include Pattern
+WizardProjectTranslateOptionsPage.option.resourcesIncludePattern.tooltip=???
+
+WizardProjectTranslateOptionsPage.option.resourcesExcludePattern=Resource Exclude Pattern
+WizardProjectTranslateOptionsPage.option.resourcesExcludePattern.tooltip=???
+
+WizardProjectTranslateOptionsPage.option.generateImplicitMappingfile=Generate Implicit Mapping
+WizardProjectTranslateOptionsPage.option.generateImplicitMappingfile.tooltip=This generates a mapping file of the translations that have been done implicitly and which is visible to others projects.
+
+WizardProjectTranslateOptionsPage.option.resourcesCopyPolicy=Resources Copy Policy
+WizardProjectTranslateOptionsPage.option.resourcesCopyPolicy.tooltip=Replace the resources or do not replace them. 
+
+WizardProjectTranslateOptionsPage.option.package_filter=Package Generation
+WizardProjectTranslateOptionsPage.option.package_filter.tooltip=This allows to generate only the package indicated in this field\n\
+(for several packages the separator is ';'). 
+WizardProjectTranslateOptionsPage.option.class_filter=Class Generation
+WizardProjectTranslateOptionsPage.option.class_filter.tooltip=This allows to generate only the class indicated in this field\n\
+(for several classes the separator is ';'). 
+
+# EXPERIMENTAL OPTIONS
+WizardProjectTranslateOptionsPage.option.simulation=Simulation
+WizardProjectTranslateOptionsPage.option.simulation.tooltip=Simulation (true, false) 
+WizardProjectTranslateOptionsPage.option.proxyMode=Proxy mode
+WizardProjectTranslateOptionsPage.option.proxyMode.tooltip=Proxy mode (true, false)
+
+WizardProjectTranslateOptionsPage.option.nullableEnum=Nullable Enum
+WizardProjectTranslateOptionsPage.option.nullableEnum.tooltip=???
+
+WizardProjectTranslateOptionsPage.pathEmpty=The path to the C# sources generation folder is empty 
+WizardProjectTranslateOptionsPage.invalidPath=The path to the C# sources generation folder is invalid 
+WizardProjectTranslateOptionsPage.pathDoesNotExist=The path to the C# sources generation does not exists
+WizardProjectTranslateOptionsPage.notADirectoryPath=The path to the C# sources generation is not a folder
+
+WizardProjectTranslateOptionsPage.browse=Browse...
+WizardProjectTranslateOptionsPage.directory=Select Directory
+
+# Advanced Translator Options
+WizardProjectTranslateAdvancedOptionsPage.page=wizardProjectTranslateAdvancedOptionsPage
+WizardProjectTranslateAdvancedOptionsPage.title=Translator Advanced Options
+WizardProjectTranslateAdvancedOptionsPage.description=Configure the translator advanced options
+
+WizardProjectTranslateAdvancedOptionsPage.otherOptionsLabel=Others Options:
+WizardProjectTranslateAdvancedOptionsPage.resourcesOptionsLabel=Resources Options:
+WizardProjectTranslateAdvancedOptionsPage.visualStudioOptionsLabel=Visual Studio Project Options:

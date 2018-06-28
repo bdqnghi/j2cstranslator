@@ -1,0 +1,32 @@
+//
+// org.xml.sax
+//
+package org.xml.sax :: System.Xml {
+
+	//
+	// Locator
+	//
+	class org.xml.sax.Locator :: ILOG.J2CsMapping.XML.Sax:ILocator {
+	   method getLineNumber() { property_get = LineNumber; }
+	   method getColumnNumber() { property_get = ColumnNumber; }
+    }
+    
+    //
+    // SAXParseException
+    // 
+    class org.xml.sax.SAXParseException :: ILOG.J2CsMapping.XML.Sax:SAXParseException {
+    }
+
+    class org.xml.sax.SAXException :: ILOG.J2CsMapping.XML.SAX:SAXException{
+    }
+    class org.xml.sax.InputSource :: System.Xml:XmlReader {
+      method <init>( Reader ) { pattern = XmlReader.Create( @1 ); }
+      method <init>( InputStream ) { pattern = XmlReader.Create( @1 ); }
+    }
+}
+
+package org.xml.sax.helpers
+{
+    class org.xml.sax.helpers.DefaultHandler :: ILOG.J2CsMapping.XML.Sax:DefaultHandler {
+    }
+}

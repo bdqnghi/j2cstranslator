@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                    -->
+	<!-- keywords.mappingml -->
+	<!--                    -->
+<mapping>
+	<!--          -->
+	<!-- keywords -->
+	<!--          -->
+	<keywords>
+		<!--       -->
+		<!-- super -->
+		<!--       -->
+		<keyword name="super" alias="base" />
+		<!--        -->
+		<!-- .class -->
+		<!--        -->
+		<keyword name=".class" alias="typeof" />
+		<!--              -->
+		<!-- synchronized -->
+		<!--              -->
+		<keyword name="synchronized" alias="lock" />
+		<!--            -->
+		<!-- instanceof -->
+		<!--            -->
+		<keyword name="instanceof" alias="is" />
+		<!--         -->
+		<!-- package -->
+		<!--         -->
+		<keyword name="package" alias="namespace" />
+		<!--      -->
+		<!-- goto -->
+		<!--      -->
+		<keyword name="goto" alias="goto" />
+		<!--        -->
+		<!-- import -->
+		<!--        -->
+		<keyword name="import" alias="using" />
+	</keywords>
+</mapping>

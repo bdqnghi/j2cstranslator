@@ -1,0 +1,95 @@
+//
+// java.nio
+//
+package java.nio :: ILOG.J2CsMapping.NIO {
+
+	//
+	// ByteBuffer
+	//
+	class java.nio.ByteBuffer :: ILOG.J2CsMapping.NIO:ByteBuffer {
+	}
+
+	//
+	// CharBuffer
+	//
+	class java.nio.CharBuffer :: ILOG.J2CsMapping.NIO:CharBuffer {
+	}
+	
+	//
+    //	BufferUnderflowException
+    //
+    class java.nio.BufferUnderflowException :: ILOG.J2CsMapping.NIO:BufferUnderflowException {
+    }	
+    
+    
+}
+
+//
+// java.nio.channels
+//
+package java.nio.channels :: ILOG.J2CsMapping.NIO.Channels {
+    //
+    // Channels
+    //
+	class java.nio.channels.Channels { remove = true; }
+	
+	//
+	// ReadableByteChannel
+	//
+	class java.nio.channels.ReadableByteChannel { remove = true; }
+	
+	//
+	// WritableByteChannel
+	//
+	class java.nio.channels.WritableByteChannel { remove = true; }
+}
+
+//
+// java.nio.charset
+//
+package java.nio.charset :: ILOG.J2CsMapping.NIO.Charset {
+
+	//
+	// Charset
+	//
+	class java.nio.charset.Charset :: System.Text:Encoding
+	{
+		method newDecoder() { pattern = @0.GetDecoder(); }
+		method newEncoder() { pattern = @0.GetEncoder(); }
+		method forName(String) { pattern = System.Text.Encoding.GetEncoding(@1); 
+	}
+	
+	//
+	// Decoder
+	//
+	class java.nio.charset.CharsetDecoder :: System.Text:Decoder
+	{
+		method decode(ByteBuffer) { pattern = ILOG.J2CsMapping.NIO.CharBuffer.Decode( @1, @0 ); }
+	}
+	
+	//
+	// Encoder
+	//
+	class java.nio.charset.CharsetEncoder :: System.Text:Encoder
+	{
+		method encode(CharBuffer) { pattern = ILOG.J2CsMapping.NIO.ByteBuffer.Encode( @1, @0 ); }
+	}
+
+	//
+	// CharacterCodingException
+	//
+	class java.nio.charset.CharacterCodingException :: ILOG.J2CsMapping.NIO.charset:CharacterCodingException {
+	}
+
+	//
+	// IllegalCharsetNameException
+	//
+	class java.nio.charset.IllegalCharsetNameException :: ILOG.J2CsMapping.NIO.charset:IllegalCharsetNameException {
+	}
+
+	//
+	// UnsupportedCharsetException
+	//
+	class java.nio.charset.UnsupportedCharsetException :: System:ArgumentException {
+	}
+}

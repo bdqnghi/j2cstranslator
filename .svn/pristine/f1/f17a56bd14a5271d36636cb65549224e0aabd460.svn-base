@@ -1,0 +1,50 @@
+//
+// java.net
+//
+package java.net :: System {
+
+	//
+	// URL
+	//
+	class java.net.URL :: System:Uri {
+	    method openStream() { pattern = ILOG.Rules.Util.Net.NetHelper.OpenStream(@0); }
+   	    // old : method openConnection() { pattern = ILOG.Rules.Util.Net.NetHelper.OpenConnection(@0); }
+            method openConnection() { pattern = WebRequest.Create( @0 ); }
+	};
+
+	//
+	// URLConnection
+	//	
+	class java.net.URLConnection :: System.Net:WebRequest {
+	   method connect() { pattern = ILOG.J2CsMapping.IO.NetHelper.Connect(@0); }
+  	   // old : method getInputStream() { pattern = ILOG.J2CsMapping.IO.NetHelper.GetInputStream(@0); }
+           method getInputStream() { pattern = @0.GetResponse().GetResponseStream(); }
+    };
+
+	//
+	// MalformedURLException
+	//
+	class java.net.MalformedURLException :: System:UriFormatException {
+	};
+
+	//
+	// URLEncoder
+	//
+      class java.net.URLEncoder :: ILOG.J2CsMapping.Net:URLEncoding {
+            method encode( java.lang.String, java.lang.String ) { pattern = ILOG.J2CsMapping.Net.URLEncoding.UrlEncode( @1, @2 ); }
+      }
+      class java.net.URLDecoder :: System.Web:HttpUtility {
+            method decode( java.lang.String, java.lang.String ) { pattern = ILOG.J2CsMapping.Net.URLEncoding.UrlDecode( @1, @2 ); }
+      }
+
+	class java.net.InetAddress :: ILOG.J2CsMapping.Util:InetAddress {
+	}
+	
+	class java.net.UnknownHostException :: System:ArgumentException {
+	}
+	
+	class java.net.NetworkInterface :: System.Net:IPHostEntry {
+	}
+
+
+}

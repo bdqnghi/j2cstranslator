@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="translator/" kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/afau/.m2/repository/org/testng/testng/5.6/testng-5.6-jdk15.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

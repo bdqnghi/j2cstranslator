@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                             -->
+	<!-- javax.swing.event.mappingml -->
+	<!--                             -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                           -->
+		<!-- package javax.swing.event -->
+		<!--                           -->
+		<package name="javax.swing.event">
+			<target name="ILOG.Util" />
+			<!--                                           -->
+			<!-- class javax.swing.event.EventListenerList -->
+			<!--                                           -->
+			<class name="EventListenerList">
+				<target packageName="ILOG.J2CsMapping.Util" name="IEventListenerList">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>

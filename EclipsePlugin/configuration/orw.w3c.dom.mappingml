@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                       -->
+	<!-- org.w3c.dom.mappingml -->
+	<!--                       -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                     -->
+		<!-- package org.w3c.dom -->
+		<!--                     -->
+		<package name="org.w3c.dom">
+			<target name="System.Xml" />
+			<!--                                         -->
+			<!-- class org.w3c.dom.ProcessingInstruction -->
+			<!--                                         -->
+			<class name="ProcessingInstruction">
+				<target packageName="System.Xml" name="XmlProcessingInstruction">
+				</target>
+				<!--                    -->
+				<!-- method getTarget() -->
+				<!--                    -->
+				<method signature="()" name="getTarget">
+					<target>
+						<format>
+<![CDATA[Target]]>
+						</format>
+					</target>
+				</method>
+				<!--                  -->
+				<!-- method getData() -->
+				<!--                  -->
+				<method signature="()" name="getData">
+					<target>
+						<format>
+<![CDATA[Data]]>
+						</format>
+					</target>
+				</method>
+				<!--                                  -->
+				<!-- method setData(java.lang.String) -->
+				<!--                                  -->
+				<method signature="(java.lang.String)" name="setData">
+					<target>
+						<format>
+<![CDATA[@0.Data=@1]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                -->
+			<!-- class org.w3c.dom.CDATASection -->
+			<!--                                -->
+			<class name="CDATASection">
+				<target packageName="System.Xml" name="XmlCDataSection">
+				</target>
+			</class>
+
+			<!--                                 -->
+			<!-- class org.w3c.dom.CharacterData -->
+			<!--                                 -->
+			<class name="CharacterData">
+				<target packageName="System.Xml" name="XmlCharacterData">
+				</target>
+				<!--                               -->
+				<!-- method getData() -->
+				<!--                               -->
+				<method signature="()" name="getData">
+					<target propertyGet="Data" />
+				</method>
+			</class>
+
+			<!--                        -->
+			<!-- class org.w3c.dom.Text -->
+			<!--                        -->
+			<class name="Text">
+				<target packageName="System.Xml" name="XmlText">
+				</target>
+			</class>
+
+			<!--                                -->
+			<!-- class org.w3c.dom.NamedNodeMap -->
+			<!--                                -->
+			<class name="NamedNodeMap">
+				<target packageName="System.Xml" name="XmlAttributeCollection">
+				</target>
+				<!--                    -->
+				<!-- method getLength() -->
+				<!--                    -->
+				<method signature="()" name="getLength">
+					<target propertyGet="Count" />
+				</method>
+			</class>
+
+			<!--                            -->
+			<!-- class org.w3c.dom.NodeList -->
+			<!--                            -->
+			<class name="NodeList">
+				<target packageName="System.Xml" name="XmlNodeList">
+				</target>
+				<!--                               -->
+				<!-- method getLength() -->
+				<!--                               -->
+				<method signature="()" name="getLength">
+					<target propertyGet="Count" />
+				</method>
+			</class>
+
+			<!--                        -->
+			<!-- class org.w3c.dom.Node -->
+			<!--                        -->
+			<class name="Node">
+				<target packageName="System.Xml" name="XmlNode">
+				</target>
+				<!--                               -->
+				<!-- method setTextContent(java.lang.String) -->
+				<!--                               -->
+				<!-- method signature="(java.lang.String)" name="setTextContent" -->
+					<!-- target -->
+						<!-- format -->
+<!-- [CDATA[@0.InnerText=@1]] -->
+						<!-- /format -->
+					<!-- /target -->
+				<!-- /method -->
+				<!--                       -->
+				<!-- method getNodeValue() -->
+				<!--                       -->
+				<method signature="()" name="getNodeValue">
+					<target propertyGet="Value" />
+				</method>
+				<!--                        -->
+				<!-- method getParentNode() -->
+				<!--                        -->
+				<method signature="()" name="getParentNode">
+					<target propertyGet="ParentNode" />
+				</method>
+				<!--                         -->
+				<!-- method getNextSibling() -->
+				<!--                         -->
+				<method signature="()" name="getNextSibling">
+					<target propertyGet="NextSibling" />
+				</method>
+				<!--                          -->
+				<!-- method getNamespaceURI() -->
+				<!--                          -->
+				<method signature="()" name="getNamespaceURI">
+					<target propertyGet="NamespaceURI" />
+				</method>
+				<!--                           -->
+				<!-- method getOwnerDocument() -->
+				<!--                           -->
+				<method signature="()" name="getOwnerDocument">
+					<target propertyGet="OwnerDocument" />
+				</method>
+				<!--                      -->
+				<!-- method getNodeName() -->
+				<!--                      -->
+				<method signature="()" name="getNodeName">
+					<target propertyGet="Name" />
+				</method>
+				<!--                       -->
+				<!-- method getLocalName() -->
+				<!--                       -->
+				<method signature="()" name="getLocalName">
+					<target propertyGet="LocalName" />
+				</method>
+				<!--                      -->
+				<!-- method getNodeType() -->
+				<!--                      -->
+				<method signature="()" name="getNodeType">
+					<target propertyGet="NodeType" />
+				</method>
+				<!--                         -->
+				<!-- method getTextContent() -->
+				<!--                         -->
+				<method signature="()" name="getTextContent">
+					<target propertyGet="InnerText" />
+				</method>
+				<!--                        -->
+				<!-- method getChildNodes() -->
+				<!--                        -->
+				<method signature="()" name="getChildNodes">
+					<target propertyGet="ChildNodes" />
+				</method>
+				<!--                        -->
+				<!-- method getAttributes() -->
+				<!--                        -->
+				<method signature="()" name="getAttributes">
+					<target propertyGet="Attributes" />
+				</method>
+				<!--                        -->
+				<!-- method getFirstChild() -->
+				<!--                        -->
+				<method signature="()" name="getFirstChild">
+					<target propertyGet="FirstChild" />
+				</method>
+				<!--                 -->
+				<!-- Field TEXT_NODE -->
+				<!--                 -->
+				<field name="TEXT_NODE">
+					<target>
+						<format>
+<![CDATA[XmlNodeType.Text]]>
+						</format>
+					</target>
+				</field>
+				<!--                          -->
+				<!-- Field CDATA_SECTION_NODE -->
+				<!--                          -->
+				<field name="CDATA_SECTION_NODE">
+					<target>
+						<format>
+<![CDATA[XmlNodeType.CDATA]]>
+						</format>
+					</target>
+				</field>
+				<!--                                   -->
+				<!-- Field PROCESSING_INSTRUCTION_NODE -->
+				<!--                                   -->
+				<field name="PROCESSING_INSTRUCTION_NODE">
+					<target>
+						<format>
+<![CDATA[XmlNodeType.ProcessingInstruction]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field ELEMENT_NODE -->
+				<!--                    -->
+				<field name="ELEMENT_NODE">
+					<target>
+						<format>
+<![CDATA[XmlNodeType.Element]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                            -->
+			<!-- class org.w3c.dom.Document -->
+			<!--                            -->
+			<class name="Document">
+				<target packageName="System.Xml" name="XmlDocument">
+				</target>
+				<!--                                                           -->
+				<!-- method createElementNS(java.lang.String,java.lang.String) -->
+				<!--                                                           -->
+				<method signature="(java.lang.String,java.lang.String)" name="createElementNS">
+					<target>
+						<format>
+<![CDATA[@0.CreateElement(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                             -->
+				<!-- method createCDATASection(java.lang.String) -->
+				<!--                                             -->
+				<method signature="(java.lang.String)" name="createCDATASection">
+					<target name="CreateCDataSection" />
+				</method>
+				<!--                             -->
+				<!-- method getDocumentElement() -->
+				<!--                             -->
+				<method signature="()" name="getDocumentElement">
+					<target propertyGet="DocumentElement" />
+				</method>
+			</class>
+
+			<!--                           -->
+			<!-- class org.w3c.dom.Element -->
+			<!--                           -->
+			<class name="Element">
+				<target packageName="System.Xml" name="XmlElement">
+				</target>
+				<!--
+				-->
+				<!--
+					method
+					setAttributeNS(java.lang.String,java.lang.String,java.lang.String)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.String,java.lang.String)"
+					name="setAttributeNS">
+					<target name="SetAttribute" />
+				</method>
+				<!--                     -->
+				<!-- method getTagName() -->
+				<!--                     -->
+				<method signature="()" name="getTagName">
+					<target propertyGet="Name" />
+				</method>
+				<!--                                                          -->
+				<!-- method getAttributeNS(java.lang.String,java.lang.String) -->
+				<!--                                                          -->
+				<method signature="(java.lang.String,java.lang.String)" name="getAttributeNS">
+					<target>
+						<format>
+<![CDATA[@0.GetAttribute(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+		</package>
+	</packages>
+</mapping>

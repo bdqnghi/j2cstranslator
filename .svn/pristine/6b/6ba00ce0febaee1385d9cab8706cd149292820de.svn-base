@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                    -->
+	<!-- generics.mappingml -->
+	<!--                    -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                      -->
+		<!-- package java.security -->
+		<!--                      -->
+		<package name="java.security">
+			<target name="System" />
+
+			<!--                                                -->
+			<!-- class java.security.PrivilegedAction&lt;%1&gt; -->
+			<!--                                                -->
+			<class name="PrivilegedAction" typeParameters="%1" generics="true">
+				<target packageName="System" name="Object" removeGenerics="true">
+				</target>
+			</class>
+		</package>
+
+		<!--                      -->
+		<!-- package java.lang.reflect -->
+		<!--                      -->
+		<package name="java.lang.reflect">
+			<target name="System.Reflection" />
+
+			<!--                                               -->
+			<!-- class java.lang.reflect.Constructor&lt;%1&gt; -->
+			<!--                                               -->
+			<class name="Constructor" typeParameters="%1" generics="true">
+				<target packageName="System.Reflection" name="ConstructorInfo"
+					removeGenerics="true">
+				</target>
+				<!--                               -->
+				<!-- method newInstance(java.lang.Object[]) -->
+				<!--                               -->
+				<method signature="(java.lang.Object[])" name="newInstance">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.Invoke<%1>(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+		</package>
+
+		<!--                      -->
+		<!-- package java.util -->
+		<!--                      -->
+		<package name="java.util">
+			<!--                                    -->
+			<!-- class java.util.Iterator&lt;%1&gt; -->
+			<!--                                    -->
+			<class name="Iterator" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="IIterator" typeParameters="%1">
+					<codeToAddToImplementation>
+<![CDATA[object ILOG.J2CsMapping.Collections.IIterator.Next()
+            {
+                return this.Next();
+            }]]>
+					</codeToAddToImplementation>
+				</target>
+				<!--                  -->
+				<!-- method hasNext() -->
+				<!--                  -->
+				<method signature="()" name="hasNext">
+					<target name="HasNext" />
+				</method>
+				<!--               -->
+				<!-- method next() -->
+				<!--               -->
+				<method signature="()" name="next">
+					<target name="Next" />
+				</method>
+			</class>
+
+			<!--                                              -->
+			<!-- class java.util.IdentityHashMap&lt;%1,%2&gt; -->
+			<!--                                              -->
+			<class name="IdentityHashMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="Dictionary"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method IdentityHashMap() -->
+				<!--                               -->
+				<constructor signature="()">
+					<target>
+						<format>
+<![CDATA[new Dictionary<%1,%2>(new ILOG.J2CsMapping.Collections.Generics.IdentityComparer<%1>())]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                    -->
+			<!-- change for .NET4.0 -->
+			<!-- mapping must be different in case of .NET 4.0 target -->
+
+			<!--                    -->
+			<!-- class java.util.HashSet&lt;%1&gt; -->
+			<!--                    -->
+			<class name="HashSet" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="HashedSet" typeParameters="%1">
+				</target>
+			</class>
+
+			<!--                                   -->
+			<!-- class java.util.TreeSet&lt;%1&gt; -->
+			<!--                                   -->
+			<class name="TreeSet" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="SortedSet" typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method isEmpty() -->
+				<!--                               -->
+				<method signature="()" name="isEmpty">
+					<target propertyGet="IsEmpty" />
+				</method>
+				<!--                               -->
+				<!-- method TreeSet() -->
+				<!--                               -->
+				<constructor signature="()">
+					<target>
+						<format>
+<![CDATA[new SortedSet<%1>()]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method TreeSet(java.util.Comparator&lt;? super E&gt;) -->
+				<!--                               -->
+				<constructor signature="(java.util.Comparator&lt;? super E&gt;)">
+					<target>
+						<format>
+<![CDATA[new SortedSet<%1>(@1)]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                               -->
+			<!-- class java.util.Set&lt;%1&gt; -->
+			<!--                               -->
+			<class name="Set" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="ISet" typeParameters="%1" requireFQN="true">
+				</target>
+				<!--                               -->
+				<!-- method iterator() -->
+				<!--                               -->
+				<method signature="()" name="iterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                   -->
+			<!-- class java.util.EnumSet&lt;%1&gt; -->
+			<!--                                   -->
+			<class name="EnumSet" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="EnumSet" typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method complementOf(java.util.EnumSet&lt;E&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.EnumSet&lt;E&gt;)" name="complementOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.ComplementOf/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method of(E) -->
+				<!--                               -->
+				<method signature="(E)" name="of">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Of/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method allOf(java.lang.Class&lt;E&gt;) -->
+				<!--                               -->
+				<method signature="(java.lang.Class&lt;E&gt;)" name="allOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.AllOf/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method range(E,E) -->
+				<!--                               -->
+				<method signature="(E,E)" name="range">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Range/* insert_here:<%1> */(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method copyOf(java.util.Collection&lt;E&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;E&gt;)" name="copyOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.CopyOf/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method of(E,E,E,E,E) -->
+				<!--                               -->
+				<method signature="(E,E,E,E,E)" name="of">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Of/* insert_here:<%1> */(@1,@2,@3,@4,@5)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method of(E,E,E) -->
+				<!--                               -->
+				<method signature="(E,E,E)" name="of">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Of/* insert_here:<%1> */(@1,@2,@3)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method noneOf(java.lang.Class&lt;E&gt;) -->
+				<!--                               -->
+				<method signature="(java.lang.Class&lt;E&gt;)" name="noneOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.NoneOf/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method of(E,E[]) -->
+				<!--                               -->
+				<method signature="(E,E[])" name="of">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Of/* insert_here:<%1> */(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method of(E,E,E,E) -->
+				<!--                               -->
+				<method signature="(E,E,E,E)" name="of">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.Of/* insert_here:<%1> */(@1,@2,@3,@4)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method copyOf(java.util.EnumSet&lt;E&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.EnumSet&lt;E&gt;)" name="copyOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.EnumSet/* insert_here:<%1> */.CopyOf/* insert_here:<%1> */(@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                     -->
+			<!-- class java.util.SortedSet&lt;%1&gt; -->
+			<!--                                    -->
+			<class name="SortedSet" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="SortedSet" typeParameters="%1">
+				</target>
+			</class>
+
+			<!-- -->
+			<!-- -->
+			<!-- -->
+
+			<!--                    -->
+			<!-- class java.util.AbstractCollection&lt;%1&gt; -->
+			<!--                    -->
+			<class name="AbstractCollection" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="ICollection"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method contains(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="contains">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Contains(@1,@0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+
+
+			<!--                                 -->
+			<!-- class java.util.Stack&lt;%1&gt; -->
+			<!--                                 -->
+			<class name="Stack" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="Stack"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method empty() -->
+				<!--                               -->
+				<method signature="()" name="empty">
+					<target>
+						<format>
+<![CDATA[(@0.Count==0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                        -->
+			<!-- class java.util.AbstractList&lt;%1&gt; -->
+			<!--                                        -->
+			<class name="AbstractList" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="IList"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method iterator() -->
+				<!--                               -->
+				<method signature="()" name="iterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method subList(int,int) -->
+				<!--                               -->
+				<method signature="(int,int)" name="subList">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.SubList(@0,@1,@2)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+
+
+			<!--                                 -->
+			<!-- class java.util.Deque&lt;%1&gt; -->
+			<!--                                 -->
+			<class name="Deque" typeParameters="%1" generics="true">
+				<!--                               -->
+				<!-- method removeFirst() -->
+				<!--                               -->
+				<method signature="()" name="removeFirst">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.RemoveFirst/* insert_here:<%1> */(@0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                        -->
+			<!-- class java.util.SortedMap&lt;%1,%2&gt; -->
+			<!--                                        -->
+			<class name="SortedMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="SortedList"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method entrySet() -->
+				<!--                               -->
+				<method signature="()" name="entrySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<KeyValuePair<%1,%2>>(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method keySet() -->
+				<!--                               -->
+				<method signature="()" name="keySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<%1>(@0.Keys)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method subMap(K,K) -->
+				<!--                               -->
+				<method signature="(K,K)" name="subMap">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.SubMap<%1,%2>(@0,@1,@2)]]>
+						</format>
+					</target>
+				</method>
+
+				<!--                               -->
+				<!-- method firstKey() -->
+				<!--                               -->
+				<method signature="()" name="firstKey">
+					<target>
+						<format>
+<![CDATA[@0.Keys[0]]]>
+						</format>
+					</target>
+				</method>
+
+			</class>
+
+			<!--                                            -->
+			<!-- class java.util.LinkedHashMap&lt;%1,%2&gt; -->
+			<!--                                            -->
+			<class name="LinkedHashMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="Dictionary"
+					typeParameters="%1,%2">
+				</target>
+			</class>
+
+			<!--                             -->
+			<!-- class java.util.Collections -->
+			<!--                             -->
+			<class name="Collections">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="Collections">
+				</target>
+				<!--                               -->
+				<!-- method emptySet() -->
+				<!--                               -->
+				<method signature="()" name="emptySet">
+					<target genericsIf="@0">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.EmptySet/* insert_here:<%1> */()]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!--
+					method sort(java.util.List&lt;T&gt;,java.util.Comparator&lt;? super
+					T&gt;)
+				-->
+				<!--                               -->
+				<method
+					signature="(java.util.List&lt;T&gt;,java.util.Comparator&lt;? super T&gt;)"
+					name="sort">
+					<target genericsIf="@1">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.Sort(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method singleton(T) -->
+				<!--                               -->
+				<method signature="(T)" name="singleton">
+					<target genericsIf="@0">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.Singleton(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method singletonList(T) -->
+				<!--                               -->
+				<method signature="(T)" name="singletonList">
+					<target genericsIf="@0">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.SingletonList<%1>(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!--
+					method binarySearch(java.util.List&lt;? extends
+					java.lang.Comparable&lt;? super T&gt;&gt;,T)
+				-->
+				<!--                               -->
+				<method
+					signature="(java.util.List&lt;? extends java.lang.Comparable&lt;? super T&gt;&gt;,T)"
+					name="binarySearch">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.BinarySearch(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method unmodifiableList(java.util.List&lt;? extends T&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.List&lt;? extends T&gt;)" name="unmodifiableList">
+					<target genericsIf="typeReceiverIsGeneric">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.UnmodifiableList(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method emptyList() -->
+				<!--                               -->
+				<method signature="()" name="emptyList">
+					<target genericsIf="@0">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.EmptyList/* insert_here:<%1> */()]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method enumeration(java.util.Collection&lt;T&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;T&gt;)" name="enumeration">
+					<target genericsIf="@1">
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections./* Generics. */IteratorAdapter<%1>(@1.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method sort(java.util.List&lt;T&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.List&lt;T&gt;)" name="sort">
+					<target genericsIf="@1">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.Sort(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!--
+					method unmodifiableMap(java.util.Map&lt;? extends K,? extends
+					V&gt;)
+				-->
+				<!--                               -->
+				<method signature="(java.util.Map&lt;? extends K,? extends V&gt;)"
+					name="unmodifiableMap">
+					<target genericsIf="@1">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.UnmodifiableMap(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field EMPTY_LIST -->
+				<!--                    -->
+				<field name="EMPTY_LIST">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.EMPTY_LIST]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                                  -->
+			<!-- class java.util.Map&lt;%1,%2&gt; -->
+			<!--                                  -->
+			<class name="Map" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="IDictionary"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method isEmpty() -->
+				<!--                               -->
+				<method signature="()" name="isEmpty">
+					<target>
+						<format>
+<![CDATA[(@0.Count==0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method get(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="get">
+					<target>
+						<format>
+<![CDATA[((%2)ILOG.J2CsMapping.Collections.Generics.Collections.Get(@0,@1))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method putAll(java.util.Map&lt;? extends K,? extends V&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Map&lt;? extends K,? extends V&gt;)"
+					name="putAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.PutAll(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method entrySet() -->
+				<!--                               -->
+				<method signature="()" name="entrySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<KeyValuePair<%1,%2>>(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method remove(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="remove">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Remove(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method values() -->
+				<!--                               -->
+				<method signature="()" name="values">
+					<target propertyGet="Values" />
+				</method>
+				<!--                               -->
+				<!-- method put(K,V) -->
+				<!--                               -->
+				<method signature="(K,V)" name="put">
+					<target>
+						<format>
+<![CDATA[/* insert_here:(%2) */ILOG.J2CsMapping.Collections.Generics.Collections.Put(@0,(%1)(@1),(%2)(@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method keySet() -->
+				<!--                               -->
+				<method signature="()" name="keySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<%1>(@0.Keys)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method containsValue(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="containsValue">
+					<target>
+						<format>
+<![CDATA[@0.Values.Contains(@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.util.TreeMap&lt;%1,%2&gt; -->
+			<!--                                      -->
+			<class name="TreeMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="SortedList"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method headMap(K) -->
+				<!--                               -->
+				<method signature="(K)" name="headMap">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.HeadMap(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method get(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="get">
+					<target>
+						<format>
+<![CDATA[(%2)ILOG.J2CsMapping.Collections.Generics.Collections.Get(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method remove(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="remove">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Remove(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method entrySet() -->
+				<!--                               -->
+				<method signature="()" name="entrySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<KeyValuePair<%1,%2>>(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method values() -->
+				<!--                               -->
+				<method signature="()" name="values">
+					<target propertyGet="Values" />
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method put(K,V) -->
+				<!--                               -->
+				<method signature="(K,V)" name="put">
+					<target>
+						<format>
+<![CDATA[/* insert_here:(%2) */ILOG.J2CsMapping.Collections.Generics.Collections.Put(@0,(%1)(@1),(%2)(@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method keySet() -->
+				<!--                               -->
+				<method signature="()" name="keySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<%1>(@0.Keys)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.util.HashMap&lt;%1,%2&gt; -->
+			<!--                                      -->
+			<class name="HashMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="Dictionary"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method get(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="get">
+					<target>
+						<format>
+<![CDATA[(%2)ILOG.J2CsMapping.Collections.Generics.Collections.Get(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method putAll(java.util.Map&lt;? extends K,? extends V&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Map&lt;? extends K,? extends V&gt;)"
+					name="putAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.PutAll(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method entrySet() -->
+				<!--                               -->
+				<method signature="()" name="entrySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<KeyValuePair<%1,%2>>(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method put(K,V) -->
+				<!--                               -->
+				<method signature="(K,V)" name="put">
+					<target>
+						<format>
+<![CDATA[/* insert_here:(%2) */ILOG.J2CsMapping.Collections.Generics.Collections.Put(@0,(%1)(@1),(%2)(@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method keySet() -->
+				<!--                               -->
+				<method signature="()" name="keySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<%1>(@0.Keys)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                     -->
+			<!-- class java.util.ArrayList&lt;%1&gt; -->
+			<!--                                     -->
+			<class name="ArrayList" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="List"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method set(int,E) -->
+				<!--                               -->
+				<method signature="(int,E)" name="set">
+					<target indexerSet="[@1]=@2" />
+				</method>
+				<!--                               -->
+				<!-- method addAll(int,java.util.Collection&lt;? extends E&gt;) -->
+				<!--                               -->
+				<method signature="(int,java.util.Collection&lt;? extends E&gt;)"
+					name="addAll">
+					<target name="InsertRange" />
+				</method>
+				<!--                               -->
+				<!-- method ArrayList(java.util.Collection&lt;? extends E&gt;) -->
+				<!--                               -->
+				<constructor signature="(java.util.Collection&lt;? extends E&gt;)">
+					<target>
+						<format>
+<![CDATA[new List<%1>(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method get(int) -->
+				<!--                               -->
+				<method signature="(int)" name="get">
+					<target indexerGet="@1" />
+				</method>
+				<!--                               -->
+				<!-- method addAll(java.util.Collection&lt;? extends E&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;? extends E&gt;)"
+					name="addAll">
+					<target name="AddRange" />
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method ensureCapacity(int) -->
+				<!--                               -->
+				<method signature="(int)" name="ensureCapacity">
+					<target>
+						<format>
+<![CDATA[@0.Capacity=@1]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                          -->
+			<!-- class java.util.WeakHashMap&lt;%1,%2&gt; -->
+			<!--                                          -->
+			<class name="WeakHashMap" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="Dictionary"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+			</class>
+
+			<!--                                        -->
+			<!-- class java.util.Hashtable&lt;%1,%2&gt; -->
+			<!--                                        -->
+			<class name="Hashtable" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="Dictionary"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method get(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="get">
+					<target>
+						<format>
+<![CDATA[(%2)ILOG.J2CsMapping.Collections.Generics.Collections.Get(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method putAll(java.util.Map&lt;? extends K,? extends V&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Map&lt;? extends K,? extends V&gt;)"
+					name="putAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.PutAll(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method elements() -->
+				<!--                               -->
+				<method signature="()" name="elements">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%2>(@0.Values.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method entrySet() -->
+				<!--                               -->
+				<method signature="()" name="entrySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<KeyValuePair<%1,%2>>(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method keys() -->
+				<!--                               -->
+				<method signature="()" name="keys">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.Keys.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method values() -->
+				<!--                               -->
+				<method signature="()" name="values">
+					<target propertyGet="Values" />
+				</method>
+				<!--                               -->
+				<!-- method put(K,V) -->
+				<!--                               -->
+				<method signature="(K,V)" name="put">
+					<target>
+						<format>
+<![CDATA[/* insert_here:(%2) */ILOG.J2CsMapping.Collections.Generics.Collections.Put(@0,(%1)(@1),(%2)(@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method keySet() -->
+				<!--                               -->
+				<method signature="()" name="keySet">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.ListSet<%1>(@0.Keys)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+
+
+			<!--                                        -->
+			<!-- class java.util.ListIterator&lt;%1&gt; -->
+			<!--                                        -->
+			<class name="ListIterator" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="IListIterator" typeParameters="%1">
+				</target>
+			</class>
+
+			<!--                                -->
+			<!-- class java.util.List&lt;%1&gt; -->
+			<!--                                -->
+			<class name="List" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="IList"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method isEmpty() -->
+				<!--                               -->
+				<method signature="()" name="isEmpty">
+					<target>
+						<format>
+<![CDATA[(@0.Count==0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method set(int,E) -->
+				<!--                               -->
+				<method signature="(int,E)" name="set">
+					<target indexerSet="[@1]=@2" />
+				</method>
+				<!--                               -->
+				<!-- method remove(int) -->
+				<!--                               -->
+				<method signature="(int)" name="remove">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.RemoveAt(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method get(int) -->
+				<!--                               -->
+				<method signature="(int)" name="get">
+					<target indexerGet="@1" />
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method remove(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="remove">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Remove(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method listIterator(int) -->
+				<!--                               -->
+				<method signature="(int)" name="listIterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.ArrayListIterator(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toArray(T[]) -->
+				<!--                               -->
+				<method signature="(T[])" name="toArray">
+					<target genericsIf="@0">
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections./* Generics. */Collections.ToArray(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method listIterator() -->
+				<!--                               -->
+				<method signature="()" name="listIterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.ArrayListIterator(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method addAll(int,java.util.Collection&lt;? extends E&gt;) -->
+				<!--                               -->
+				<method signature="(int,java.util.Collection&lt;? extends E&gt;)"
+					name="addAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.AddAll(@0,@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method add(int,E) -->
+				<!--                               -->
+				<method signature="(int,E)" name="add">
+					<target name="Insert" />
+				</method>
+				<!--                               -->
+				<!-- method iterator() -->
+				<!--                               -->
+				<method signature="()" name="iterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method contains(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="contains">
+					<target name="Contains" />
+				</method>
+				<!--                               -->
+				<!-- method removeAll(java.util.Collection&lt;?&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;?&gt;)" name="removeAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.RemoveAll(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                        -->
+			<!-- class java.util.Map$Entry&lt;%1,%2&gt; -->
+			<!--                                        -->
+			<class name="Map.Entry" typeParameters="%1,%2" generics="true">
+				<target packageName="System.Collections.Generic" name="KeyValuePair"
+					typeParameters="%1,%2">
+				</target>
+				<!--                               -->
+				<!-- method getKey() -->
+				<!--                               -->
+				<method signature="()" name="getKey">
+					<target propertyGet="Key" />
+				</method>
+				<!--                               -->
+				<!-- method getValue() -->
+				<!--                               -->
+				<method signature="()" name="getValue">
+					<target propertyGet="Value" />
+				</method>
+				<!--                               -->
+				<!-- method setValue(V) -->
+				<!--                               -->
+				<method signature="(V)" name="setValue">
+					<target>
+						<format>
+<![CDATA[@0.Value=@1]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+
+
+			<!--                                      -->
+			<!-- class java.util.EnumMap&lt;%1,%2&gt; -->
+			<!--                                      -->
+			<class name="EnumMap" typeParameters="%1,%2" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="EnumMap" typeParameters="%1,%2">
+				</target>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.util.Collection&lt;%1&gt; -->
+			<!--                                      -->
+			<class name="Collection" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="ICollection"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method toArray(T[]) -->
+				<!--                               -->
+				<method signature="(T[])" name="toArray">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.ToArray(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isEmpty() -->
+				<!--                               -->
+				<method signature="()" name="isEmpty">
+					<target>
+						<format>
+<![CDATA[(@0.Count==0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method iterator() -->
+				<!--                               -->
+				<method signature="()" name="iterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method clear() -->
+				<!--                               -->
+				<method signature="()" name="clear">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Clear(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toArray() -->
+				<!--                               -->
+				<method signature="()" name="toArray">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.ToArray(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method addAll(java.util.Collection&lt;? extends E&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;? extends E&gt;)"
+					name="addAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.AddAll(@1,@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method containsAll(java.util.Collection&lt;?&gt;) -->
+				<!--                               -->
+				<method signature="(java.util.Collection&lt;?&gt;)" name="containsAll">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.ContainsAll(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method size() -->
+				<!--                               -->
+				<method signature="()" name="size">
+					<target propertyGet="Count" />
+				</method>
+				<!--                               -->
+				<!-- method add(E) -->
+				<!--                               -->
+				<method signature="(E)" name="add">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Collections.Generics.Collections.Add(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.util.LinkedList&lt;%1&gt; -->
+			<!--                                      -->
+			<class name="LinkedList" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="LinkedList" typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method getFirst() -->
+				<!--                               -->
+				<method signature="()" name="getFirst">
+					<target>
+						<format>
+<![CDATA[@0.First.Value]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method remove() -->
+				<!--                               -->
+				<method signature="()" name="remove">
+					<target name="RemoveFirst" />
+				</method>
+				<!--                               -->
+				<!-- method getLast() -->
+				<!--                               -->
+				<method signature="()" name="getLast">
+					<target>
+						<format>
+<![CDATA[@0.Last.Value]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method element() -->
+				<!--                               -->
+				<method signature="()" name="element">
+					<target>
+						<format>
+<![CDATA[@0.First.Value]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method add(E) -->
+				<!--                               -->
+				<method signature="(E)" name="add">
+					<target>
+						<format>
+<![CDATA[@0.AddLast(@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                       -->
+			<!-- class java.util.Enumeration&lt;%1&gt; -->
+			<!--                                       -->
+			<class name="Enumeration" typeParameters="%1" generics="true">
+				<target packageName="ILOG.J2CsMapping.Collections.Generics"
+					name="IIterator" typeParameters="%1">
+					<codeToAddToImplementation>
+<![CDATA[object ILOG.J2CsMapping.Collections.IIterator.Next()
+            {
+                return this.Next();
+            }]]>
+					</codeToAddToImplementation>
+				</target>
+				<!--                               -->
+				<!-- method nextElement() -->
+				<!--                               -->
+				<method signature="()" name="nextElement">
+					<target name="Next" />
+				</method>
+				<!--                               -->
+				<!-- method hasMoreElements() -->
+				<!--                               -->
+				<method signature="()" name="hasMoreElements">
+					<target name="HasNext" />
+				</method>
+			</class>
+		</package>
+
+		<!--                      -->
+		<!-- package java.lang.ref -->
+		<!--                      -->
+		<package name="java.lang.ref">
+			<target name="System" />
+			<!--                                             -->
+			<!-- class java.lang.ref.SoftReference&lt;%1&gt; -->
+			<!--                                             -->
+			<class name="SoftReference" typeParameters="%1" generics="true">
+				<target packageName="System" name="WeakReference"
+					removeGenerics="true" typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method get() -->
+				<!--                               -->
+				<method signature="()" name="get">
+					<target propertyGet="(%1)Target" />
+				</method>
+			</class>
+
+			<!--                                             -->
+			<!-- class java.lang.ref.WeakReference&lt;%1&gt; -->
+			<!--                                             -->
+			<class name="WeakReference" typeParameters="%1" generics="true">
+				<target packageName="System" name="WeakReference"
+					removeGenerics="true" typeParameters="%1">
+				</target>
+			</class>
+		</package>
+
+		<!--                      -->
+		<!-- package java.lang -->
+		<!--                      -->
+		<package name="java.lang">
+
+			<!--                                      -->
+			<!-- class java.lang.Comparable&lt;%1&gt; -->
+			<!--                                      -->
+			<class name="Comparable" typeParameters="%1" generics="true">
+				<target packageName="System" name="IComparable"
+					typeParameters="%1">
+				</target>
+			</class>
+
+			<!--                                    -->
+			<!-- class java.lang.Iterable&lt;%1&gt; -->
+			<!--                                    -->
+			<class name="Iterable" typeParameters="%1" generics="true">
+				<target packageName="System.Collections.Generic" name="IEnumerable"
+					typeParameters="%1">
+				</target>
+				<!--                               -->
+				<!-- method iterator() -->
+				<!--                               -->
+				<method signature="()" name="iterator">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Collections.Generics.IteratorAdapter<%1>(@0.GetEnumerator())]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                 -->
+			<!-- class java.lang.Class&lt;%1&gt; -->
+			<!--                                 -->
+			<class name="Class" typeParameters="%1" generics="true">
+				<target packageName="System" name="Type" removeGenerics="true">
+				</target>
+				<!--                               -->
+				<!-- method getComponentType() -->
+				<!--                               -->
+				<method signature="()" name="getComponentType">
+					<target name="GetElementType" />
+				</method>
+				<!--                               -->
+				<!-- method getDeclaredConstructor(java.lang.Class&lt;?&gt;[]) -->
+				<!--                               -->
+				<method signature="(java.lang.Class&lt;?&gt;[])" name="getDeclaredConstructor">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetConstructor(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isArray() -->
+				<!--                               -->
+				<method signature="()" name="isArray">
+					<target propertyGet="IsArray" />
+				</method>
+				<!--                               -->
+				<!-- method getMethod(java.lang.String,java.lang.Class&lt;?&gt;[]) -->
+				<!--                               -->
+				<method signature="(java.lang.String,java.lang.Class&lt;?&gt;[])"
+					name="getMethod">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetMethod(@0,@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method getResourceAsStream(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="getResourceAsStream">
+					<target>
+						<format>
+<![CDATA[@0.Assembly.GetFile(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isInstance(java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object)" name="isInstance">
+					<target name="IsInstanceOfType" />
+				</method>
+				<!--                      -->
+				<!-- method isInterface() -->
+				<!--                      -->
+				<method signature="()" name="isInterface">
+					<target propertyGet="IsInterface" />
+				</method>
+				<!--                                                                -->
+				<!-- method forName(java.lang.String,boolean,java.lang.ClassLoader) -->
+				<!--                                                                -->
+				<method signature="(java.lang.String,boolean,java.lang.ClassLoader)"
+					name="forName">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetNativeType(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                  -->
+				<!-- method getDeclaredConstructors() -->
+				<!--                                  -->
+				<method signature="()" name="getDeclaredConstructors">
+					<target name="GetConstructors" />
+				</method>
+				<!--                      -->
+				<!-- method isPrimitive() -->
+				<!--                      -->
+				<method signature="()" name="isPrimitive">
+					<target propertyGet="IsPrimitive" />
+				</method>
+				<!--                           -->
+				<!-- method getCanonicalName() -->
+				<!--                           -->
+				<method signature="()" name="getCanonicalName">
+					<target propertyGet="FullName" />
+				</method>
+				<!--                       -->
+				<!-- method getModifiers() -->
+				<!--                       -->
+				<method signature="()" name="getModifiers">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Reflect.IlrModifier(@0).GetModifiers()]]>
+						</format>
+					</target>
+				</method>
+				<!--                            -->
+				<!-- method getDeclaredFields() -->
+				<!--                            -->
+				<method signature="()" name="getDeclaredFields">
+					<target name="GetFields" />
+				</method>
+				<!--                             -->
+				<!-- method getDeclaredMethods() -->
+				<!--                             -->
+				<method signature="()" name="getDeclaredMethods">
+					<target name="GetMethods" />
+				</method>
+				<!--                        -->
+				<!-- method getSuperclass() -->
+				<!--                        -->
+				<method signature="()" name="getSuperclass">
+					<target propertyGet="BaseType" />
+				</method>
+				<!--                               -->
+				<!-- method getConstructor(java.lang.Class&lt;?&gt;[]) -->
+				<!--                               -->
+				<method signature="(java.lang.Class&lt;?&gt;[])" name="getConstructor">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetConstructor(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!--
+					method
+					getDeclaredMethod(java.lang.String,java.lang.Class&lt;?&gt;[])
+				-->
+				<!--                               -->
+				<method signature="(java.lang.String,java.lang.Class&lt;?&gt;[])"
+					name="getDeclaredMethod">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetMethod(@0,@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method newInstance() -->
+				<!--                               -->
+				<method signature="()" name="newInstance">
+					<target>
+						<format>
+<![CDATA[Activator.CreateInstance(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method getClassLoader() -->
+				<!--                               -->
+				<method signature="()" name="getClassLoader">
+					<target propertyGet="Assembly" />
+				</method>
+				<!--                               -->
+				<!-- method getSimpleName() -->
+				<!--                               -->
+				<method signature="()" name="getSimpleName">
+					<target propertyGet="Name" />
+				</method>
+				<!--                               -->
+				<!-- method forName(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="forName">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Reflect.Helper.GetNativeType(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method getDeclaringClass() -->
+				<!--                               -->
+				<method signature="()" name="getDeclaringClass">
+					<target propertyGet="DeclaringType" />
+				</method>
+				<!--                               -->
+				<!-- method getName() -->
+				<!--                               -->
+				<method signature="()" name="getName">
+					<target propertyGet="FullName" />
+				</method>
+				<!--                               -->
+				<!-- method getDeclaredField(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="getDeclaredField">
+					<target name="GetField" />
+				</method>
+			</class>
+		</package>
+
+	</packages>
+</mapping>

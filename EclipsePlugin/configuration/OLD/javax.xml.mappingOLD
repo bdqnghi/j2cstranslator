@@ -1,0 +1,44 @@
+//
+// javax.xml.parsers
+//
+package javax.xml.parsers  {
+    class javax.xml.parsers.DocumentBuilder :: ILOG.J2CsMapping.XML:XmlDocumentBuilder {
+    }
+    class javax.xml.parsers.DocumentBuilderFactory :: ILOG.J2CsMapping.XML:XmlDocumentBuilderFactory {
+    }
+
+    class javax.xml.parsers.ParserConfigurationException :: ILOG.J2CsMapping.XML:XmlParserConfigurationException {
+    }
+}
+
+package javax.xml.transform.stream :: System:Xml
+{
+    class javax.xml.transform.stream.StreamResult :: System.Xml:XmlWriter {
+      method <init>( OutputStream ) { pattern = XmlWriter.Create( @1 ); }
+      method <init>( File ) { pattern = XmlWriter.Create( @1 ); }
+      method <init>( Writer ) { pattern = XmlWriter.Create( @1 ); }
+    }
+    class javax.xml.transform.stream.StreamSource :: System.Xml:XmlReader {
+      method <init>( File ) { pattern = XmlReader.Create( @1.FullName ); }
+      method <init>( Reader ) { pattern = XmlReader.Create( @1 ); }
+      method <init>( InputStream ) { pattern = XmlReader.Create( @1 ); }
+    }
+}
+
+
+package javax.xml.transform 
+{
+    class javax.xml.transform.Transformer :: System.Xml.Xsl:XslCompiledTransform {
+    }
+    class javax.xml.transform.TransformerFactory :: ILOG.J2CsMapping.XML:XmlTransformerFactory {
+    }
+    class javax.xml.transform.TransformerException :: ILOG.J2CsMapping.XML:XmlTransformerException {
+    }
+}
+
+package javax.xml.transform.dom
+{
+    class javax.xml.transform.dom.DOMSource :: System.Xml:XmlDocument {
+      method <init>( Node ) { pattern = @1; }
+    }
+}

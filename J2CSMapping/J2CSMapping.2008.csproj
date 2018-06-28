@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FEE16C39-BC2D-4F19-82A8-09B01BF7B435}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ILOG.J2CsMapping</AssemblyName>
+    <RootNamespace>ILOG.J2CsMapping</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>J2CSMapping.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DotNet3\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VS2008</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\DotNet3\Release\</OutputPath>
+    <DefineConstants>VS2008</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\DotNet3\Release\ILOG.J2CsMapping.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\ILOG\Collections\BitSet.cs" />
+    <Compile Include="src\ILOG\Collections\ExtendedCollectionBase.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\AbstractCollection.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\AbstractMap.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\AbstractQueue.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\AbstractSet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\ArrayListIterator.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\Arrays.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\EnumMap.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\EnumSet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\ExtendedCollectionBase.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\HugeEnumSet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IExtendedCollection.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IListIterator.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IQueue.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\MiniEnumSet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\ReadOnlySet.cs" />
+    <Compile Include="src\ILOG\Collections\HashedSet.cs" />
+    <Compile Include="src\ILOG\Collections\IExtendedCollection.cs" />
+    <Compile Include="src\ILOG\Collections\ArrayListIterator.cs" />
+    <Compile Include="src\ILOG\Collections\Arrays.cs" />
+    <Compile Include="src\ILOG\Collections\Collections.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IEnumeratorAdapter.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\SortedSet.cs" />
+    <Compile Include="src\ILOG\Collections\IEnumeratorAdapter.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\Collections.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\HashedSet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IdentityComparer.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IIterator.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\ISet.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\IteratorAdapter.cs" />
+    <Compile Include="src\ILOG\Collections\Generics\ListSet.cs" />
+    <Compile Include="src\ILOG\Collections\IdentityComparer.cs" />
+    <Compile Include="src\ILOG\Collections\IIterator.cs" />
+    <Compile Include="src\ILOG\Collections\IListIterator.cs" />
+    <Compile Include="src\ILOG\Collections\IRemoveableIterator.cs" />
+    <Compile Include="src\ILOG\Collections\ISet.cs" />
+    <Compile Include="src\ILOG\Collections\IteratorAdapter.cs" />
+    <Compile Include="src\ILOG\Collections\LinkedList.cs" />
+    <Compile Include="src\ILOG\Collections\ListSet.cs" />
+    <Compile Include="src\ILOG\Collections\ReadOnlySet.cs" />
+    <Compile Include="src\ILOG\Collections\SortedSet.cs" />
+    <Compile Include="src\ILOG\IO\CharArrayReader.cs" />
+    <Compile Include="src\ILOG\IO\DataOutputStream.cs" />
+    <Compile Include="src\ILOG\IO\DataInputStream.cs" />
+    <Compile Include="src\ILOG\IO\DataInput.cs" />
+    <Compile Include="src\ILOG\IO\DataOutput.cs" />
+    <Compile Include="src\ILOG\IO\FilterInputStream.cs" />
+    <Compile Include="src\ILOG\IO\FilterReader.cs" />
+    <Compile Include="src\ILOG\IO\PushbackInputStream.cs" />
+    <Compile Include="src\ILOG\IO\PushbackReader.cs" />
+    <Compile Include="src\ILOG\Net\URLEncoding.cs" />
+    <Compile Include="src\ILOG\NIO\Buffer.cs" />
+    <Compile Include="src\ILOG\NIO\BufferUnderflowException.cs" />
+    <Compile Include="src\ILOG\NIO\ByteBuffer.cs" />
+    <Compile Include="src\ILOG\NIO\CharBuffer.cs" />
+    <Compile Include="src\ILOG\NIO\Charset\CharacterCodingException.cs" />
+    <Compile Include="src\ILOG\NIO\Charset\Charset.cs" />
+    <Compile Include="src\ILOG\NIO\Charset\IllegalCharsetNameException.cs" />
+    <Compile Include="src\ILOG\NIO\Charset\UnsupportedCharsetException.cs" />
+    <Compile Include="src\ILOG\Reflect\Proxy.cs" />
+    <Compile Include="src\ILOG\RuntimeException.cs" />
+    <Compile Include="src\ILOG\IO\SimpleFileObject.cs" />
+    <Compile Include="src\ILOG\IO\GZipReader.cs" />
+    <Compile Include="src\ILOG\IO\GZipWriter.cs" />
+    <Compile Include="src\ILOG\IO\IlFilterInputStream.cs" />
+    <Compile Include="src\ILOG\IO\IlFilterOutputStream.cs" />
+    <Compile Include="src\ILOG\IO\IlFilterWriter.cs" />
+    <Compile Include="src\ILOG\IO\IlrSerializable.cs" />
+    <Compile Include="src\ILOG\IO\IlrSerializationStream.cs" />
+    <Compile Include="src\ILOG\IO\io.cs" />
+    <Compile Include="src\ILOG\IO\IOUtility.cs" />
+    <Compile Include="src\ILOG\ObjectVoid.cs" />
+    <Compile Include="src\ILOG\Reflect\AccessibleObject.cs" />
+    <Compile Include="src\ILOG\Reflect\AssemblyScanner.cs" />
+    <Compile Include="src\ILOG\Reflect\Helper.cs" />
+    <Compile Include="src\ILOG\Reflect\IFramework20Reflect.cs" />
+    <Compile Include="src\ILOG\Reflect\IlogBinder.cs" />
+    <Compile Include="src\ILOG\Reflect\IlrMethodInfoAdapter.cs" />
+    <Compile Include="src\ILOG\Reflect\IlrModifier.cs" />
+    <Compile Include="src\ILOG\Reflect\InvocationHandler.cs" />
+    <Compile Include="src\ILOG\Security\IlrSecurityManager.cs" />
+    <Compile Include="src\ILOG\Text\Annotation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\AttributedCharacterIterator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\AttributedCharacterIterator_Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\AttributedString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\FieldPosition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Formatting\Format.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\Match.cs" />
+    <Compile Include="src\ILOG\Text\NumericShaper.cs" />
+    <Compile Include="src\ILOG\Text\Pattern.cs" />
+    <Compile Include="src\ILOG\Text\RegExUtil.cs" />
+    <Compile Include="src\ILOG\Util\DateUtil.cs" />
+    <Compile Include="src\ILOG\Util\ParseException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\ParsePosition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\ILOG\Text\TextAttribute.cs" />
+    <Compile Include="src\ILOG\Text\Format\DummylFormat.cs" />
+    <Compile Include="src\ILOG\Text\Format\DateFormat.cs" />
+    <Compile Include="src\ILOG\Text\Format\MessageFormat.cs" />
+    <Compile Include="src\ILOG\Text\Format\NumberFormatException.cs" />
+    <Compile Include="src\ILOG\Text\StringCharacterIterator.cs" />
+    <Compile Include="src\ILOG\Text\ICharacterIterator.cs" />
+    <Compile Include="src\ILOG\Text\Format\IlFormat.cs" />
+    <Compile Include="src\ILOG\Threading\ThreadUtil.cs" />
+    <Compile Include="src\ILOG\Threading\ThreadWrapper.cs" />
+    <Compile Include="src\ILOG\Undo\AbstractUndoableEdit.cs" />
+    <Compile Include="src\ILOG\Undo\CompoundEdit.cs" />
+    <Compile Include="src\ILOG\Undo\IUndoableEdit.cs" />
+    <Compile Include="src\ILOG\Undo\IUndoableEditListener.cs" />
+    <Compile Include="src\ILOG\Undo\UndoableEditSupport.cs" />
+    <Compile Include="src\ILOG\Undo\UndoManager.cs" />
+    <Compile Include="src\ILOG\Util\Beans\IPropertyChangeListener.cs" />
+    <Compile Include="src\ILOG\Util\Beans\PropertyChangeEvent.cs" />
+    <Compile Include="src\ILOG\Util\BooleanUtil.cs" />
+    <Compile Include="src\ILOG\Util\Calendar.cs" />
+    <Compile Include="src\ILOG\Util\Character.cs" />
+    <Compile Include="src\ILOG\Util\DoubleHelper.cs" />
+    <Compile Include="src\ILOG\Util\FloatHelper.cs" />
+    <Compile Include="src\ILOG\Util\GregorianCalendar.cs" />
+    <Compile Include="src\ILOG\Util\InetAddress.cs" />
+    <Compile Include="src\ILOG\Util\Int64Helper.cs" />
+    <Compile Include="src\ILOG\Util\Culture\CultureInfoHelper.cs" />
+    <Compile Include="src\ILOG\Util\Digester.cs" />
+    <Compile Include="src\ILOG\Util\ErrorHandler.cs" />
+    <Compile Include="src\ILOG\Util\EventObject.cs" />
+    <Compile Include="src\ILOG\Util\HashCodeUtil.cs" />
+    <Compile Include="src\ILOG\Util\IEventListener.cs" />
+    <Compile Include="src\ILOG\Util\IEventListenerList.cs" />
+    <Compile Include="src\ILOG\Util\IlNumber.cs" />
+    <Compile Include="src\ILOG\Util\IRunnable.cs" />
+    <Compile Include="src\ILOG\Util\Logging\ConsoleHandler.cs" />
+    <Compile Include="src\ILOG\Util\Logging\ErrorManager.cs" />
+    <Compile Include="src\ILOG\Util\Logging\Filter.cs" />
+    <Compile Include="src\ILOG\Util\Logging\Formatter.cs" />
+    <Compile Include="src\ILOG\Util\Logging\Handler.cs" />
+    <Compile Include="src\ILOG\Util\Logging\Level.cs" />
+    <Compile Include="src\ILOG\Util\Logging\Logger.cs" />
+    <Compile Include="src\ILOG\Util\Logging\LoggingPermission.cs" />
+    <Compile Include="src\ILOG\Util\Logging\LogRecord.cs" />
+    <Compile Include="src\ILOG\Util\Logging\StreamHandler.cs" />
+    <Compile Include="src\ILOG\Util\ThreadLocal.cs" />
+    <Compile Include="src\ILOG\Util\TimeZone.cs" />
+    <Compile Include="src\ILOG\XML\SAX\BasicSAXHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\ChainedSAXHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\ILocator.cs" />
+    <Compile Include="src\ILOG\Util\Int32Helper.cs" />
+    <Compile Include="src\ILOG\Util\Properties.cs" />
+    <Compile Include="src\ILOG\Util\Log.cs" />
+    <Compile Include="src\ILOG\Util\Math.cs" />
+    <Compile Include="src\ILOG\Util\NumberFormatProvider.cs" />
+    <Compile Include="src\ILOG\Util\StringTokenizer.cs" />
+    <Compile Include="src\ILOG\Util\StringUtil.cs" />
+    <Compile Include="src\ILOG\XML\HandlerBase.cs" />
+    <Compile Include="src\ILOG\XML\PersistentObject.cs" />
+    <Compile Include="src\ILOG\XML\SAX\IAttributes.cs" />
+    <Compile Include="src\ILOG\XML\SAX\SAXException.cs" />
+    <Compile Include="src\ILOG\XML\SAX\TokenDictionary.cs" />
+    <Compile Include="src\ILOG\XML\SAX\ISaxParser.cs" />
+    <Compile Include="src\ILOG\XML\SAX\NamespaceSAXHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\PooledSAXHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\SAXRecorder.cs" />
+    <Compile Include="src\ILOG\XML\SAX\SkippingSAXHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\Tokens.cs" />
+    <Compile Include="src\ILOG\XML\SAX\XTokens.cs" />
+    <Compile Include="src\ILOG\XML\XmlDocumentBuilder.cs" />
+    <Compile Include="src\ILOG\XML\XmlDocumentBuilderFactory.cs" />
+    <Compile Include="src\ILOG\XML\XmlParserConfigurationException.cs" />
+    <Compile Include="src\ILOG\XML\XMLSyntaxError.cs" />
+    <Compile Include="src\ILOG\XML\SAX\Attributes.cs" />
+    <Compile Include="src\ILOG\XML\SAX\DefaultHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\IContentHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\IErrorHandler.cs" />
+    <Compile Include="src\ILOG\XML\SAX\Locator.cs" />
+    <Compile Include="src\ILOG\XML\SAX\SAXParseException.cs" />
+    <Compile Include="src\ILOG\XML\SAX\SaxParser.cs" />
+    <Compile Include="src\ILOG\XML\XmlException.cs" />
+    <Compile Include="src\ILOG\XML\XmlHandler.cs" />
+    <Compile Include="src\ILOG\XML\XmlTransformerException.cs" />
+    <Compile Include="src\ILOG\XML\XmlTransformerFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="J2CSMapping.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EPLv1.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

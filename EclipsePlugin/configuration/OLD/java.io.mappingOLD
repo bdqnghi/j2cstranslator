@@ -1,0 +1,460 @@
+//
+// java.io
+//
+package java.io :: System.IO {
+
+	//
+	// File
+	//
+	class java.io.File :: System.IO:FileInfo {
+    	field separatorChar { pattern = Path.PathSeparator; }    	
+    	
+    	method getName() { property_get = Name; }
+	    method <init>(String, String) { pattern = new FileInfo(@1 + @2); }
+	    method <init>(File, String) { pattern = new FileInfo(System.IO.Path.Combine(@1.FullName,@2)); }
+       
+	    method getPath() { pattern = System.IO.Path.GetFullPath(@0.Name); }
+	    method isDirectory() { pattern = System.IO.Directory.Exists(@0.DirectoryName); } 
+   		method length() { property_get = Length; }
+    	method exists() { property_get = Exists; }
+    	method getAbsolutePath() { property_get = FullName; }
+    	method getCanonicalPath() { property_get = FullName; }
+    	method mkdirs() { pattern = System.IO.Directory.CreateDirectory(@0.FullName); }
+    	method lastModified() { pattern = @0.LastWriteTime.Ticks; }
+    	method setLastModified(long) { property_set = LastWriteTime; }
+    	 method canWrite() { pattern = "(@0.Exists && !@0.IsReadOnly)"; }
+	  field separator { pattern = System.IO.Path.DirectorySeparatorChar; }
+	  method createNewFile() { pattern = @0.Create(); }
+
+	};
+
+    class java.io.Flushable :: System.IO:Stream {
+    }
+    
+     class java.io.Closeable :: System.IO:Stream {
+    }
+   
+	//------------------------------------------------------------
+	// The input streams
+	//------------------------------------------------------------
+
+	//
+	// InputStream
+	//
+	class java.io.InputStream :: System.IO:Stream {
+		method read() { name = ReadByte; }
+  		method read(byte[]) { pattern = @0.Read(@1,0,@1.Length); }  	
+	};
+
+	//
+	// BufferedInputStream
+	//
+	class java.io.BufferedInputStream :: System.IO:BufferedStream {
+  		method <init>(java.io.InputStream)  { pattern = new BufferedStream(@1); }
+  		method <init>(java.io.InputStream,int)  { pattern = new BufferedStream(@1,@2); }
+	};
+
+	//
+	// FileInputStream
+	//
+	class java.io.FileInputStream :: System.IO:FileStream {
+  		method <init>(java.io.File) { pattern = @1.OpenRead(); }
+  		method <init>(String) { pattern = File.OpenRead(@1); }
+	};
+
+	//
+	// ByteArrayInputStream
+	//
+	class java.io.ByteArrayInputStream :: System.IO:MemoryStream {
+	};
+	
+	//
+	// DataInputStream
+	//
+	class java.io.DataInputStream :: System.IO:BinaryReader {
+	};
+
+	//------------------------------------------------------------
+	// The output streams
+	//------------------------------------------------------------
+
+	//
+	// OutputStream
+	//
+	class java.io.OutputStream :: System.IO:Stream {
+  		method write(byte[]) { pattern = @0.Write(@1,0,@1.Length); }
+  		method write(int) { pattern = @0.WriteByte((byte)@1); }
+	};
+
+	//
+	// BufferedOutputStream
+	//
+	class java.io.BufferedOutputStream :: System.IO:BufferedStream {
+  		method <init>(OutputStream) { pattern = new BufferedStream(@1); }
+  		method <init>(OutputStream,int) { pattern = new BufferedStream(@1,@2); }
+	};
+
+	//
+	// FileOutputStream
+	//
+	class java.io.FileOutputStream :: System.IO:FileStream {
+  		method <init>(File) { pattern = @1.OpenWrite(); }
+  		method <init>(String) { pattern = File.OpenWrite(@1); }
+  		method <init>(String, boolean) { pattern = new FileStream(@1, FileMode.Append); }
+	};
+
+	//
+	// ByteArrayOutputStream
+	//
+	class java.io.ByteArrayOutputStream :: System.IO:MemoryStream {
+  		method toByteArray() { name = ToArray; }
+	};
+
+	//
+	// DataOutputStream
+	//
+	class java.io.DataOutputStream :: System.IO:BinaryWriter {
+    	method writeBoolean(boolean) { name = Write; }
+    	method writeByte(int) { name = Write; }
+    	method writeBytes(String) { name = Write; }
+    	method writeChar(int) { name = Write; }
+    	method writeChars(String) { name = Write; }
+    	method writeDouble(double) { name = Write; }
+    	method writeFloat(float) { name = Write; }
+    	method writeInt(int) { name = Write; }
+    	method writeLong(long) { name = Write; }
+    	method writeShort(int) { name = Write; }
+    	method writeUTF(String) { name = Write; }
+	};
+
+	//
+	// DataInput
+	//
+	class java.io.DataInput :: System.IO:BinaryReader {
+   		method readInt() { name =  ReadInt32; }
+   		method readUTF() { name =  ReadString; }
+   		method readLong() { name =  ReadInt64; }
+   		method readFloat() { name =  ReadSingle; }
+   		method readShort() { name =  ReadInt16; } 
+	}
+
+	//
+	// DataOutput
+	//
+	class java.io.DataOutput :: System.IO:BinaryWriter {
+   		method writeInt(int) { name = Write; }
+   		method writeUTF(String) { name = Write; }
+   		method writeLong(long) { name = Write; }
+   		method writeFloat(float) { name = Write; }
+   		method writeDouble(double) { name = Write; }
+   		method writeBoolean(boolean) { name = Write; }
+   		method writeChar(int) { name = Write; }
+   		method writeShort(int) { name = Write; }
+   		method writeByte(int) { name = Write; }
+	}
+	
+	//------------------------------------------------------------
+	// This class is abstract, so we don't provide constructors.
+	//
+	// Warning: In Java, the 'read' returns -1 if EOF reached, while
+	// in C#, it returns 0. So take care about the test concerning
+	// EOF. Java appears to return "number of bytes read" while
+	// C# returns "number of characters read".
+	//------------------------------------------------------------
+
+	//
+	// Reader
+	//
+	class java.io.Reader :: System.IO:TextReader {
+  		method read(char[]) { pattern = @0.Read(@1,0,@1.Length); }
+	};
+
+	//
+	// FileReader
+	//
+    class java.io.FileReader :: System.IO:StreamReader {
+       method <init>(java.io.File) { pattern = new System.IO.StreamReader(@1.OpenWrite()); }
+    };
+    
+	//------------------------------------------------------------
+	// This class does not exist in C#. So we simply reuse the underline
+	// reader using the inherited API.
+	//------------------------------------------------------------
+
+	//
+	// BufferedReader
+	//
+	class java.io.BufferedReader :: System.IO:TextReader {
+  		method <init>(Reader) { pattern = @1; }
+  		method <init>(Reader,int) { pattern = @1; }
+	};
+
+	//------------------------------------------------------------
+	// Nothing to specify.
+	//
+	// The constructor is the same.
+	// The methods are all inherited.
+	//------------------------------------------------------------
+	
+	//
+	// StringReader
+	//
+	class java.io.StringReader :: System.IO:StringReader {
+	};
+
+    //
+	// CharArrayReader
+	//
+	class java.io.CharArrayReader :: ILOG.J2CSMapping.IO:CharArrayReader {
+  		field buf { name = buffer; }
+  		field count { name = length; }
+  		field pos { name = position; }
+  		field markedPos { name = curMarkedPos; }
+	};
+	
+	//------------------------------------------------------------
+	// The basic writer
+	//------------------------------------------------------------
+
+	// Text writer seems have an abstract field ...
+	// use StringWriter ?
+	//
+	// Writer
+	// 
+	class java.io.Writer :: System.IO:TextWriter {
+		method write(int) { pattern = @0.Write((char)@1); }
+  		method write(String,int,int) { pattern = @0.Write(@1,@2,@1.Substring(@2,@3)); }
+	};
+
+	//
+	// StringWriter
+	//
+	class java.io.StringWriter :: System.IO:StringWriter {
+  		method <init>() { pattern = new StringWriter(System.Globalization.NumberFormatInfo.InvariantInfo); }
+  		method <init>(int) { pattern = new StringWriter(); }
+  		
+  		method getBuffer() { name = GetStringBuilder; }
+	};
+
+	//
+	// BufferedWriter
+	//
+	class java.io.BufferedWriter :: System.IO:BufferedStream {
+	
+	}
+	
+	//
+	// FileWriter
+	//
+	class java.io.FileWriter :: System.IO:StreamWriter {
+	   method <init>(java.io.File) { pattern = new System.IO.StreamWriter(@1.OpenRead()); }
+	}
+
+	//
+	// CharArrayWriter
+	//
+	class java.io.CharArrayWriter :: System.IO:StringWriter {
+  		method reset() { pattern = @0.GetStringBuilder().Length = 0; }
+  		method toCharArray() { pattern = @0.ToString().ToCharArray(); }
+	};
+
+	//
+	// FilterWriter
+	//
+	//@@afau : Must write cs code for this class
+	class java.io.FilterWriter :: ILOG.J2CsMapping.IO:IlFilterWriter {
+       generation = false; // ?????
+	}
+
+	//------------------------------------------------------------
+	// Turning input/output stream into readers and writer.
+	//------------------------------------------------------------
+
+	//
+	// InputStreamReader
+	//
+	class java.io.InputStreamReader :: System.IO:StreamReader {
+  		method <init>(InputStream) { pattern = new StreamReader(@1); }
+  		method <init>(InputStream,String) { pattern = new StreamReader(@1,System.Text.Encoding.GetEncoding(@2)); }
+	};
+
+	//
+	// OutputStreamWriter
+	//
+	class java.io.OutputStreamWriter :: System.IO:StreamWriter {
+  		method <init>(OutputStream)  { pattern = @1; } // { pattern = new StreamWriter(@1); }
+  		method <init>(OutputStream,String) { pattern = new StreamWriter(@1,System.Text.Encoding.GetEncoding(@2)); }
+	};
+
+	//
+	// FilterInputStream
+	//
+	//@@afau : Must write cs code for this class
+	// But perhaps it's the same as IlFilter ??
+	class java.io.FilterInputStream :: ILOG.J2CsMapping.IO:IlFilterInputStream {
+    	generation = false; // ?????
+	}
+
+	//
+	// FilterOutputStream
+	//
+	//@@afau : Must write cs code for this class
+	// But perhaps it's the same as IlFilter ??
+	class java.io.FilterOutputStream :: ILOG.J2CsMapping.IO:IlFilterOutputStream {
+    	generation = false; // ????
+	}
+
+	//------------------------------------------------------------
+	// Data types input/output
+	//------------------------------------------------------------
+
+	//
+	// PrintStream
+	//
+	class java.io.PrintStream :: System.IO:TextWriter {
+  		method <init>(OutputStream) { pattern = new StreamWriter(@1); }
+  		method <init>(OutputStream,boolean) { pattern = new StreamWriter(@1); }
+
+  		method print(boolean) { name = Write; };
+  		method print(char) { name = Write; };
+  		method print(char[]) { name = Write; };
+  		method print(int) { name = Write; };
+  		method print(long) { name = Write; };
+  		method print(float) { name = Write; };
+  		method print(double) { name = Write; };
+  		method print(String) { name = Write; };
+  		method print(Object) { name = Write; };
+  		method println() { name = WriteLine; };
+  		method println(boolean) { name = WriteLine; };
+  		method println(char) { name = WriteLine; };
+  		method println(char[]) { name = WriteLine; };
+  		method println(int) { name = WriteLine; };
+  		method println(long) { name = WriteLine; };
+  		method println(float) { name = WriteLine; };
+  		method println(double) { name = WriteLine; };
+  		method println(String) { name = WriteLine; };
+  		method println(Object) { name = WriteLine; };
+	};
+
+	//------------------------------------------------------------
+	// Take care about this mapping
+	//   There is in fact 2 mappings: creation and subclassing.
+	//   - Attempt to create PrintWriter will be reduced to the passed
+	//     argument. This is shown in the <init> method mapping.
+	//   - The mapping of the class itself is equivalent to IlPrintWriter,
+	//     thus this class can also be mapped to IlPrintWriter.
+	//     Refer to the IlrRuleWriter pattern.
+	//------------------------------------------------------------
+
+	//
+	// PrintWriter
+	//
+	class java.io.PrintWriter :: System.IO:TextWriter {
+  		// This mapping does not take into account the 'autoflush' flag!
+  		method <init>(OutputStream) { pattern =  @1; }
+  		method <init>(OutputStream,boolean) { pattern = @1; }
+  		method <init>(Writer) { pattern = @1; }
+  		method <init>(Writer,boolean) { pattern =  @1; }
+  		// method <init>(int) { pattern = PrintWriter(); }
+
+  		// Warning: Maps this field to the same field in IlPrintWriter.
+  		field out { name = Out; }
+
+  		// These mappings are common to TextWriter and to IlPrintWriter.
+  		method print(boolean) { name = Write; };
+  		method print(char) { name = Write; };
+  		method print(char[]) { name = Write; };
+  		method print(int) { name = Write; };
+  		method print(long) { name = Write; };
+  		method print(float) { name = Write; };
+  		method print(double) { name = Write; };
+  		method print(String) { name = Write; };
+  		method print(Object) { name = Write; };
+  		method println() { name = WriteLine; };
+  		method println(boolean) { name = WriteLine; };
+  		method println(char) { name = WriteLine; };
+  		method println(char[]) { name = WriteLine; };
+  		method println(int) { name = WriteLine; };
+  		method println(long) { name = WriteLine; };
+  		method println(float) { name = WriteLine; };
+  		method println(double) { name = WriteLine; };
+  		method println(String) { name = WriteLine; };
+  		method println(Object) { name = WriteLine; };
+  		
+  		method append(char) { name = Write; };
+  		method append(CharSequence) { name = Write; };
+  		
+	};
+	
+	//
+	// BufferedWriter
+	//
+	class java.io.BufferedWriter {
+	   remove = true;
+	}
+
+	//
+	// Serialization
+	//
+	class java.io.Serializable :: System.Runtime.Serialization:ISerializable {
+	};
+
+	//------------------------------------------------------------
+	// Object serialization streams
+	//------------------------------------------------------------
+
+	//
+	// ObjectInputStream
+	//
+	class java.io.ObjectInputStream :: ILOG.J2CsMapping.IO:IlObjectInputStream {
+	};
+
+	//
+	// ObjectOutputStream
+	//
+	class java.io.ObjectOutputStream :: ILOG.J2CsMapping.IO:IlObjectOutputStream {
+	};
+
+	//------------------------------------------------------------
+	// IO and format exceptions
+	//------------------------------------------------------------
+
+	//
+	// IOException
+	//
+	class java.io.IOException :: System.IO:IOException {
+	};
+
+	//
+	// FileNotFoundException
+	//
+	class java.io.FileNotFoundException :: System.IO:FileNotFoundException {
+	};
+
+	//
+	// UnsupportedEncodingException
+	//
+	class java.io.UnsupportedEncodingException :: System.IO:IOException {
+	};
+
+	//
+	// ObjectStreamException
+	//
+	class java.io.ObjectStreamException :: System.IO:IOException {
+	};
+
+	//
+	// InvalidObjectException
+	//
+	class java.io.InvalidObjectException :: System.IO:IOException {
+	};
+
+    //
+	// RandomAccessFile
+	//
+	class java.io.RandomAccessFile :: System.IO:BinaryWriter {
+	   method seek(long) { pattern = @0.BaseStream.Seek(@1, System.IO.SeekOrigin.Begin); }
+	   method setLength(long) { pattern = @0.BaseStream.SetLength(@1); }
+       method readByte() { pattern = (byte) @0.BaseStream.ReadByte();}
+	}
+}

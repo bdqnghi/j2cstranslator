@@ -1,0 +1,50 @@
+//
+// java.security
+//
+package java.security :: System {
+
+	//
+	// PrivilegedAction
+	//
+	class java.security.PrivilegedAction :: System:Object {
+	   removeGenerics = true;
+	};
+
+	//
+	// AccessController
+	//
+	class java.security.AccessController :: System:Object {
+    	method doPrivileged(java.security.PrivilegedAction<T>) { pattern = @1.Run(); }
+	};
+
+	//
+	// PrivilegedExceptionAction
+	//
+	class java.security.PrivilegedExceptionAction :: System:Object {
+	}
+	
+	//
+	// PrivilegedActionException
+	//
+	class java.security.PrivilegedActionException :: ILOG.J2CsMapping:RuntimeException {
+	}
+	
+	//
+	// AccessControlException
+	//
+	class java.security.AccessControlException :: ILOG.J2CsMapping:RuntimeException {
+	}	
+	
+    class java.security.NoSuchAlgorithmException :: System:Exception
+    {
+    }
+      
+    class java.security.MessageDigest :: System.Security.Cryptography:MD5
+    {
+            method getInstance(java.lang.String) { pattern = @0.Create(); }
+            method reset() { pattern = @0.Initialize(); }
+            method update( byte[] ) { pattern = @0.ComputeHash(@1); }
+            method digest() { pattern = @0.Hash; }
+      }
+	
+}

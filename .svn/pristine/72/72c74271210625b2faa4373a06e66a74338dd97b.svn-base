@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                         -->
+	<!-- primitiveType.mappingml -->
+	<!--                         -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                   -->
+		<!-- package java.lang -->
+		<!--                   -->
+		<package name="java.lang">
+			<target name="System" />
+
+			<!--                       -->
+			<!-- class java.lang.Short -->
+			<!--                       -->
+			<class name="Short">
+				<target packageName="System" name="Int16" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method Short(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Int16 )Int16.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method shortValue() -->
+				<!--                               -->
+				<method signature="()" name="shortValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(short) -->
+				<!--                               -->
+				<method signature="(short)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((short)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Short(short) -->
+				<!--                               -->
+				<constructor signature="(short)">
+					<target>
+						<format>
+<![CDATA[(short )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[Int16.Parse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[Int16.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[Int16.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Int16)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                        -->
+			<!-- class java.lang.Number -->
+			<!--                        -->
+			<class name="Number">
+				<target packageName="System" name="object">
+				</target>
+				<!--                               -->
+				<!-- method longValue() -->
+				<!--                               -->
+				<method signature="()" name="longValue">
+					<target>
+						<format>
+<![CDATA[Convert.ToInt64(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method floatValue() -->
+				<!--                               -->
+				<method signature="()" name="floatValue">
+					<target>
+						<format>
+<![CDATA[Convert.ToSingle(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method shortValue() -->
+				<!--                               -->
+				<method signature="()" name="shortValue">
+					<target>
+						<format>
+<![CDATA[Convert.ToInt16(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method intValue() -->
+				<!--                               -->
+				<method signature="()" name="intValue">
+					<target>
+						<format>
+<![CDATA[System.Convert.ToInt32(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method doubleValue() -->
+				<!--                               -->
+				<method signature="()" name="doubleValue">
+					<target>
+						<format>
+<![CDATA[Convert.ToDouble(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method byteValue() -->
+				<!--                               -->
+				<method signature="()" name="byteValue">
+					<target>
+						<format>
+<![CDATA[Convert.ToByte(@0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                           -->
+			<!-- class java.lang.Character -->
+			<!--                           -->
+			<class name="Character">
+				<target packageName="System" name="Char" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method isWhitespace(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isWhitespace">
+					<target>
+						<format>
+<![CDATA[Char.IsWhiteSpace(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toTitleCase(char) -->
+				<!--                               -->
+				<method signature="(char)" name="toTitleCase">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Character(char) -->
+				<!--                               -->
+				<constructor signature="(char)">
+					<target>
+						<format>
+<![CDATA[(char )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method isSpaceChar(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isSpaceChar">
+					<target>
+						<format>
+<![CDATA[Char.IsWhiteSpace(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(char) -->
+				<!--                               -->
+				<method signature="(char)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((char)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isUpperCase(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isUpperCase">
+					<target>
+						<format>
+<![CDATA[Char.IsUpper(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isDigit(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isDigit">
+					<target>
+						<format>
+<![CDATA[Char.IsDigit(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method digit(char,int) -->
+				<!--                               -->
+				<method signature="(char,int)" name="digit">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Character.Digit(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isLowerCase(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isLowerCase">
+					<target>
+						<format>
+<![CDATA[Char.IsLower(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isISOControl(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isISOControl">
+					<target>
+						<format>
+<![CDATA[Char.IsControl(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isJavaIdentifierStart(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isJavaIdentifierStart">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierStart(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toLowerCase(char) -->
+				<!--                               -->
+				<method signature="(char)" name="toLowerCase">
+					<target>
+						<format>
+<![CDATA[Char.ToLower(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method charValue() -->
+				<!--                               -->
+				<method signature="()" name="charValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toUpperCase(char) -->
+				<!--                               -->
+				<method signature="(char)" name="toUpperCase">
+					<target>
+						<format>
+<![CDATA[Char.ToUpper(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isJavaIdentifierPart(char) -->
+				<!--                               -->
+				<method signature="(char)" name="isJavaIdentifierPart">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierPart(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[Char.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field LINE_SEPARATOR -->
+				<!--                    -->
+				<field name="LINE_SEPARATOR">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Character.LINE_SEPARATOR]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[Char.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Char)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                        -->
+			<!-- class java.lang.Double -->
+			<!--                        -->
+			<class name="Double">
+				<target packageName="System" name="Double" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method isInfinite(double) -->
+				<!--                               -->
+				<method signature="(double)" name="isInfinite">
+					<target>
+						<format>
+<![CDATA[Double.IsInfinity(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Double(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Double )Double.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method doubleToLongBits(double) -->
+				<!--                               -->
+				<method signature="(double)" name="doubleToLongBits">
+					<target>
+						<format>
+<![CDATA[BitConverter.DoubleToInt64Bits(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method compare(double,double) -->
+				<!--                               -->
+				<method signature="(double,double)" name="compare">
+					<target>
+						<format>
+<![CDATA[@1.CompareTo(@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toString(double) -->
+				<!--                               -->
+				<method signature="(double)" name="toString">
+					<target>
+						<format>
+<![CDATA[String.Concat(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isInfinite() -->
+				<!--                               -->
+				<method signature="()" name="isInfinite">
+					<target>
+						<format>
+<![CDATA[Double.IsInfinity((double)@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method doubleValue() -->
+				<!--                               -->
+				<method signature="()" name="doubleValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Double(double) -->
+				<!--                               -->
+				<constructor signature="(double)">
+					<target>
+						<format>
+<![CDATA[(double )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method parseDouble(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="parseDouble">
+					<target>
+						<format>
+<![CDATA[((Double )Double.Parse(@1,ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method longBitsToDouble(long) -->
+				<!--                               -->
+				<method signature="(long)" name="longBitsToDouble">
+					<target>
+						<format>
+<![CDATA[BitConverter.Int64BitsToDouble(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isNaN(double) -->
+				<!--                               -->
+				<method signature="(double)" name="isNaN">
+					<target>
+						<format>
+<![CDATA[Double.IsNaN(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(double) -->
+				<!--                               -->
+				<method signature="(double)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((double)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((Double )Double.Parse(@1,ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat))]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[System.Double.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[System.Double.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Double)]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field POSITIVE_INFINITY -->
+				<!--                    -->
+				<field name="POSITIVE_INFINITY">
+					<target>
+						<format>
+<![CDATA[System.Double.PositiveInfinity]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field NEGATIVE_INFINITY -->
+				<!--                    -->
+				<field name="NEGATIVE_INFINITY">
+					<target>
+						<format>
+<![CDATA[System.Double.NegativeInfinity]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                         -->
+			<!-- class java.lang.Boolean -->
+			<!--                         -->
+			<class name="Boolean">
+				<target packageName="System" name="Object"
+					instanceOfTypeName="Boolean">
+				</target>
+				<!--                               -->
+				<!-- method parseBoolean(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="parseBoolean">
+					<target>
+						<format>
+<![CDATA[Boolean.Parse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method booleanValue() -->
+				<!--                               -->
+				<method signature="()" name="booleanValue">
+					<target>
+						<format>
+<![CDATA[(bool)(@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Boolean(boolean) -->
+				<!--                               -->
+				<constructor signature="(boolean)">
+					<target>
+						<format>
+<![CDATA[(bool)(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method getBoolean(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="getBoolean">
+					<target>
+						<format>
+<![CDATA[Boolean.Parse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toString(boolean) -->
+				<!--                               -->
+				<method signature="(boolean)" name="toString">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.BooleanUtil.ToString(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(boolean) -->
+				<!--                               -->
+				<method signature="(boolean)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field FALSE -->
+				<!--                    -->
+				<field name="FALSE">
+					<target>
+						<format>
+<![CDATA[false]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TRUE -->
+				<!--                    -->
+				<field name="TRUE">
+					<target>
+						<format>
+<![CDATA[true]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Boolean)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                      -->
+			<!-- class java.lang.Long -->
+			<!--                      -->
+			<class name="Long">
+				<target packageName="System" name="Int64" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method toHexString(long) -->
+				<!--                               -->
+				<method signature="(long)" name="toHexString">
+					<target>
+						<format>
+<![CDATA[string.Format("{0:x}",@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((Int64 )Int64.Parse(@1))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Long(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Int64 )Int64.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method toString(long) -->
+				<!--                               -->
+				<method signature="(long)" name="toString">
+					<target>
+						<format>
+<![CDATA[@1.ToString()]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(long) -->
+				<!--                               -->
+				<method signature="(long)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((long)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method longValue() -->
+				<!--                               -->
+				<method signature="()" name="longValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Long(long) -->
+				<!--                               -->
+				<constructor signature="(long)">
+					<target>
+						<format>
+<![CDATA[(long )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method numberOfTrailingZeros(long) -->
+				<!--                               -->
+				<method signature="(long)" name="numberOfTrailingZeros">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Int64Helper.NumberOfTrailingZeros(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String,int) -->
+				<!--                               -->
+				<method signature="(java.lang.String,int)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((Int64 )Convert.ToInt64(@1,@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method parseLong(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="parseLong">
+					<target>
+						<format>
+<![CDATA[((Int64 )Int64.Parse(@1,System.Globalization.NumberStyles.Integer))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method numberOfLeadingZeros(long) -->
+				<!--                               -->
+				<method signature="(long)" name="numberOfLeadingZeros">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Int64Helper.NumberOfLeadingZeros(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method decode(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="decode">
+					<target>
+						<format>
+<![CDATA[((Int64 )ILOG.J2CsMapping.Util.Int64Helper.Decode(@1))]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[Int64.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field SIZE -->
+				<!--                    -->
+				<field name="SIZE">
+					<target>
+						<format>
+<![CDATA[64]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[Int64.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Int64)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                      -->
+			<!-- class java.lang.Byte -->
+			<!--                      -->
+			<class name="Byte">
+				<target packageName="System" name="Byte" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method Byte(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Byte )Byte.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[Byte.Parse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(byte) -->
+				<!--                               -->
+				<method signature="(byte)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((byte)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method Byte(byte) -->
+				<!--                               -->
+				<constructor signature="(byte)">
+					<target>
+						<format>
+<![CDATA[(byte )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method byteValue() -->
+				<!--                               -->
+				<method signature="()" name="byteValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[Byte.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[Byte.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Byte)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                       -->
+			<!-- class java.lang.Float -->
+			<!--                       -->
+			<class name="Float">
+				<target packageName="System" name="Single" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method Float(double) -->
+				<!--                               -->
+				<constructor signature="(double)">
+					<target>
+						<format>
+<![CDATA[(float )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method Float(float) -->
+				<!--                               -->
+				<constructor signature="(float)">
+					<target>
+						<format>
+<![CDATA[(float )(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method Float(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Single )Single.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method toString(float) -->
+				<!--                               -->
+				<method signature="(float)" name="toString">
+					<target>
+						<format>
+<![CDATA[String.Concat(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(float) -->
+				<!--                               -->
+				<method signature="(float)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((float)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method parseFloat(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="parseFloat">
+					<target>
+						<format>
+<![CDATA[Single.Parse(@1,ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method floatValue() -->
+				<!--                               -->
+				<method signature="()" name="floatValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method intBitsToFloat(int) -->
+				<!--                               -->
+				<method signature="(int)" name="intBitsToFloat">
+					<target>
+						<format>
+<![CDATA[BitConverter.DoubleToInt64Bits(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method compare(float,float) -->
+				<!--                               -->
+				<method signature="(float,float)" name="compare">
+					<target>
+						<format>
+<![CDATA[@1.CompareTo(@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isInfinite() -->
+				<!--                               -->
+				<method signature="()" name="isInfinite">
+					<target>
+						<format>
+<![CDATA[Single.IsInfinity((float)@0)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[Single.Parse(@1,ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method isNaN(float) -->
+				<!--                               -->
+				<method signature="(float)" name="isNaN">
+					<target>
+						<format>
+<![CDATA[Single.IsNaN(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[System.Single.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[System.Single.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Single)]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field NEGATIVE_INFINITY -->
+				<!--                    -->
+				<field name="NEGATIVE_INFINITY">
+					<target>
+						<format>
+<![CDATA[System.Single.NegativeInfinity]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field POSITIVE_INFINITY -->
+				<!--                    -->
+				<field name="POSITIVE_INFINITY">
+					<target>
+						<format>
+<![CDATA[System.Single.PositiveInfinity]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                         -->
+			<!-- class java.lang.Integer -->
+			<!--                         -->
+			<class name="Integer">
+				<target packageName="System" name="Int32" nullable="false">
+				</target>
+				<!--                               -->
+				<!-- method Integer(int) -->
+				<!--                               -->
+				<constructor signature="(int)">
+					<target>
+						<format>
+<![CDATA[((int)(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method Integer(java.lang.String) -->
+				<!--                               -->
+				<constructor signature="(java.lang.String)">
+					<target>
+						<format>
+<![CDATA[((Int32)Int32.Parse(@1))]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method parseInt(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="parseInt">
+					<target>
+						<format>
+<![CDATA[Int32.Parse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((Int32 )Int32.Parse(@1))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method parseInt(java.lang.String,int) -->
+				<!--                               -->
+				<method signature="(java.lang.String,int)" name="parseInt">
+					<target>
+						<format>
+<![CDATA[((Int32 )Convert.ToInt32(@1,@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toString(int,int) -->
+				<!--                               -->
+				<method signature="(int,int)" name="toString">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.IlNumber.ToString(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method compareTo(java.lang.Integer) -->
+				<!--                               -->
+				<method signature="(java.lang.Integer)" name="compareTo">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.Int32Helper.CompareTo(@0,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method decode(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="decode">
+					<target>
+						<format>
+<![CDATA[((Int32 )ILOG.J2CsMapping.Util.Int32Helper.Decode(@1))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toBinaryString(int) -->
+				<!--                               -->
+				<method signature="(int)" name="toBinaryString">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.IlNumber.ToString(@1,2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toHexString(int) -->
+				<!--                               -->
+				<method signature="(int)" name="toHexString">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.IlNumber.ToString(@1,16)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(int) -->
+				<!--                               -->
+				<method signature="(int)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((int)@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method toString(int) -->
+				<!--                               -->
+				<method signature="(int)" name="toString">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Util.IlNumber.ToString(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method valueOf(java.lang.String,int) -->
+				<!--                               -->
+				<method signature="(java.lang.String,int)" name="valueOf">
+					<target>
+						<format>
+<![CDATA[((Int32 )Convert.ToInt32(@1,@2))]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method intValue() -->
+				<!--                               -->
+				<method signature="()" name="intValue">
+					<target>
+						<format>
+<![CDATA[@0]]>
+						</format>
+					</target>
+				</method>
+				<!--                    -->
+				<!-- Field MAX_VALUE -->
+				<!--                    -->
+				<field name="MAX_VALUE">
+					<target>
+						<format>
+<![CDATA[Int32.MaxValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field MIN_VALUE -->
+				<!--                    -->
+				<field name="MIN_VALUE">
+					<target>
+						<format>
+<![CDATA[Int32.MinValue]]>
+						</format>
+					</target>
+				</field>
+				<!--                    -->
+				<!-- Field TYPE -->
+				<!--                    -->
+				<field name="TYPE">
+					<target>
+						<format>
+<![CDATA[typeof(Int32)]]>
+						</format>
+					</target>
+				</field>
+			</class>
+		</package>
+	</packages>
+</mapping>

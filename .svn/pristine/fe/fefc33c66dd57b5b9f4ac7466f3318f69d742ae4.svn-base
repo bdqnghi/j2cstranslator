@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="translation" xmlns=""
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="translation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="depends" minOccurs="0"
+        maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="project" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="projectName" type="xs:string" />
+      <xs:attribute name="package_filter" type="xs:string" />
+      <xs:attribute name="class_filter" type="xs:string" />
+      <xs:attribute name="addNotBrowsableAttribute" type="xs:boolean" />
+      <xs:attribute name="simulation" type="xs:boolean" />
+      <xs:attribute name="generateconffile" type="xs:boolean" />
+      <xs:attribute name="debug" type="xs:boolean" />
+      <xs:attribute name="removeTempProject" type="xs:boolean" />
+      <xs:attribute name="refreshAndBuild" type="xs:boolean" />
+      <xs:attribute name="autoProperties" type="xs:boolean" />
+      <xs:attribute name="exactDirectoryName" type="xs:boolean" />
+      <xs:attribute name="flatPattern" type="xs:string" />
+      <xs:attribute name="unitTestLibrary" type="xs:string" />
+      <xs:attribute name="suffixForGenerated" type="xs:string" />
+      <xs:attribute name="autoComputeDepends" type="xs:boolean" />
+      <xs:attribute name="fillRawTypesUse" type="xs:boolean" />
+      <xs:attribute name="useGenerics" type="xs:boolean" />
+      <xs:attribute name="autoCovariant" type="xs:boolean" />
+      <xs:attribute name="generateImplicitMappingfile" type="xs:boolean" />
+      <xs:attribute name="resourcesIncludePattern" type="xs:string" />
+      <xs:attribute name="resourcesExcludePattern" type="xs:string" />
+      <xs:attribute name="resourcesOutputDir" type="xs:string" />
+      <xs:attribute name="resourcesCopyPolicy" type="xs:string" />
+      <xs:attribute name="vsGenerationMode" type="xs:string" />
+      <xs:attribute name="vsProjectType" type="xs:string" />
+      <xs:attribute name="vsVersion" type="xs:string" />
+      <xs:attribute name="vsProjectEntryPoint" type="xs:string" />
+      <xs:attribute name="vsProjectName" type="xs:string" />
+      <xs:attribute name="sourcesReplacementPolicy" type="xs:string" />
+      <xs:attribute name="sourcesOutputDir" type="xs:string" />
+      <xs:attribute name="testsOutputDir" type="xs:string" />
+      <xs:attribute name="projectName" type="xs:string" />
+      <xs:attribute name="createTranslatorConfigurationFiles" type="xs:boolean" />
+      <xs:attribute name="forceJUnitTest" type="xs:boolean" />
+      <xs:attribute name="addPragmaForTest" type="xs:string" />
+      <xs:attribute name="tagToAddtoComment" type="xs:string" />
+      <xs:attribute name="defaultPackageMappingBehavior" type="xs:string" />
+      <xs:attribute name="defaultMemberMappingBehavior" type="xs:string" />
+      <xs:attribute name="removeSerialVersionUIDFields" type="xs:boolean" />
+      <xs:attribute name="mavenStructure" type="xs:boolean" />
+      <xs:attribute name="mapByteToSByte" type="xs:boolean" />
+      <xs:attribute name="profile" type="xs:string" />
+      <xs:attribute name="useAlias" type="xs:boolean" />
+      <xs:attribute name="useGlobal" type="xs:boolean" />
+      <xs:attribute name="normalizeInterfaceName" type="xs:boolean" />
+      <xs:attribute name="tabValue" type="xs:string" />
+      <xs:attribute name="nullableEnum" type="xs:boolean" />
+      <xs:attribute name="proxyMode" type="xs:boolean" />
+      <xs:attribute name="vsProject" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

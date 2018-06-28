@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                      -->
+	<!-- java.beans.mappingml -->
+	<!--                      -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                    -->
+		<!-- package java.beans -->
+		<!--                    -->
+		<package name="java.beans">
+			<target name="System.Reflection" />
+			<!--                                         -->
+			<!-- class java.beans.IntrospectionException -->
+			<!--                                         -->
+			<class name="IntrospectionException">
+				<target packageName="System" name="Exception">
+				</target>
+			</class>
+
+			<!--                                     -->
+			<!-- class java.beans.PropertyDescriptor -->
+			<!--                                     -->
+			<class name="PropertyDescriptor">
+				<target packageName="System.Reflection" name="PropertyInfo">
+				</target>
+				<!--                               -->
+				<!-- method getWriteMethod() -->
+				<!--                               -->
+				<method signature="()" name="getWriteMethod">
+					<target name="GetSetMethod" />
+				</method>
+				<!--                               -->
+				<!-- method getPropertyType() -->
+				<!--                               -->
+				<method signature="()" name="getPropertyType">
+					<target propertyGet="PropertyType" />
+				</method>
+				<!--                               -->
+				<!-- method getReadMethod() -->
+				<!--                               -->
+				<method signature="()" name="getReadMethod">
+					<target name="GetGetMethod" />
+				</method>
+			</class>
+
+			<!--                                    -->
+			<!-- class java.beans.FeatureDescriptor -->
+			<!--                                    -->
+			<class name="FeatureDescriptor">
+				<target packageName="System.Reflection" name="MemberInfo">
+				</target>
+				<!--                               -->
+				<!-- method getDisplayName() -->
+				<!--                               -->
+				<method signature="()" name="getDisplayName">
+					<target propertyGet="Name" />
+				</method>
+				<!--                               -->
+				<!-- method getName() -->
+				<!--                               -->
+				<method signature="()" name="getName">
+					<target propertyGet="Name" />
+				</method>
+			</class>
+
+			<!--                                            -->
+			<!-- class java.beans.IndexedPropertyDescriptor -->
+			<!--                                            -->
+			<class name="IndexedPropertyDescriptor">
+				<target packageName="System.Reflection" name="PropertyInfo">
+				</target>
+				<!--                               -->
+				<!-- method getIndexedReadMethod() -->
+				<!--                               -->
+				<method signature="()" name="getIndexedReadMethod">
+					<target name="GetGetMethod" />
+				</method>
+				<!--                               -->
+				<!-- method getIndexedPropertyType() -->
+				<!--                               -->
+				<method signature="()" name="getIndexedPropertyType">
+					<target propertyGet="PropertyType" />
+				</method>
+				<!--                               -->
+				<!-- method getIndexedWriteMethod() -->
+				<!--                               -->
+				<method signature="()" name="getIndexedWriteMethod">
+					<target name="GetSetMethod" />
+				</method>
+			</class>
+
+			<!--                                         -->
+			<!-- class java.beans.PropertyChangeListener -->
+			<!--                                         -->
+			<class name="PropertyChangeListener">
+				<target packageName="ILOG.J2CsMapping.Util.Beans" name="IPropertyChangeListener">
+				</target>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.beans.PropertyChangeEvent -->
+			<!--                                      -->
+			<class name="PropertyChangeEvent">
+				<target packageName="ILOG.J2CsMapping.Util.Beans" name="PropertyChangeEvent">
+				</target>
+			</class>
+
+		</package>
+	</packages>
+</mapping>

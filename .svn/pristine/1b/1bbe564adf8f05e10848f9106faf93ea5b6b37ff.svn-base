@@ -1,0 +1,7 @@
+//========================================================== -*- Java -*- ===
+// The Java to C# translator mapping information
+//===========================================================================
+
+
+javadoctag code = c;
+javadoctag javaonly = excluded;

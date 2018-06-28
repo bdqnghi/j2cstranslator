@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21B2D6FC-18BE-4F0D-BA65-4AB9A3C00EF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.1.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitSetTests.cs" />
+    <Compile Include="BooleanUtilTests.cs" />
+    <Compile Include="ArraysTests.cs" />
+    <Compile Include="CharArrayReaderTests.cs" />
+    <Compile Include="ChoiceFormatTest.cs" />
+    <Compile Include="CollationElementIteratorTest.cs" />
+    <Compile Include="CollationKeyTest.cs" />
+    <Compile Include="CollatorTest.cs" />
+    <Compile Include="DateFormatTest.cs" />
+    <Compile Include="DecimalFormatTest2.cs" />
+    <Compile Include="EnumMapTests.cs" />
+    <Compile Include="HashedSetTests.cs" />
+    <Compile Include="ICU\dev\test\AbstractTestLog.cs" />
+    <Compile Include="ICU\dev\test\bidi\BidiTest.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestAll.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestBidi.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestCharFromDirProp.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestClassOverride.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestCompatibility.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestData.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestFailureRecovery.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestInverse.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestMultipleParagraphs.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestReorder.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestReorderingMode.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestReorderRunsOnly.cs" />
+    <Compile Include="ICU\dev\test\bidi\TestStreaming.cs" />
+    <Compile Include="ICU\dev\test\bigdec\DiagBigDecimal.cs" />
+    <Compile Include="ICU\dev\test\calendar\AstroTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\CalendarRegression.cs" />
+    <Compile Include="ICU\dev\test\calendar\CalendarTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\ChineseTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\ChineseTestCase.cs" />
+    <Compile Include="ICU\dev\test\calendar\CompatibilityTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\CopticTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\DataDrivenCalendarTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\EthiopicTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\HebrewTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\HolidayTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\IBMCalendarTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\IndianTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\IslamicTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\JapaneseTest.cs" />
+    <Compile Include="ICU\dev\test\calendar\TestCase.cs" />
+    <Compile Include="ICU\dev\test\ModuleTest.cs" />
+    <Compile Include="ICU\dev\test\ResourceModule.cs" />
+    <Compile Include="ICU\dev\test\TestAll.cs" />
+    <Compile Include="ICU\dev\test\TestBoilerplate.cs" />
+    <Compile Include="ICU\dev\test\TestDataModule.cs" />
+    <Compile Include="ICU\dev\test\TestDataModule_Constants.cs" />
+    <Compile Include="ICU\dev\test\TestFmwk.cs" />
+    <Compile Include="ICU\dev\test\TestLog.cs" />
+    <Compile Include="ICU\dev\test\TestLogWriter.cs" />
+    <Compile Include="ICU\dev\test\TestLog_Constants.cs" />
+    <Compile Include="ICU\dev\test\TestUtil.cs" />
+    <Compile Include="ICU\dev\test\UTF16Util.cs" />
+    <Compile Include="ICU\dev\test\util\ArrayComparator.cs" />
+    <Compile Include="ICU\dev\test\util\BagFormatter.cs" />
+    <Compile Include="ICU\dev\test\util\BNF.cs" />
+    <Compile Include="ICU\dev\test\util\CalendarFieldsSet.cs" />
+    <Compile Include="ICU\dev\test\util\CaseIterator.cs" />
+    <Compile Include="ICU\dev\test\util\CollectionUtilities.cs" />
+    <Compile Include="ICU\dev\test\util\CompactArrayTest.cs" />
+    <Compile Include="ICU\dev\test\util\CurrencyTest.cs" />
+    <Compile Include="ICU\dev\test\util\DateTimeStyleSet.cs" />
+    <Compile Include="ICU\dev\test\util\DebugUtilities.cs" />
+    <Compile Include="ICU\dev\test\util\DebugUtilitiesData.cs" />
+    <Compile Include="ICU\dev\test\util\DebugUtilitiesTest.cs" />
+    <Compile Include="ICU\dev\test\util\Differ.cs" />
+    <Compile Include="ICU\dev\test\util\DisplayNameTest.cs" />
+    <Compile Include="ICU\dev\test\util\ElapsedTimer.cs" />
+    <Compile Include="ICU\dev\test\util\Equator.cs" />
+    <Compile Include="ICU\dev\test\util\FieldsSet.cs" />
+    <Compile Include="ICU\dev\test\util\ICUBinaryTest.cs" />
+    <Compile Include="ICU\dev\test\util\ICUListResourceBundleTest.cs" />
+    <Compile Include="ICU\dev\test\util\ICUPropertyFactory.cs" />
+    <Compile Include="ICU\dev\test\util\ICUResourceBundleTest.cs" />
+    <Compile Include="ICU\dev\test\util\ICUServiceTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICU\dev\test\util\ICUServiceTestSample.cs" />
+    <Compile Include="ICU\dev\test\util\LocaleAliasTest.cs" />
+    <Compile Include="ICU\dev\test\util\LocaleDataTest.cs" />
+    <Compile Include="ICU\dev\test\util\Lockable.cs" />
+    <Compile Include="ICU\dev\test\util\Pick.cs" />
+    <Compile Include="ICU\dev\test\util\PrettyPrinter.cs" />
+    <Compile Include="ICU\dev\test\util\Quoter.cs" />
+    <Compile Include="ICU\dev\test\util\Relation.cs" />
+    <Compile Include="ICU\dev\test\util\SortedBag.cs" />
+    <Compile Include="ICU\dev\test\util\StringTokenizerTest.cs" />
+    <Compile Include="ICU\dev\test\util\Tabber.cs" />
+    <Compile Include="ICU\dev\test\util\TestBNF.cs" />
+    <Compile Include="ICU\dev\test\util\TextTrieMapTest.cs" />
+    <Compile Include="ICU\dev\test\util\Tokenizer.cs" />
+    <Compile Include="ICU\dev\test\util\TransliteratorUtilities.cs" />
+    <Compile Include="ICU\dev\test\util\TrieTest.cs" />
+    <Compile Include="ICU\dev\test\util\ULocaleTest.cs" />
+    <Compile Include="ICU\dev\test\util\UnicodeLabel.cs" />
+    <Compile Include="ICU\dev\test\util\UnicodeMap.cs" />
+    <Compile Include="ICU\dev\test\util\UnicodeProperty.cs" />
+    <Compile Include="ICU\dev\test\util\UnicodePropertySource.cs" />
+    <Compile Include="ICU\dev\test\util\UtilityTest.cs" />
+    <Compile Include="ICU\dev\test\util\VariableReplacer.cs" />
+    <Compile Include="ICU\dev\test\util\VersionInfoTest.cs" />
+    <Compile Include="ICU\dev\test\util\Visitor.cs" />
+    <Compile Include="Int64UtilTests.cs" />
+    <Compile Include="Int32UtilTests.cs" />
+    <Compile Include="IteratorAdapterTests.cs" />
+    <Compile Include="ListIteratorTest.cs" />
+    <Compile Include="LocalHelperTest.cs" />
+    <Compile Include="MessageFormatTest.cs" />
+    <Compile Include="MyPatternTest.cs" />
+    <Compile Include="NumberFormatTest.cs" />
+    <Compile Include="PatternTest.cs" />
+    <Compile Include="PropertiesTest.cs" />
+    <Compile Include="RuleBasedCollatorTest.cs" />
+    <Compile Include="SimpleDateFormatTest.cs" />
+    <Compile Include="StingUtilTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringTokenizerTests.cs" />
+    <Compile Include="ZIP\ZIPTests.cs" />
+    <Compile Include="ZIP\ZLIBTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\J2CSMapping.2008.csproj">
+      <Project>{FEE16C39-BC2D-4F19-82A8-09B01BF7B435}</Project>
+      <Name>J2CSMapping.2008</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\calendar.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\casing.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\conversion.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\DataDrivenCollationTest.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\format.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\ibm9027.cnv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\icu26_testtypes.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\icu26e_testtypes.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\icuio.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\idna_rules.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\iscii.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\mc.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\nfscis.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\nfscsi.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\nfscss.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\nfsmxp.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\nfsmxs.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\root.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\sh.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\sh_YU.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\structLocale.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\te.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\te_IN.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\te_IN_REVISED.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\test1.cnv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\test3.cnv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\test4.cnv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\test4x.cnv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\testaliases.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\testempty.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\testtable32.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\com\ibm\icu\dev\data\testdata\testtypes.res" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\com\ibm\icu\dev\data\resources\TestDataElements_en.res" />
+    <None Include="Resources\com\ibm\icu\dev\data\resources\TestDataElements_en_Latn.res" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

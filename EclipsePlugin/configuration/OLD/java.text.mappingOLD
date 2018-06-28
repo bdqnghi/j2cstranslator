@@ -1,0 +1,80 @@
+//
+// java.text
+//
+package java.text :: System {
+	//	
+	// MessageFormat
+	//
+	class java.text.MessageFormat :: ILOG.J2CsMapping.Text:MessageFormat  {
+    	// method format(String,Object[]) { pattern = String.Format(@1,@2); }
+	};
+
+	//
+	// Format
+	//
+	class java.text.Format :: ILOG.J2CsMapping.Text:IlFormat {
+	};
+
+	//
+	// DateFormat
+	//
+	class java.text.DateFormat :: ILOG.J2CsMapping.Text:DateFormat {
+	};
+
+	//
+	// SimpleDateFormat
+	//
+	class java.text.SimpleDateFormat :: ILOG.J2CsMapping.Text:SimpleDateFormat {
+	};
+
+	//
+	// NumberFormat
+	//
+	class java.text.NumberFormat :: ILOG.J2CsMapping.Text:DummyFormat {
+	};
+
+	//
+	// DecimalFormat
+	//
+	class java.text.DecimalFormat :: ILOG.J2CsMapping.Text:DummyFormat {
+	};
+	
+	//
+        // ParseException
+        //
+        class java.text.ParseException :: ILOG.J2CsMapping.Util:ParseException {
+         method <init>(String, int) { pattern = new ILOG.J2CsMapping.Util.ParseException(@1 + @2); }
+        }
+
+	
+	//
+	// CharacterIterator
+	//	
+	class java.text.CharacterIterator :: ILOG.J2CsMapping.Text:ICharacterIterator 
+    {
+	   field DONE { pattern = ILOG.J2CsMapping.Text.CharacterIterator.Done; }
+    };
+    
+	//
+	// StringCharacterIterator
+	//    
+    class java.text.StringCharacterIterator :: ILOG.J2CsMapping.Text:StringCharacterIterator 
+    {	  
+    };
+    
+	//
+	// DecimalFormatSymbols
+	//    
+	class java.text.DecimalFormatSymbols :: System.Globalization:NumberFormatInfo 
+	{
+		method <init>(java.util.Locale) { pattern =  NumberFormatInfo.GetInstance(@1); }
+		method getDecimalSeparator() { pattern =  @0.NumberDecimalSeparator[0]; }
+		method getGroupingSeparator() { pattern =  @0.NumberGroupSeparator[0]; }
+	};
+	
+    //
+    // Collactor
+    //
+    class java.text.Collator :: System.Globalization:ComparatorInfo {
+    }
+}

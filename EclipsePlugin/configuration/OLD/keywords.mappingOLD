@@ -1,0 +1,11 @@
+//
+//
+//
+
+keyword package = namespace;
+keyword import = using;
+keyword synchronized = lock;
+keyword instanceof = is;
+keyword .class = typeof;
+keyword super = base;
+keyword goto = goto;

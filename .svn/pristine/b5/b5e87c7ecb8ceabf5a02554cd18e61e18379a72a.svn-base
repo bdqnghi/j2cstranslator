@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                    -->
+	<!-- junit4.mappingmlml -->
+	<!--                    -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                      -->
+		<!-- pachage org.junit -->
+		<!--                      -->
+		<package name="org.junit">
+			<target name="NUnit.Framework" />
+
+			<!--                        -->
+			<!-- class org.junit.Assert -->
+			<!--                        -->
+			<class name="Assert">
+				<target packageName="NUnit.Framework" name="Assert">
+				</target>
+				<!--                               -->
+				<!-- method assertNull(java.lang.String,java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.String,java.lang.Object)" name="assertNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNull(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method assertNotNull(java.lang.String,java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.String,java.lang.Object)" name="assertNotNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNotNull(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!--
+					method
+					assertNotSame(java.lang.String,java.lang.Object,java.lang.Object)
+				-->
+				<!--                               -->
+				<method signature="(java.lang.String,java.lang.Object,java.lang.Object)"
+					name="assertNotSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreNotSame(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method assertTrue(boolean) -->
+				<!--                               -->
+				<method signature="(boolean)" name="assertTrue">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsTrue(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method assertSame(java.lang.Object,java.lang.Object) -->
+				<!--                               -->
+				<method signature="(java.lang.Object,java.lang.Object)" name="assertSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreSame(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method fail(java.lang.String) -->
+				<!--                               -->
+				<method signature="(java.lang.String)" name="fail">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.Fail(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                           -->
+				<!-- method assertEquals(double,double,double) -->
+				<!--                                           -->
+				<method signature="(double,double,double)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2,@3)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                              -->
+				<!-- method assertFalse(java.lang.String,boolean) -->
+				<!--                                              -->
+				<method signature="(java.lang.String,boolean)" name="assertFalse">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsFalse(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                         -->
+				<!-- method assertNotSame(java.lang.Object,java.lang.Object) -->
+				<!--                                                         -->
+				<method signature="(java.lang.Object,java.lang.Object)" name="assertNotSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreNotSame(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                             -->
+				<!-- method assertFalse(boolean) -->
+				<!--                             -->
+				<method signature="(boolean)" name="assertFalse">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsFalse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                            -->
+				<!-- method assertEquals(java.lang.String,double,double,double) -->
+				<!--                                                            -->
+				<method signature="(java.lang.String,double,double,double)"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertSame(java.lang.String,java.lang.Object,java.lang.Object)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.Object,java.lang.Object)"
+					name="assertSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreSame(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                            -->
+				<!-- method assertEquals(java.lang.Object[],java.lang.Object[]) -->
+				<!--                                                            -->
+				<method signature="(java.lang.Object[],java.lang.Object[])"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertEquals(java.lang.String,java.lang.Object[],java.lang.Object[])
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.Object[],java.lang.Object[])"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                     -->
+				<!-- method assertNull(java.lang.Object) -->
+				<!--                                     -->
+				<method signature="(java.lang.Object)" name="assertNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNull(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                        -->
+				<!-- method assertNotNull(java.lang.Object) -->
+				<!--                                        -->
+				<method signature="(java.lang.Object)" name="assertNotNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNotNull(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                             -->
+				<!-- method assertTrue(java.lang.String,boolean) -->
+				<!--                                             -->
+				<method signature="(java.lang.String,boolean)" name="assertTrue">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsTrue(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+            <!--                                         -->
+			<!-- class junit.framework.TestCase -->
+			<!--                                -->
+			<class name="TestCase">
+				<target isRemove="true" removeFromImport="true"/>
+			</class>
+			
+			<!--                       -->
+			<!-- class org.junit.After -->
+			<!--                       -->
+			<class name="After" isExcluded="true" isRemoved="true">
+				<target isRemove="true" />
+			</class>
+
+			<!--                      -->
+			<!-- class org.junit.Test -->
+			<!--                      -->
+			<class name="Test">
+				<target isRemove="true" removeFromImport="true"/>
+				<!-- target packageName="NUnit.Framework" name="TestCase" -->
+				<!-- /target -->
+			</class>
+
+			<!--                            -->
+			<!-- class org.junit.AfterClass -->
+			<!--                            -->
+			<class name="AfterClass" isExcluded="true" isRemoved="true">
+				<target isRemove="true" />
+			</class>
+
+			<!--                             -->
+			<!-- class org.junit.BeforeClass -->
+			<!--                             -->
+			<class name="BeforeClass" isExcluded="true" isRemoved="true">
+				<target isRemove="true" />
+			</class>
+
+			<!--                        -->
+			<!-- class org.junit.Before -->
+			<!--                        -->
+			<class name="Before" isExcluded="true" isRemoved="true">
+				<target isRemove="true" />
+			</class>
+		</package>
+
+	</packages>
+</mapping>

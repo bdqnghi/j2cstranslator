@@ -1,0 +1,683 @@
+//
+// java.util
+//
+package java.util :: System.Collections {
+
+	//
+	// Comparator
+	//
+	class java.util.Comparator :: System.Collections:IComparer  {  		
+	};
+
+	//------------------------------------------------------------
+	// The iterator
+	//   We have to use java-like iterator. Otherwise, we must perform
+	//   very good analysis on the flow.
+	//------------------------------------------------------------
+
+	//
+	// Enumeration
+	//
+	class java.util.Enumeration :: ILOG.J2CsMapping.Collections:IIterator {
+  		method hasMoreElements() { name = HasNext; }  
+  		method nextElement() { name = Next; }
+	};
+
+	//
+	// Iterator
+	// 
+	class java.util.Iterator :: ILOG.J2CsMapping.Collections:IIterator {
+  		method hasNext() { name = HasNext; }
+  		method next() { name = Next; }
+	};
+
+	//------------------------------------------------------------
+	// The collections and the sets
+	//   We map java.util.Set to 'IlCollection'.
+	//------------------------------------------------------------
+
+	//
+	// Collection
+	//
+	class java.util.Collection :: System.Collections:ICollection {
+  		method size() { property_get = Count; }
+  		method isEmpty() { pattern = (@0.Count==0); }
+  		method iterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }
+  		method toArray() { pattern = ILOG.J2CsMapping.Collections.Collections.ToArray(@0); }
+  		method toArray(T[]) { pattern = ILOG.J2CsMapping.Collections.Collections.ToArray(@0,@1); }
+  		method contains(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Contains(@1, @0); }
+  		method containsAll(java.util.Collection<?>) { pattern = ILOG.J2CsMapping.Collections.Collections.ContainsAll(@0, @1); }
+  		method addAll(java.util.Collection<? extends E>) { pattern = ILOG.J2CsMapping.Collections.Collections.AddAll(@1, @0); }
+  		method clear() { pattern = ILOG.J2CsMapping.Collections.Collections.Clear(@0); }
+  		method add(E) { pattern =  ILOG.J2CsMapping.Collections.Collections.Add(@0, @1); }
+  		method remove(Object) { pattern =  ILOG.J2CsMapping.Collections.Collections.Remove(@0, @1); }
+	};
+
+	//
+	// Set
+	//
+	class java.util.Set :: ILOG.J2CsMapping.Collections:ISet  {
+  		// Does nothing. Reuse the IlCollection methods.
+  		
+  		// JDK 1.5 strange behavior
+  		method iterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }  		
+	};
+
+	//
+	// HashSet
+	//
+	class java.util.HashSet :: ILOG.J2CsMapping.Collections:HashedSet  {
+	};
+
+	//
+	// ArrayList
+	//
+	class java.util.AbstractList :: System.Collections:ArrayList {
+	    method equals(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Equals(@0, (IList) @1); }
+    	method iterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }
+    	method addAll(int, Collection<? extends E>) { name = InsertRange; }
+    	method listIterator() { pattern = new ILOG.J2CsMapping.Collections.ArrayListIterator(@0); }
+        method listIterator(int) { pattern = new ILOG.J2CsMapping.Collections.ArrayListIterator(@0, @1); }
+        method subList(int, int) { pattern = ILOG.J2CsMapping.Collections.Generics.Collections.SubList(@0, @1, @2); }
+	}
+
+	//
+	// AbstractCollection
+	//
+	class java.util.AbstractCollection :: System.Collections:ArrayList {
+    	method remove(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0, @1); }
+    	method size() { property_get = Count; }	   
+	};
+
+
+	//	
+	// LinkedList
+	//
+	class java.util.LinkedList :: ILOG.J2CsMapping.Collections:LinkedList {
+		method element() { pattern = First.Value; }
+	    method remove() { name = RemoveFirst; }
+	}
+
+	//------------------------------------------------------------
+	// Collections of elements
+	//------------------------------------------------------------
+
+	//
+	// Vector
+	//
+	class java.util.Vector :: System.Collections:ArrayList {  
+  		method <init>(int,int) { pattern = new ArrayList(@1); }
+
+  		method size() { property_get = Count; }
+  		method isEmpty() { pattern = (@0.Count==0); }
+  		method elements() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }
+  		method removeAllElements() { name = Clear; }
+  		method add(int, E) { name = Insert; }
+  		method addElement(E) { name = Add; }
+  		method add(E) { name = Add; }
+  		method remove(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0, @1);  } 		
+  		method removeElement(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0,@1); }
+  		method removeElementAt(int) { pattern = ILOG.J2CsMapping.Collections.Collections.RemoveAt(@0,@1); }
+  		method insertElementAt(E,int) { pattern = @0.Insert(@2,@1); }
+  		method setElementAt(E,int) { indexer_set = [@2] = @1; }
+  		method firstElement() { pattern = @0[0]; }
+  		method elementAt(int) { indexer_get = [@1]; }
+  		method get(int) { indexer_get = [@1]; }
+  		method lastElement() { pattern = @0[@0.Count - 1]; }
+  		method setSize(int) { pattern = @0.RemoveRange(@1,@0.Count-@1); }
+  		method capacity() { property_get = Capacity; }
+  		method ensureCapacity(int) { pattern = @0.Capacity = @1; }
+  		method copyInto(Object[]) { name = CopyTo; }
+  		
+  		method clone() { name = Clone; }
+  		
+    	method set(int, E) { indexer_set = [@1] = @2; }
+	};
+
+	//------------------------------------------------------------
+	// The maps
+	//------------------------------------------------------------
+
+	//
+	// Map
+	//
+	class java.util.Map :: System.Collections:IDictionary {
+    	method size() { property_get = Count; }
+    	method get(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Get(@0, @1); }
+    	method put(K,V) { pattern = ILOG.J2CsMapping.Collections.Collections.Put(@0, @1, @2); }
+    	method putAll(java.util.Map<? extends K,? extends V>) { pattern = ILOG.J2CsMapping.Collections.Collections.PutAll(@0,@1); }   		
+    	method remove(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0, @1); }
+    	method containsKey(Object) { name = Contains; }
+    	method keySet() { pattern = new ILOG.J2CsMapping.Collections.ListSet(@0.Keys); }
+    	method values() { property_get = Values; }
+    	method entrySet() { pattern = @0; }
+    	method isEmpty() { pattern = (@0.Count == 0); }    	
+	};
+
+	//
+	// HashMap
+	//
+	class java.util.HashMap :: System.Collections:Hashtable {   	
+		method size() { property_get = Count; }
+   		method keySet() { pattern = new ILOG.J2CsMapping.Collections.ListSet(@0.Keys); }  
+   		method put(K,V) { pattern = ILOG.J2CsMapping.Collections.Collections.Put(@0, @1, @2); }
+    	method putAll(java.util.Map<? extends K,? extends V>) { pattern = ILOG.J2CsMapping.Collections.Collections.PutAll(@0,@1); }   		
+    	
+    	method clone() { name = Clone; }
+    };
+
+	//
+	// LinkedHashMap
+	// 
+	class java.util.LinkedHashMap :: System.Collections:Hashtable {
+	};
+	
+	//
+	// WeakHashMap
+	// 
+	class java.util.WeakHashMap :: System.Collections:Hashtable {
+  		// Does nothing. Reuse the IlMap methods.
+  		method size() { property_get = Count; }	
+	};
+
+	//
+	// Hashtable
+	// 
+	class java.util.Hashtable :: System.Collections:Hashtable {
+    	method keys() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.Keys.GetEnumerator()); }
+    	method keySet() { pattern = new ILOG.J2CsMapping.Collections.ListSet(@0.Keys); }
+    	method size() { property_get = Count; }
+    	method values() { property_get = Values; }
+    	method entrySet() { pattern = @0; }
+    	method elements() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.Values.GetEnumerator()); }
+    	method get(Object) { indexer_get = [@1]; }
+    	method put(K,V) { pattern = ILOG.J2CsMapping.Collections.Collections.Put(@0, @1, @2); }
+    	method putAll(java.util.Map<? extends K,? extends V>) { pattern = ILOG.J2CsMapping.Collections.Collections.PutAll(@0,@1); }   		
+    	
+    	method clone() { name = Clone; }
+    };
+
+	//
+	// Map.Entry
+	//
+	class java.util.Map.Entry :: System.Collections:DictionaryEntry {
+   		method getKey() { property_get = Key; }
+   		method getValue() { property_get = Value; }
+   		method setValue(V) { pattern =  @0.Value = @1; }
+	};
+
+	//
+	// TreeMap
+	//
+	class java.util.TreeMap :: System.Collections:SortedList {
+   		method entrySet() { pattern = @0; }
+   		method get(Object) { indexer_get = [@1]; }
+   		method put(K,V) { pattern = ILOG.J2CsMapping.Collections.Collections.Put(@0, @1, @2); }
+        method size() { property_get = Count; }
+   		method values() { property_get = Values; }
+   		method headMap(K) { pattern = ILOG.J2CsMapping.Collections.Collections.HeadMap(@0,@1); }   		
+   		method remove(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0,@1); } 
+   		
+   		method clone() { name = Clone; }
+	}
+
+	//
+	// SortedMap
+	//
+	class java.util.SortedMap :: System.Collections:SortedList {
+	   method subMap(K, K) { pattern = ILOG.J2CsMapping.Collections.Collections.SubMap(@0,@1, @2); }
+	}
+
+	//
+	// IdentityHashMap
+	//
+	class java.util.IdentityHashMap :: System.Collections:Hashtable {
+   		method <init>() { pattern = new Hashtable(new IdentityComparer()); }
+	}
+	
+	//------------------------------------------------------------
+	// The stack
+	//------------------------------------------------------------
+
+	//
+	// Stack
+	//
+	class java.util.Stack :: System.Collections:Stack {
+  		method empty() { pattern = (@0.Count==0); };
+  		// method get(int) { pattern = @0.ToArray()[@1]; }
+	};
+
+	//------------------------------------------------------------
+	// The sorted sets
+	//   We provide an SortedSet, and we map all the possible
+	//   implementations provided in Java into this class.
+	//------------------------------------------------------------
+
+	//
+	// SortedSet
+	//
+	class java.util.SortedSet :: ILOG.J2CsMapping.Collections:SortedSet {
+  		// Nothing to specify, as we support only inherited methods.
+  		// The additional methods specific to SortedSet are not supported!
+	};
+	
+	//
+	// TreeSet
+	//
+	class java.util.TreeSet :: ILOG.J2CsMapping.Collections:SortedSet {	    
+  		method <init>() { pattern = new SortedSet(); }
+  		method <init>(java.util.Comparator<? super E>) { pattern = new SortedSet(@1); }
+  		method size() { property_get = Count; }
+  		method clone() { name = Clone; }
+	};
+
+	//
+	// Lists
+	//
+	
+	//
+	// ListIterator
+	//
+	class java.util.ListIterator :: ILOG.J2CsMapping.Collections:IListIterator {
+	};	
+	
+	//
+	// -----------------------------------------------------------------------------------
+	// 
+	
+	//
+	// List
+	//
+	class java.util.List :: System.Collections:IList {   
+	    method add(int, E) { name = Insert; }
+    	method get(int) { indexer_get = [@1]; }
+    	method set(int, E) { indexer_set = [@1] = @2; }
+    	method remove(int) { pattern = ILOG.J2CsMapping.Collections.Collections.RemoveAt(@0,@1); }
+    	method remove(Object) { pattern = ILOG.J2CsMapping.Collections.Collections.Remove(@0,@1); }
+    	method removeAll(java.util.Collection<?>) { pattern = ILOG.J2CsMapping.Collections.Collections.RemoveAll(@0,@1); }
+    	// remove ambiguity
+    	method contains(Object) { name = Contains; }
+    	method iterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }
+    	//method listIterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }   
+    	method addAll(int, Collection<? extends E>) { pattern = ILOG.J2CsMapping.Collections.Collections.AddAll(@0,@1,@2); }
+    	
+    	method listIterator() { pattern = new ILOG.J2CsMapping.Collections.ArrayListIterator(@0); }
+        method listIterator(int) { pattern = new ILOG.J2CsMapping.Collections.ArrayListIterator(@0, @1); }
+        
+    	// JDK 1.5 strange behavior
+    	method size() { property_get = Count; }
+    	method toArray(T[]) { pattern = ILOG.J2CsMapping.Collections.Collections.ToArray(@0,@1); }  		
+    	method isEmpty() { pattern = (@0.Count==0); }
+	}
+
+	//
+	// AbstractList
+	//
+	class java.util.AbstractCollection :: System.Collections:ICollection {
+	   method removeAll(java.util.Collection<?>) { pattern = ILOG.J2CsMapping.Collections.Collections.RemoveAll(@0,@1); }    		   
+	}
+	
+	//
+	// ArrayList
+	//
+	class java.util.ArrayList :: System.Collections:ArrayList {
+    	method ensureCapacity(int) { pattern = @0.Capacity = @1; }
+    	method addAll(java.util.Collection<? extends E>) { name = AddRange; }
+	    method addAll(int, java.util.Collection<? extends E>) { name = InsertRange; }
+	    
+	    method removeRange(int,int) { pattern = @0.RemoveRange(@1,@2-(@1)); }
+	    // JDK 1.5 strange behavior
+    	method size() { property_get = Count; }
+    	method get(int) { indexer_get = [@1]; }
+    	method set(int, E) { indexer_set = [@1] = @2; }
+    	method clone() { name = Clone; }
+    }
+
+	//
+	// Collections : Trouble with that one, because I override it in
+	// "generics.conf", but in case of project that mix non-generic and generic
+	// I always use the generic version of this class
+	//
+	class java.util.Collections :: ILOG.J2CsMapping.Collections:Collections {
+		field EMPTY_LIST { pattern = ILOG.J2CsMapping.Collections.Collections.EMPTY_LIST; }
+		    	
+    	method sort(java.util.List<T>,java.util.Comparator<? super T>) { pattern = ILOG.J2CsMapping.Collections.Collections.Sort(@1,@2); }
+    	method binarySearch(java.util.List<? extends Comparable<? super T>>, T) { pattern = ILOG.J2CsMapping.Collections.Collections.BinarySearch(@1,@2); }    	
+    	method enumeration(java.util.Collection<T>) {pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@1.GetEnumerator()); };
+    	
+    	method singletonList(T) { pattern = ILOG.J2CsMapping.Collections.Collections.SingletonList<%1>(@1); }
+    	method emptyList() { pattern = ILOG.J2CsMapping.Collections.Collections.EmptyList<%1>();}
+    	method emptySet() { pattern = ILOG.J2CsMapping.Collections.Collections.EmptySet<%1>();}
+    	
+    	method singleton(T) { pattern = ILOG.J2CsMapping.Collections.Collections.Singleton(@1); }
+    	
+    	method unmodifiableMap(java.util.Map<? extends K, ? extends V>) { pattern = ILOG.J2CsMapping.Collections.Collections.UnmodifiableMap(@1);}
+	    method unmodifiableList(java.util.List<? extends T>) { pattern = ILOG.J2CsMapping.Collections.#{Generics.#}Collections.UnmodifiableList(@1);
+    																	  genericsif = typeReceiverIsGeneric; }
+	
+    	
+	};
+
+	//
+	// BitSet
+	//	
+	class java.util.BitSet :: ILOG.J2CsMapping.Collections:BitSet {
+	}
+
+	//
+	// StringTokenizer
+	//
+	class java.util.StringTokenizer :: ILOG.J2CsMapping.Util:StringTokenizer {
+           method hasMoreElements() { pattern = @0.HasMoreElements(); }
+	};
+
+	//------------------------------------------------------------
+	// Utilities
+	//------------------------------------------------------------
+
+	class java.util.ResourceBundle :: System.Resources:ResourceManager {
+  		method getBundle(String, java.util.Locale, java.lang.ClassLoader) { pattern = new ResourceManager(@1, @3);};
+  		method getKeys() { pattern = @0; }
+	};
+
+	//
+	// Timer
+	//
+	class java.util.Timer :: ILOG.J2CsMapping.Util:IlTimer {
+    	generation = false;
+	}
+
+	//
+	// TimerTask
+	//
+	class java.util.TimerTask :: ILOG.J2CsMapping.Util:IlTimerTask {
+	    generation = false;
+	}
+
+	//	
+	// Culture / Local
+	//
+	
+	//
+	// Locale
+	//
+	class java.util.Locale :: System.Globalization:CultureInfo {
+	    field FRENCH { pattern = ILOG.J2CsMapping.Util.Culture.CultureInfoHelper.FRENCH; }
+	    field FRANCE { pattern = ILOG.J2CsMapping.Util.Culture.CultureInfoHelper.FRANCE; }
+            field US { pattern = System.Globalization.CultureInfo.CreateSpecificCulture(##en-us##); }
+            field ENGLISH { pattern = System.Globalization.CultureInfo.CreateSpecificCulture(##en##); }
+		
+	
+	    method getDisplayName() { pattern = @0.DisplayName; }
+   	    method <init>(java.lang.String, java.lang.String) { pattern = ILOG.J2CsMapping.Util.Culture.CultureInfoHelper.CreateCultureInfo(@1, @2); }
+    	method getDefault() { pattern = System.Globalization.CultureInfo.InvariantCulture; }
+    	method getVariant() { property_get = ThreeLetterWindowsLanguageName; }
+    	method getLanguage() { property_get = TwoLetterISOLanguageName; }
+    	method getAvailableLocales() { pattern = System.Globalization.CultureInfo.GetCultures(CultureTypes.AllCultures); }
+    	method getCountry() { pattern = ILOG.J2CsMapping.Util.Culture.CultureInfoHelper.GetCountry(@0); };
+    	
+	};
+
+	//
+	// Date
+	//
+	class java.util.Date :: System:DateTime   {
+    	method after(java.util.Date) { pattern = ILOG.J2CsMapping.Util.DateUtil.After(@0, @1); }
+    	method before(java.util.Date) { pattern = ILOG.J2CsMapping.Util.DateUtil.Before(@0, @1); }
+    	
+    	method <init>(String) { pattern = DateTime.Parse(@1); }
+    	method <init>() { pattern = DateTime.Now; }
+    	method <init>(long) { pattern = new DateTime( ( @1 ) * 10000 ); }  // TODO: verify
+    	
+        method setTime(long) { pattern = @0 = new DateTime((@1) * 10000); }  // TODO: verify         
+        method getTime() { pattern = (@0.Ticks / 10000); } // TODO: verify
+    	
+    	method getYear() { property_get = Year; }
+    	method getMonth() { property_get = Month; }
+    	method getDay() { property_get = Day; }
+	};
+
+	
+	//
+	// GregorianCalendar
+	//
+	class java.util.GregorianCalendar :: ILOG.J2CsMapping.Util:GregorianCalendar {
+	}
+	
+	//
+	// Calendar
+	//
+	class  java.util.Calendar :: ILOG.J2CsMapping.Util:Calendar {
+	}
+
+	//
+	// Arrays
+	//
+	class java.util.Arrays :: System:Array {    	
+    	method sort(T[], Comparator<? super T>) { pattern = Array.Sort(@1, @2); }
+    	method sort(T[], int, int, Comparator<? super T>) { pattern = Array.Sort(@1, @2, @3, @4); }
+    	method fill(Object[], int, int, Object) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(char[], int, int, char) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(int[], int, int, int) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(long[], int, int, long) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(double[], int, int, double) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(float[], int, int, float) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(short[], int, int, short) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(boolean[], int, int, boolean) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2, @3, @4); }
+    	method fill(Object[], Object) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(int[], int) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(char[], char) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(byte[], byte) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(long[], long) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(double[], double) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(float[], float) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(short[], short) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method fill(boolean[], boolean) { pattern = ILOG.J2CsMapping.Collections.Arrays.Fill(@1,@2); }
+    	method asList(T...) { pattern = ILOG.J2CsMapping.Collections.#{Generics.#}Arrays.AsList(@1...); genericsif = typeReceiverIsGeneric; }
+    	method copyOf(U[], int, Class<? extends T[]>)  { pattern = ILOG.J2CsMapping.Collections.Arrays.CopyOf<%1, %2>(@1,@2, @3); }
+    	method hashCode(boolean[]) { pattern = @1.GetHashCode(); }
+    	method hashCode(byte[]) { pattern = @1.GetHashCode(); }
+        method hashCode(char[]) { pattern = @1.GetHashCode(); }
+        method hashCode(double[]) { pattern = @1.GetHashCode(); }
+        method hashCode(float[]) { pattern = @1.GetHashCode(); }
+        method hashCode(int[]) { pattern = @1.GetHashCode(); }
+        method hashCode(long[]) { pattern = @1.GetHashCode(); }
+        method hashCode(Object[]) { pattern = @1.GetHashCode(); }
+        method hashCode(short[]) { pattern = @1.GetHashCode(); }    
+        method equals(byte[],byte[]) { pattern = ILOG.J2CsMapping.Collections.Arrays.Equal(@1,@2); }	
+    }
+
+	
+	//------------------------------------------------------------
+	// Resources
+	//------------------------------------------------------------
+
+	//
+	// MissingResourceException
+	//
+	class java.util.MissingResourceException :: System.Resources:MissingManifestResourceException {
+    	method <init>(String,String,String) { pattern = new MissingManifestResourceException(@1); };
+	};
+
+	//
+	// EmptyStackException
+	//
+	class java.util.EmptyStackException :: System:Exception {
+	};
+
+	//
+	// NoSuchElementException
+	//
+	class java.util.NoSuchElementException :: System:InvalidOperationException {
+	};
+
+    // 
+    // EventListener
+    //    
+    class java.util.EventListener :: ILOG.J2CsMapping.Util:IEventListener {
+    }
+    
+    //
+    // EventObject
+    //
+    class java.util.EventObject :: ILOG.J2CsMapping.Util:EventObject {
+	    method getSource() { property_get = Source; }
+    };
+    
+    //
+    // Properties
+    //    
+    class java.util.Properties :: ILOG.J2CsMapping.Util:Properties {
+    }
+    
+	//
+    // EnumSet
+    //
+    //class java.util.EnumSet :: ILOG.J2CsMapping.Collections.Generics:EnumSet {
+       // method of(E) { pattern = ILOG.J2CsMapping.Collections.Generics.EnumSet.Of(@1); }
+       // method of(E, E[]) { pattern = ILOG.J2CsMapping.Collections.Generics.EnumSet.Of(@1, @2); }
+       // method noneOf(Class<E>) { pattern = ILOG.J2CsMapping.Collections.Generics.EnumSet.NoneOf<%1>(@1); }
+    //}
+    
+    //
+    // PropertyResourceBundle
+    //
+    class java.util.PropertyResourceBundle {
+       remove = true;
+    }
+    
+    //
+    // Currency
+    //
+    class java.util.Currency {
+    }
+    
+    //
+    // UUID
+    //
+    class java.util.UUID :: System:Guid {
+       method randomUUID() { pattern = System.Guid.NewGuid(); }
+    }
+    
+    //
+    // ConcurrentModificationException
+    //
+    class java.util.ConcurrentModificationException :: System:InvalidOperationException {};
+    
+    class java.util.Random :: System:Random {
+       method nextInt(int) { pattern = @0.Next; }
+    }
+}
+
+//------------------------------------------------------------
+// These streams do not exist in C#. We just forget them and reuse
+// the APIs inherited from 'Stream'. One day, we may have these
+// classes provided in C#.
+//------------------------------------------------------------	
+package java.util.zip :: ILOG.J2CsMapping.IO.Zip {
+
+    //
+    // ZipFile
+    //
+    class java.util.zip.ZipFile :: System.IO.Packaging:ZipPackage {
+    }
+
+    //
+    // Zip
+    //
+    class java.util.zip.ZipEntry :: System.IO.Packaging:ZipPackagePart {
+    }
+    
+    //
+    // Zip
+    //
+    class java.util.zip.ZipInputStream {
+       remove = true;
+    }
+    
+    //	
+    // GZIPInputStream
+    //
+    class java.util.zip.GZIPInputStream :: ILOG.J2CsMapping.IO:GZipReader {
+      	method <init>(InputStream) { pattern = @1; }
+  		method <init>(InputStream,int) { pattern = @1; }
+    }
+    
+    //
+    // GZIPOutputStream
+    //
+    class java.util.zip.GZIPOutputStream :: ILOG.J2CsMapping.IO:GZipWriter {
+      	method <init>(OutputStream) { pattern = @1; }
+  		method <init>(OutputStream,int) { pattern = @1; }
+    }
+    
+    //
+    // Inflater
+    //
+    class java.util.zip.Inflater {
+       remove = true;
+    }
+    
+    //
+    // Deflater
+    //
+    class java.util.zip.Deflater {
+       remove = true;
+    }
+}
+
+//
+// java.util.jar
+//
+package java.util.jar :: ILOG.J2CsMapping.IO.Jar {
+   //
+   // JarInputStream
+   //
+   class java.util.jar.JarInputStream {
+      remove = true;
+   }
+   
+   //
+   // Manifest
+   //
+   class java.util.jar.Manifest {
+      remove = true;
+   }
+   
+   //
+   // Attributes
+   //
+   class java.util.jar.Attributes {
+      remove = true;
+   }
+}
+
+//
+// java.util.regex
+//
+package java.util.regex {
+      //
+      // Pattern
+      //
+      class java.util.regex.Pattern :: ILOG.J2CsMapping.Text:Pattern {
+            method matcher(CharSequence) { pattern = @0.Matcher(@1); };
+	    method compile(String) { pattern = @0.Compile(@1); };
+      }
+      //
+      // Matcher
+      //
+      class java.util.regex.Matcher :: ILOG.J2CsMapping.Text:Matcher {
+            method find() { pattern = @0.Find(); };
+            method group(int) { pattern = @0.Group(@1); };
+      }
+}
+
+//
+// java.util.concurrent.atomic
+//
+package java.util.concurrent.atomic {
+   //
+   // java.util.concurrent.atomic.AtomicBoolean
+   //
+   class java.util.concurrent.atomic.AtomicBoolean { remove = true; }
+}

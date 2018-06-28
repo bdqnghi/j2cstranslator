@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>   
+   <extension
+         id="ilog.translator.java2cs"
+         name="Java2CsTranslator"
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            class="com.ilog.translator.java2cs.plugin.wizard.ProjectTranslateWizard"
+            icon="/icons/java2cs_project_translation_wizard_icon.png"
+            id="Translation.wizard1"
+            name="ILOG Java to CSharp Translator"/>
+   </extension>
+   <extension
+   		 id="Java2Cs"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run class="com.ilog.translator.java2cs.plugin.TranslationApplication"/>
+      </application>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.conf"
+            id="com.ilog.rules.Java2CSharpTranslator.contribution1">
+         <menu
+               id="com.ilog.rules.Java2CSharpTranslator.menu60"
+               label="Java2CSharp Translator"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MigrateThisMappingFileAction"
+               id="com.ilog.rules.Java2CSharpTranslator.MigrateMappingFileAction"
+               label="Migrate this mapping File to new XML Format"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu60/group1" >               
+          </action>
+       </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            objectClass="org.eclipse.jdt.core.IType"           
+            id="com.ilog.rules.Java2CSharpTranslator.contribution5">
+         <menu
+               id="com.ilog.rules.Java2CSharpTranslator.menu70"
+               label="Java2CSharp Translator"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+          </menu>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.TranslateCompilationUnitAction"
+               id="com.ilog.rules.Java2CSharpTranslator.TranslateCompilationUnitAction2"
+               label="Translate to CSharp this file"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu70/group1" >               
+          </action>
+       </objectContribution>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            objectClass="org.eclipse.jdt.core.IJavaProject"
+            id="com.ilog.rules.Java2CSharpTranslator.contribution2">
+         <menu
+               id="com.ilog.rules.Java2CSharpTranslator.menu10"
+               label="Java2CSharp Translator"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.TranslateCompilationUnitAction"              
+               id="com.ilog.rules.Java2CSharpTranslator.TranslateCompilationUnitAction"
+               label="Translate to CSharp"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.CreateTranslatorFilesAction"
+               id="com.ilog.rules.Java2CSharpTranslator.CreateTranslatorFilesAction"
+               label="Create Translator files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.CheckMappingFilesAction"
+               id="com.ilog.rules.Java2CSharpTranslator.CheckMappingFilesAction"
+               label="Check Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MigrateProjectMappingFilesAction"
+               id="com.ilog.rules.Java2CSharpTranslator.MigrateProjectMappingFilesAction"
+               label="Migrate Project Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MigrateSystemMappingFilesAction"
+               id="com.ilog.rules.Java2CSharpTranslator.MigrateSystemMappingFilesAction"
+               label="Migrate System Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.TranslateResourcesAction"
+               id="com.ilog.rules.Java2CSharpTranslator.TranslateResourcesAction"
+               label="Translate resources"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu10/group1" >               
+          </action>
+       </objectContribution>
+       <viewerContribution           	
+   			 targetID="#CompilationUnitEditorContext"
+             id="TranslatorSVNProject.contribution122">                
+         <menu
+               id="com.ilog.rules.Java2CSharpTranslator.menu0"
+               label="Java2CSharp Translator"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+            <separator
+                  name="group2">
+            </separator>
+            <separator
+                  name="group3">
+            </separator>
+             <separator
+                  name="group4">
+            </separator>
+         </menu>
+        <action
+               class="com.ilog.translator.java2cs.popup.actions.TranslateCompilationUnitAction"              
+               id="com.ilog.rules.Java2CSharpTranslator.TranslateCompilationUnitAction"
+               label="Translate to CSharp"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group1" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsPartialAction"             
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsPartialAction"
+               label="Mark as partial"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsNotGeneratedAction"
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsNotGeneratedAction"
+               label="Mark as not generated"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsTestCaseAction"
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsTestCaseAction"
+               label="Mark as test case"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddPublicModifierAction"
+               id="com.ilog.rules.Java2CSharpTranslator.AddPublicModifierAction"
+               label="add public modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddVirtualModifierAction"
+               id="com.ilog.rules.Java2CSharpTranslator.AddVirtualModifierAction"
+               label="add virtual modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddOverrideModifierAction"
+               id="com.ilog.rules.Java2CSharpTranslator.AddOverrideModifierAction"
+               label="add override modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemoveProtectedModifierAction"
+               id="com.ilog.rules.Java2CSharpTranslator.RemoveProtectedModifierAction"
+               label="remove protected modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group4" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemovePrivateModifierAction"
+               id="com.ilog.rules.Java2CSharpTranslator.RemovePrivateModifierAction"
+               label="remove private modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group4" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemoveInternalModifierAction"             
+               id="com.ilog.rules.Java2CSharpTranslator.RemoveInternalModifierAction"
+               label="remove internal modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu0/group4" >               
+         </action>
+      </viewerContribution>
+      <objectContribution 
+      		 adaptable="true"
+       		 objectClass="org.eclipse.jdt.core.IMember"
+             id="com.ilog.rules.Java2CSharpTranslator.IMemberContribution" >
+         <menu
+               id="com.ilog.rules.Java2CSharpTranslator.menu1"
+               label="Java2CSharp Translator"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+            <separator
+                  name="group2">
+            </separator>
+            <separator
+                  name="group3">
+            </separator>
+             <separator
+                  name="group4">
+            </separator>
+         </menu>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.TranslateCompilationUnitAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.TranslateCompilationUnitAction"
+               label="Translate to CSharp"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.CreateTranslatorFilesAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.CreateTranslatorFilesAction"
+               label="Create Translator files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.CheckMappingFilesAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.CheckMappingFilesAction"
+               label="Check Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MigrateProjectMappingFilesAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MigrateProjectMappingFilesAction"
+               label="Migrate Project Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MigrateSystemMappingFilesAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MigrateSystemMappingFilesAction"
+               label="Migrate System Mapping Files"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+          </action>
+          <action
+               class="com.ilog.translator.java2cs.popup.actions.MappingsInCommentsToFileAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MappingsInCommentsToFileAction"
+               label="Aggregate Mappings In Comments To File"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group1" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsPartialAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsPartialAction"
+               label="Mark as partial"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsNotGeneratedAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsNotGeneratedAction"
+               label="Mark as not generated"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.MarkAsTestCaseAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.MarkAsTestCaseAction"
+               label="Mark as test case"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group2" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddPublicModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.AddPublicModifierAction"
+               label="add public modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddVirtualModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.AddVirtualModifierAction"
+               label="add virtual modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.AddOverrideModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.AddOverrideModifierAction"
+               label="add override modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group3" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemoveProtectedModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.RemoveProtectedModifierAction"
+               label="remove protected modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group4" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemovePrivateModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.RemovePrivateModifierAction"
+               label="remove private modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group4" >               
+         </action>
+         <action
+               class="com.ilog.translator.java2cs.popup.actions.RemoveInternalModifierAction"
+               enablesFor="1"
+               id="com.ilog.rules.Java2CSharpTranslator.RemoveInternalModifierAction"
+               label="remove internal modifier"
+               menubarPath="com.ilog.rules.Java2CSharpTranslator.menu1/group4" >               
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="Java2CSharpNature"
+         name="Java 2 CSharp Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.ilog.translator.java2cs.plugin.TranslationNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            name="%NewTranslatorProjectWizard.Wizard.Name"
+            class="com.ilog.translator.java2cs.plugin.wizard.NewTranslatorProjectWizard"
+            project="true"
+            id="com.ilog.translator.java2cs.plugin.NewTranslatorProjectWizard">
+         <description>
+            %NewTranslatorProjectWizard.Wizard.Description
+         </description>
+      </wizard>
+  </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.ilog.translator.java2cs.plugin.perspectives.TranslationPerspective"
+            icon="icons/releng_gears.gif"
+            id="com.ilog.rules.java2csharptranslator.perspectives.TranslationPerspective"
+            name="Translation">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="com.ilog.translator.java2cs.popup.actions.convertPackage"
+               label="Translate this to CSharp"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.ilog.translator.java2cs.popup.actions.convertPackage"
+            name="Convert Package">
+      </command>
+   </extension>
+   <extension
+         id="convertPackage"
+         name="convertPackage"
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.ilog.translator.java2cs.popup.actions.ConvertPackage"
+            commandId="com.ilog.translator.java2cs.popup.actions.convertPackage">
+      </handler>
+   </extension>   
+</plugin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                       -->
+	<!-- javax.tools.mappingml -->
+	<!--                       -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                     -->
+		<!-- package javax.tools -->
+		<!--                     -->
+		<package name="javax.tools">
+			<!--                                        -->
+			<!-- class javax.tools.SimpleJavaFileObject -->
+			<!--                                        -->
+			<class name="SimpleJavaFileObject" isExcluded="true">
+				<target packageName="ILOG.J2CsMapping.IO" name="SimpleFileObject"
+					isRemove="true">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>

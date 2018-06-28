@@ -1,0 +1,6 @@
+<translation exactDirectoryName="true"
+             generateImplicitMappingfile="true"
+             sourcesOutputDir="c:\Temp\"
+             debug="true">
+   <depends project="BugCapitalizeMethodDep"/>
+</translation>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                     -->
+	<!-- javax.xml.mappingml -->
+	<!--                     -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                             -->
+		<!-- package javax.xml.transform -->
+		<!--                             -->
+		<package name="javax.xml.transform">
+			<!--                                              -->
+			<!-- class javax.xml.transform.TransformerFactory -->
+			<!--                                              -->
+			<class name="TransformerFactory">
+				<target packageName="ILOG.J2CsMapping.XML" name="XmlTransformerFactory">
+				</target>
+			</class>
+
+			<!--                                                -->
+			<!-- class javax.xml.transform.TransformerException -->
+			<!--                                                -->
+			<class name="TransformerException">
+				<target packageName="ILOG.J2CsMapping.XML" name="XmlTransformerException">
+				</target>
+			</class>
+
+			<!--                                       -->
+			<!-- class javax.xml.transform.Transformer -->
+			<!--                                       -->
+			<class name="Transformer">
+				<target packageName="System.Xml.Xsl" name="XslCompiledTransform">
+				</target>
+			</class>
+		</package>
+
+		<!--                                    -->
+		<!-- package javax.xml.transform.stream -->
+		<!--                                    -->
+		<package name="javax.xml.transform.stream">
+			<target name="Xml" />
+			<!--                                               -->
+			<!-- class javax.xml.transform.stream.StreamSource -->
+			<!--                                               -->
+			<class name="StreamSource">
+				<target packageName="System.Xml" name="XmlReader">
+				</target>
+				<!--                                   -->
+				<!-- method StreamSource(java.io.File) -->
+				<!--                                   -->
+				<constructor signature="(java.io.File)">
+					<target>
+						<format>
+<![CDATA[XmlReader.Create(@1.FullName)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                                     -->
+				<!-- method StreamSource(java.io.Reader) -->
+				<!--                                     -->
+				<constructor signature="(java.io.Reader)">
+					<target>
+						<format>
+<![CDATA[XmlReader.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                                          -->
+				<!-- method StreamSource(java.io.InputStream) -->
+				<!--                                          -->
+				<constructor signature="(java.io.InputStream)">
+					<target>
+						<format>
+<![CDATA[XmlReader.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                                               -->
+			<!-- class javax.xml.transform.stream.StreamResult -->
+			<!--                                               -->
+			<class name="StreamResult">
+				<target packageName="System.Xml" name="XmlWriter">
+				</target>
+				<!--                                     -->
+				<!-- method StreamResult(java.io.Writer) -->
+				<!--                                     -->
+				<constructor signature="(java.io.Writer)">
+					<target>
+						<format>
+<![CDATA[XmlWriter.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                                   -->
+				<!-- method StreamResult(java.io.File) -->
+				<!--                                   -->
+				<constructor signature="(java.io.File)">
+					<target>
+						<format>
+<![CDATA[XmlWriter.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                                           -->
+				<!-- method StreamResult(java.io.OutputStream) -->
+				<!--                                           -->
+				<constructor signature="(java.io.OutputStream)">
+					<target>
+						<format>
+<![CDATA[XmlWriter.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+		</package>
+
+		<!--                           -->
+		<!-- package javax.xml.parsers -->
+		<!--                           -->
+		<package name="javax.xml.parsers">
+			<!--                                                      -->
+			<!-- class javax.xml.parsers.ParserConfigurationException -->
+			<!--                                                      -->
+			<class name="ParserConfigurationException">
+				<target packageName="ILOG.J2CsMapping.XML" name="XmlParserConfigurationException">
+				</target>
+			</class>
+
+			<!--                                                -->
+			<!-- class javax.xml.parsers.DocumentBuilderFactory -->
+			<!--                                                -->
+			<class name="DocumentBuilderFactory">
+				<target packageName="ILOG.J2CsMapping.XML" name="XmlDocumentBuilderFactory">
+				</target>
+			</class>
+
+			<!--                                         -->
+			<!-- class javax.xml.parsers.DocumentBuilder -->
+			<!--                                         -->
+			<class name="DocumentBuilder">
+				<target packageName="ILOG.J2CsMapping.XML" name="XmlDocumentBuilder">
+				</target>
+			</class>
+		</package>
+
+		<!--                                 -->
+		<!-- package javax.xml.transform.dom -->
+		<!--                                 -->
+		<package name="javax.xml.transform.dom">
+			<!--                                         -->
+			<!-- class javax.xml.transform.dom.DOMSource -->
+			<!--                                         -->
+			<class name="DOMSource">
+				<target packageName="System.Xml" name="XmlDocument">
+				</target>
+				<!--                                    -->
+				<!-- method DOMSource(org.w3c.dom.Node) -->
+				<!--                                    -->
+				<constructor signature="(org.w3c.dom.Node)">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+		</package>
+	</packages>
+</mapping>

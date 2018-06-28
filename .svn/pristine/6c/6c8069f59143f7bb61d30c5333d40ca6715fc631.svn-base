@@ -1,0 +1,45 @@
+//
+// java.beans
+//
+package java.beans :: System.Reflection {
+
+	//
+	// FeatureDescriptor
+	//
+	class java.beans.FeatureDescriptor :: System.Reflection:MemberInfo {
+    	method getName() { property_get = Name; }
+    	method getDisplayName() { property_get = Name; }
+	}
+
+	//
+	// PropertyDescriptor
+	//
+	class java.beans.PropertyDescriptor :: System.Reflection:PropertyInfo {
+    	method getPropertyType() { property_get = PropertyType; }
+    	method getReadMethod() { name = GetGetMethod; }
+    	method getWriteMethod() { name = GetSetMethod; }
+	}
+
+	//
+	// IndexedPropertyDescriptor
+	//
+	class java.beans.IndexedPropertyDescriptor :: System.Reflection:PropertyInfo {
+    	// the code that uses indexedpropertydescriptor has to be changed!!
+    	method getIndexedPropertyType() { property_get = PropertyType; }
+    	method getIndexedReadMethod() { name = GetGetMethod; }
+    	method getIndexedWriteMethod() { name = GetSetMethod; }
+	}
+	
+	//
+	// IntrospectionException
+	//	
+	class java.beans.IntrospectionException :: System:Exception {
+	};
+	
+	class java.beans.PropertyChangeEvent :: ILOG.J2CsMapping.Util.Beans:PropertyChangeEvent {
+    }
+    
+    class java.beans.PropertyChangeListener :: ILOG.J2CsMapping.Util.Beans:IPropertyChangeListener {
+    }
+	
+}

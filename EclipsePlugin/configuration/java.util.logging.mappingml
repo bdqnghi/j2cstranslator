@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                             -->
+	<!-- java.util.logging.mappingml -->
+	<!--                             -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                           -->
+		<!-- package java.util.logging -->
+		<!--                           -->
+		<package name="java.util.logging">
+			<target name="ILOG.J2CsMapping.Util.Logging" />
+			<!--                                -->
+			<!-- class java.util.logging.Logger -->
+			<!--                                -->
+			<class name="Logger">
+				<target packageName="ILOG.J2CsMapping.Util.Logging" name="Logger">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>

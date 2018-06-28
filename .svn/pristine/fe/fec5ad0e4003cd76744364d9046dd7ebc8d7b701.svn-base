@@ -1,0 +1,87 @@
+<configuration>
+	<pass name="astRefactoring" description="Java compatible refactoring"
+		launch="true" mode="NORMAL">
+		<transformer
+			class="com.ilog.translator.java2cs.translation.textrewriter.ast.RemoveExtraSemiColonVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ThisRemoverVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.MoveClassInMethodToInnerVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.FullyQualifiedStaticMethodInvocationVisitor"
+			always="false" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.MoveAnonymousInConstructorToField" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.ReplaceAnonymousByInnerVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.ReplaceInterfaceFieldDeclarationVisitor" />
+	</pass>
+	<pass name="ast2Refactoring" description="Java compatible transformation"
+		launch="true" mode="NORMAL">
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.MoveFieldsInitializationVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.RenameFieldDeclarationWithForbiddenNameClassVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.RenameTypeVariableVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.MoveInterfaceInnerOrNesterClassToTopVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.astchange.FixForBugInSearchConstructorVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.AbstractClassExplicitImplementMethodFromInterfaceVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.AdjustQualifierforMovedInterfaceFieldVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ReplaceArrayVariableDeclarationVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.AddBreakInSwichCaseVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ChangeSwitchCharToIntVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ChangeEqualsTestForBooleanVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.AutoboxingRemovalVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.LiteralsVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.VariableVisibilityVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.SingleAnnotationVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.RemovePrivateForInnerMembersVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.MoveInitializerToConstructorVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.GroupStaticInitializerVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ForeachCheckerVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.ThisCleanerVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.FullyQualifiedEnumInvocationVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.AutomaticInferGenericArgumentVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.FullyGenericsVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.CheckDefautReturnIngenericClassVisitor" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.QualifiedInnerSimpleTypeReference" />
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.QualifiedInnerTypeReference" />
+		//
+		<transformer
+			class="com.ilog.translator.java2cs.translation.astrewriter.FillBindingTagVisitor" />
+	</pass>
+	<pass name="astReplacement" description="AST transformation to C# pass 1"
+		launch="true" mode="NORMAL">
+	</pass>
+	<pass name="astTextReplacement" description="AST transformation to C# pass 2"
+		launch="true" mode="NORMAL">
+	</pass>
+	<pass name="textReplacement" description="Text transformation to C#"
+		launch="true" mode="NORMAL">
+	</pass>
+</configuration>

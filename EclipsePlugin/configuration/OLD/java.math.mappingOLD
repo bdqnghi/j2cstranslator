@@ -1,0 +1,31 @@
+//
+// java.math
+//
+package java.math :: System {
+
+	//
+	// BigInteger
+	//
+	class java.math.BigInteger :: System:Int64 {
+   		method <init>(String) { pattern = Int64.Parse(@1); }
+   		
+   		method pow(int) { pattern = Math.Pow(@0, @1);}
+   		method valueOf(long) { pattern = @1M; }
+	};
+
+	//
+	// BigDecimal
+	//
+	class java.math.BigDecimal :: System:Decimal {
+   		method <init>(String) { pattern =  Decimal.Parse(@1); }
+   		method valueOf(long) { pattern = @1M; }
+    	method divide(java.math.BigDecimal, int) { pattern =  Decimal.Round(Decimal.Divide(@0, @1),@2); }
+    	method multiply(java.math.BigDecimal) { pattern =  Decimal.Multiply(@0, @1); }
+    	method scale() { pattern =  (int) @0; }
+    	method unscaledValue() { pattern =  @0; }
+    	method setScale(int, int) { pattern =  @0; }
+    	method movePointLeft(int) { pattern =  @0; }
+    	method movePointRight(int) { pattern =  @0; }
+    	method signum() { pattern =  (int) @0; }
+	};
+}

@@ -1,0 +1,889 @@
+package java.lang :: System {
+
+	//
+	// Object
+	//
+    class java.lang.Object :: System:Object {
+      method getClass() { name = GetType; }
+      method hashCode() { name = GetHashCode; }
+      method clone() { name = Clone; }
+    };
+
+	//
+	// Enum
+	//
+    class java.lang.Enum  {
+      method ordinal() { pattern = (int) @0; }
+      method name() { name = ToString; }
+      method valueOf(Class<T>, String) { pattern = (%1) Enum.Parse(@1, @2); }     
+    }
+   
+   //
+   // ------------------------------------------
+   //
+
+    //
+    // Class
+    //    
+    class java.lang.Class :: System:Type {
+      method forName(java.lang.String) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetNativeType(@1); }
+      method forName(java.lang.String, boolean, java.lang.ClassLoader) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetNativeType(@1); }
+      method getName() { property_get = FullName; }
+      method getSimpleName() { property_get = Name; }
+      method getCanonicalName() { property_get = FullName; }
+      method getPackage() { property_get = Namespace; }
+      method isInstance(java.lang.Object) { name = IsInstanceOfType; }
+      method getClassLoader() { property_get = Assembly; }          
+      method getDeclaredField(java.lang.String) { name = GetField; }
+      method getDeclaredFields() { pattern = @0.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static); }     
+            
+      method getMethod(java.lang.String,java.lang.Class<?>[]) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetMethod(@0, @1, @2); }  
+      method getDeclaredMethod(java.lang.String,java.lang.Class<?>[]) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetMethod(@0, @1, @2); }  
+      method getDeclaredMethods() { pattern = @0.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static); }
+ 
+      method getDeclaredConstructor(java.lang.Class<?>[]) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetConstructor(@0, @1); }  
+      method getConstructor(Class<?>[]) { pattern = ILOG.J2CsMapping.Reflect.Helper.GetConstructor(@0, @1); }  
+      method getDeclaredConstructors() { pattern = @0.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static); }      
+      
+      method isArray() { property_get = IsArray; }
+      method isInterface() { property_get = IsInterface; }
+      method isPrimitive() { property_get = IsPrimitive; }
+      method getDeclaringClass() { property_get = DeclaringType; }
+      method getModifiers() { pattern = new ILOG.J2CsMapping.Reflect.IlrModifier(@0).GetModifiers(); }
+      method getSuperclass() { property_get = BaseType; }
+      method getComponentType() { name = GetElementType; }
+      method newInstance() { pattern = Activator.CreateInstance(@0); }
+      method getResourceAsStream(java.lang.String) { pattern = @0.Assembly.GetFile(@1); }
+      
+      method getGenericSuperclass() { property_get = BaseType; }	
+	  method getGenericInterfaces() { name = GetInterfaces; } 
+   };
+   
+
+    
+   //
+   // String
+   //
+   class java.lang.String :: System:String {	 
+	  method <init>() { pattern = String.Empty; }
+      method <init>(String) { pattern = @1; }
+      method <init>(char[]) { pattern = ILOG.J2CsMapping.Util.StringUtil.NewString(@1); }
+      method <init>(byte[], String) { pattern = ILOG.J2CsMapping.Util.StringUtil.NewString(@1, @2); }
+      method <init>(byte[]) { pattern = ILOG.J2CsMapping.Util.StringUtil.NewString(@1); }
+      // Static methods!
+      method valueOf(char) { pattern = @1.ToString(); }
+      method valueOf(int) { pattern = @1.ToString(); }
+      method intern() { pattern = string.Intern(@0); }
+      method equalsIgnoreCase(String) { pattern = @0.Equals(@1, StringComparison.InvariantCultureIgnoreCase); }
+
+      // Instance methods!
+      method length() { property_get = Length; }
+      method charAt(int) { pattern = @0[@1]; }
+      method substring(int) { pattern = @0.Substring(@1); }
+      method substring(int,int) { pattern = @0.Substring(@1,(@2)-(@1)); }
+      method startsWith(String) { pattern = @0.StartsWith(@1); }
+      method startsWith(String,int) { pattern = ILOG.J2CsMapping.Util.StringUtil.StartsWith(@0, @1, @2); }
+      method concat(String) { pattern = String.Concat(@0,@1); }
+      method compareTo(String) { pattern = String.CompareOrdinal(@0, @1); }
+      method compareToIgnoreCase(String) { pattern = String.Compare(@0, @1, true);}
+      method indexOf(String, int) { pattern = ILOG.J2CsMapping.Util.StringUtil.IndexOf(@0, @1, @2); }
+      
+      method toLowerCase() { name = ToLower; }
+      method toLowerCase(java.util.Locale) { pattern =  @0.ToLower(@1); }
+      method toUpperCase() { name = ToUpper; }
+      method toUpperCase(java.util.Locale) { name = ToUpper; }
+      method valueOf(boolean) { pattern = @1.ToString(); }
+      method valueOf(char) { pattern = @1.ToString(); }
+      method valueOf(double) { pattern = @1.ToString(); }
+      method valueOf(float) { pattern = @1.ToString(); }
+      method valueOf(int) { pattern = @1.ToString(); }
+      method valueOf(long)  { pattern = @1.ToString(); }
+      method valueOf(Object)  { pattern = @1.ToString(); }
+      
+      // new
+      method split(String) { pattern = @0.Split(@1.ToCharArray()); }
+      method replaceFirst(java.lang.String, java.lang.String) { pattern = ILOG.J2CsMapping.Util.StringUtil.ReplaceFirst(@0, @1, @2); }
+      method getChars(int, int, char[], int) { pattern = @0.CopyTo(@1, @3, @4, @2 - @1); }
+      method format(java.lang.String, java.lang.Object[]) { pattern = ILOG.J2CsMapping.Util.StringUtil.Format(@1, @2...); }
+      
+      method replaceAll(String, String) { name = Replace; }
+      method getBytes() { pattern = ILOG.J2CsMapping.Util.StringUtil.GetBytes(@0);}
+      method getBytes(String) { pattern = ILOG.J2CsMapping.Util.StringUtil.GetBytes(@0, @1); }
+      method matches(java.lang.String) { pattern = ILOG.J2CsMapping.Util.StringUtil.Matches( @0, @1 ); }
+      
+      method codePointAt(int) { pattern = @0[@1]; }
+   };
+
+   //   			
+   // System
+   //
+   class java.lang.System :: System:Console {
+      field in  { name = In; }
+      field out { name = Out; }
+      field err { name = Error; }
+
+      method arraycopy(Object,int,Object,int,int) { pattern = System.Array.Copy((Array)@1,@2,(Array)@3,@4,@5); }
+      // Could not find the right replacement! Let's use GethashCode().
+      method identityHashCode(Object) { pattern = ILOG.J2CsMapping.Util.HashCodeUtil.IdentityHashCode(@1); }
+      method getProperty(String, String)  { pattern =System.Environment.GetEnvironmentVariable(@1); }
+      method getProperty(String)  { pattern = System.Environment.GetEnvironmentVariable(@1); }
+      method exit(int)  { pattern = Environment.Exit(@1); }
+      method getSecurityManager()  { pattern = new ILOG.J2CsMapping.Security.IlrSecurityManager(); }
+      method currentTimeMillis()  { pattern = DateTime.Now.Millisecond; }
+      method setProperty( String, String ) { 
+          pattern = "ILOG.J2CsMapping.Util.Properties props = new ILOG.J2CsMapping.Util.Properties(); props.SetProperty( @1, @2 )"; }
+      method nanoTime()  { pattern = (System.DateTime.Now.Ticks * 100); } 
+   };
+
+	//
+    // Math
+    //
+   class java.lang.Math :: System:Math {
+      method min(int,int) { pattern = Math.Min(@1,@2); }
+      method min(long,long) { pattern = Math.Min(@1,@2); }
+      method min(float,float) { pattern = Math.Min(@1,@2); }
+      method min(double,double) { pattern = Math.Min(@1,@2); }
+      method max(int,int) { pattern = Math.Max(@1,@2); }
+      method max(long,long) { pattern = Math.Max(@1,@2); }
+      method max(float,float) { pattern = Math.Max(@1,@2); }
+      method max(double,double) { pattern = Math.Max(@1,@2); }
+      method rint(double) { pattern = Math.Round(@1); }
+      method ceil(double) { pattern = Math.Ceiling(@1); }
+      method log(double) { pattern = Math.Log(@1); }
+      method floor(double) { pattern = Math.Floor(@1); }
+      method abs(double) { pattern = Math.Abs(@1); }
+      method abs(long) { pattern = Math.Abs(@1); }
+      method abs(int) { pattern = Math.Abs(@1); }
+      method abs(float) { pattern = Math.Abs(@1); }
+      method exp(double) { pattern = Math.Exp(@1); }
+      method sqrt(double) { pattern = Math.Sqrt(@1); }
+      method pow(double, double) { pattern = Math.Pow(@1,@2); }
+      method round(double) { pattern = Math.Round(@1, MidpointRounding.AwayFromZero); }
+      method random() { pattern = (new Random()).Next(); }
+      method toDegrees(double) { pattern = (@1 * 180 / Math.PI); }
+   };
+   
+   //------------------------------------------------------------
+   // A few interfaces
+   //------------------------------------------------------------
+
+	//
+	// Cloneable
+	//
+    class java.lang.Cloneable :: System:ICloneable {
+    };
+
+	//
+	// Comparable
+	//
+    class java.lang.Comparable :: System:IComparable {
+    };
+   
+   //------------------------------------------------------------
+   // The wrapper classes
+   //------------------------------------------------------------
+   
+	//
+	// Void
+	//
+   class java.lang.Void :: ILOG.J2CsMapping:ObjectVoid {
+      field TYPE { pattern = typeof(void); }
+   }
+
+   //
+   // Boolean
+   //
+   class java.lang.Boolean :: System:Object {
+      nullable = false;
+   
+      field TYPE { pattern = typeof(Boolean); }
+      field TRUE { pattern = true; }
+      field FALSE { pattern = false; }
+      
+      method <init>(boolean) { pattern = (bool)(@1); }
+      
+      method booleanValue() { pattern = (bool)(@0); }
+      method valueOf(String) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1); }
+      method valueOf(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1); }
+      method getBoolean(String) { pattern = Boolean.Parse(@1); }
+      method parseBoolean(String) { pattern = Boolean.Parse(@1); }
+      
+      method toString(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ToString(@1); }
+      
+      instanceOfTypeName = Boolean;
+   };
+     
+   /*class java.lang.Boolean :: System:Boolean {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Boolean); }
+      field TRUE { pattern = ILOG.J2CsMapping.Util.BooleanUtil.TRUE; }
+      field FALSE { pattern = ILOG.J2CsMapping.Util.BooleanUtil.FALSE; }
+      
+      method <init>(boolean) { pattern = (Boolean#{ insert_here:? #}) (@1); }
+      
+      method booleanValue() { pattern = @0.Value; }; * { pattern = (bool)(@0); } *
+      method valueOf(String) { pattern = ((Boolean#{ insert_here:? #}) ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1)); }
+      method valueOf(boolean) { pattern = ((boolean) @1); }
+      method getBoolean(String) { pattern = Boolean.Parse(@1); }
+      method parseBoolean(String) { pattern = Boolean.Parse(@1); }
+      
+      method toString(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ToString(@1); }
+   };*/
+
+	//
+	// Character
+	//
+   class java.lang.Character :: System:Char {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Char); }
+      field MAX_VALUE { pattern = Char.MaxValue; }
+      field MIN_VALUE { pattern = Char.MinValue; }
+      field LINE_SEPARATOR { pattern = ILOG.J2CsMapping.Util.Character.LINE_SEPARATOR; }
+      
+      method <init>(char) { pattern = (char#{ insert_here:? #})(@1); }
+      
+      method charValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      method isLowerCase(char) { pattern = Char.IsLower(@1); }
+      method isUpperCase(char) { pattern = Char.IsUpper(@1); }
+      method toLowerCase(char) { pattern = Char.ToLower(@1); }
+      method toUpperCase(char) { pattern = Char.ToUpper(@1); }
+      method isISOControl(char) { pattern = Char.IsControl(@1);  }
+      method isSpaceChar(char) { pattern = Char.IsWhiteSpace(@1); }
+      method isWhitespace(char) { pattern = Char.IsWhiteSpace(@1); }
+      method isDigit(char) { pattern = Char.IsDigit(@1); }
+      method digit(char, int) { pattern = ILOG.J2CsMapping.Util.Character.Digit(@1, @2); }
+      method isJavaIdentifierStart(char) { pattern = ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierStart(@1); }
+      method isJavaIdentifierPart(char) { pattern = ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierPart(@1); }
+      method toTitleCase(char) { pattern = @1; }
+      method valueOf(char) { pattern = ((char) @1); }
+   };
+
+	//
+	// Number
+	//
+   class java.lang.Number :: System:object {
+      method byteValue() { pattern = Convert.ToByte(@0); }
+      method shortValue() { pattern = Convert.ToInt16(@0); }
+      method intValue() { pattern = System.Convert.ToInt32(@0); }
+      method longValue() { pattern = Convert.ToInt64(@0); }
+      method floatValue() { pattern = Convert.ToSingle(@0); }
+      method doubleValue() { pattern = Convert.ToDouble(@0); }
+   };
+
+	//
+	// Byte
+	//
+   class java.lang.Byte :: System:Byte {
+      nullable = true;
+        
+      field TYPE { pattern = typeof(Byte); }
+      field MAX_VALUE { pattern = Byte.MaxValue; }
+      field MIN_VALUE { pattern = Byte.MinValue; }
+      
+      method <init>(byte) { pattern = (byte#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Byte#{ insert_here:? #}) Byte.Parse(@1)); }
+      method byteValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      
+      method valueOf(String) { pattern = Byte.Parse(@1); }
+      method valueOf(byte) { pattern = ((byte) @1); }
+   };
+
+	//
+	// Short
+	//
+   class java.lang.Short :: System:Int16 {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Int16); }
+      field MAX_VALUE { pattern = Int16.MaxValue; }
+      field MIN_VALUE { pattern = Int16.MinValue; }
+      
+      method <init>(short) { pattern = (short#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Int16#{ insert_here:? #}) Int16.Parse(@1)); }
+      method shortValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      
+      method valueOf(String) { pattern = Int16.Parse(@1); }
+      method valueOf(short) { pattern = ((short) @1); }
+   };
+   
+   	//
+	// Integer
+	//
+   class java.lang.Integer :: System:Int32 {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Int32); }
+      field MAX_VALUE { pattern = Int32.MaxValue; }
+      field MIN_VALUE { pattern = Int32.MinValue; }
+      
+      method <init>(int) { pattern = ((int#{ insert_here:? #}) (@1)); }
+      method <init>(String) { pattern = ((Int32#{ insert_here:? #}) Int32.Parse(@1)); }
+      method intValue() { pattern = @0.Value; };
+
+      method compareTo(java.lang.Integer) { pattern = ILOG.J2CsMapping.Util.Int32Helper.CompareTo(@0, @1); }
+      method decode(String) { pattern = ((Int32#{ insert_here:? #}) ILOG.J2CsMapping.Util.Int32Helper.Decode(@1)); }
+      method valueOf(int) { pattern = ((int) @1); }
+      method valueOf(String) { pattern = ((Int32#{ insert_here:? #}) Int32.Parse(@1)); }
+      method valueOf(String,int) { pattern = ((Int32#{ insert_here:? #}) Convert.ToInt32(@1, @2)); }
+      method parseInt(String) { pattern =  Int32.Parse(@1); }
+      method parseInt(String, int) { pattern = ((Int32#{ insert_here:? #}) Convert.ToInt32(@1, @2)); }
+      // I'm really not sure for the last arg (shift) :-)
+      method toBinaryString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,2); }
+      method toHexString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,16); }
+      method toString(int,int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,@2); }
+      method toString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1); }
+   };
+
+	//
+	// Long
+	//
+   class java.lang.Long :: System:Int64 {
+      nullable = true;   
+   
+      field TYPE { pattern = typeof(Int64); }
+      field MAX_VALUE { pattern = Int64.MaxValue; }
+      field MIN_VALUE { pattern = Int64.MinValue; }
+      field SIZE { pattern = 64; }
+
+      method <init>(long) { pattern = (long#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1)); }
+      method longValue() { pattern = @0.Value; };
+
+      method decode(String) { pattern = ((Int64#{ insert_here:? #}) ILOG.J2CsMapping.Util.Int64Helper.Decode(@1)); }
+      
+      method toString(long) { pattern = @1.ToString(); }
+      method valueOf(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1)); }
+      method valueOf(long) { pattern = ((long) @1); }
+      method valueOf(String,int) { pattern = ((Int64#{ insert_here:? #}) Convert.ToInt64(@1, @2)); }      
+      method parseLong(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1, System.Globalization.NumberStyles.Integer)).Value; }
+      method numberOfTrailingZeros(long) { pattern = ILOG.J2CsMapping.Util.Int64Helper.NumberOfTrailingZeros(@1); }
+      method numberOfLeadingZeros(long)  { pattern = ILOG.J2CsMapping.Util.Int64Helper.NumberOfLeadingZeros(@1); }
+       method toHexString(long) { pattern = string.Format(#\"{0:x}#\", @1); }
+   };
+
+	//
+	// Float
+	//
+   class java.lang.Float :: System:Single {
+      nullable = true; 
+      
+      field TYPE { pattern = typeof(Single); }
+      field MAX_VALUE { pattern = System.Single.MaxValue; }
+      field MIN_VALUE { pattern = System.Single.MinValue; }
+      field POSITIVE_INFINITY { pattern = System.Single.PositiveInfinity; }
+      field NEGATIVE_INFINITY { pattern = System.Single.NegativeInfinity; }
+      
+      method <init>(float) { pattern = (float#{ insert_here:? #}) (@1); }
+      method <init>(double) { pattern = (float#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Single#{ insert_here:? #}) Single.Parse(@1)); }
+
+      method floatValue() { pattern = @0.Value; };
+      method compare(float, float) { pattern = @1.CompareTo(@2); }
+       
+      method isNaN(float) { pattern = Single.IsNaN(@1); }
+      method valueOf(float) { pattern = ((float) @1); }
+      method valueOf(String) { pattern = Single.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat); }
+      method parseFloat(String) { pattern = Single.Parse(@1,  ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat); }
+      method isInfinite() { pattern = Single.IsInfinity((float)@0); }
+      method intBitsToFloat(int) { pattern = BitConverter.DoubleToInt64Bits(@1); }
+      method toString(float) { pattern = String.Concat(@1); }
+   };
+
+	//
+	// Double
+	//
+    class java.lang.Double :: System:Double {
+      nullable = true; 
+      
+      field TYPE { pattern = typeof(Double); }
+      field MAX_VALUE { pattern = System.Double.MaxValue; }
+      field MIN_VALUE { pattern = System.Double.MinValue; }
+      
+      field NEGATIVE_INFINITY { pattern = System.Double.NegativeInfinity; }
+      field POSITIVE_INFINITY { pattern = System.Double.PositiveInfinity; }
+
+      method <init>(double) { pattern = (double#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1)); }
+      method doubleValue() { pattern = @0.Value; }; // TODO
+       
+      method valueOf(double) { pattern = ((double) @1); }
+      method valueOf(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)); }
+      method parseDouble(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)); }
+      method isInfinite() { pattern = Double.IsInfinity((double)@0); }
+      method isInfinite(double) { pattern = Double.IsInfinity(@1); }
+      method isNaN(double) { pattern = Double.IsNaN(@1); }
+      method longBitsToDouble(long) { pattern = BitConverter.Int64BitsToDouble(@1); }
+      method doubleToLongBits(double) { pattern = BitConverter.DoubleToInt64Bits(@1); }
+      method toString(double) { pattern = String.Concat(@1);  }   
+      method compare(double, double) { pattern = @1.CompareTo(@2); }     
+    };
+   
+   //------------------------------------------------------------
+   // String utility classes
+   //------------------------------------------------------------
+
+	//
+	// StringBuffer
+	//
+   class java.lang.StringBuffer :: System.Text:StringBuilder {
+      method setLength(int) { pattern = @0.Length = @1; } 
+      method length() { property_get = Length; } 
+      method substring(int, int) { pattern =  @0.ToString().Substring(@1,@2); } 
+      method delete(int,int) { pattern =  @0.Remove(@1,@2-(@1)); }
+      method charAt(int) { pattern = @0[@1]; } 
+      method setCharAt(int, char) { pattern = @0[@1] = @2; };
+      method deleteCharAt(int) { pattern = @0.Remove(@1,1); };
+      method substring(int) { pattern = @0.ToString(@1, @0.Length - @1); };
+      method substring(int, int) { pattern = @0.ToString(@1, @2 - @1); };    
+      method getChars(int, int, char[], int) { pattern = @0.CopyTo(@1, @3, @4, @2}; };
+   };
+   
+   //
+   // AbstractStringBuilder
+   //
+   class java.lang.AbstractStringBuilder :: System.Text:StringBuilder {
+      method setLength(int) { pattern = @0.Length = @1; } 
+      method length() { property_get = Length; } 
+      method substring(int, int) { pattern =  @0.ToString().Substring(@1,@2); } 
+      method delete(int,int) { pattern =  @0.Remove(@1,@2); } 
+      method charAt(int) { pattern = @0[@1]; } 
+      method setCharAt(int, char) { pattern = @0[@1] = @2; };
+      method deleteCharAt(int) { pattern = @0.Remove(@1,1); };
+      method substring(int) { pattern = @0.ToString(@1, @0.Length - @1); };
+      method substring(int, int) { pattern = @0.ToString(@1, @2 - @1); };    
+   };
+   
+   //
+   // StringBuilder
+   //
+   class java.lang.StringBuilder :: System.Text:StringBuilder {  
+      method delete(int,int) { pattern =  @0.Remove(@1,@2); } 
+   };
+
+	//
+	// NoClassDefFoundError
+	//
+    class java.lang.NoClassDefFoundError :: System.Reflection:ReflectionTypeLoadException {
+      method <init>(String) { pattern = new Exception(@1); }
+    };
+   
+   //
+   // ClassLoader
+   //   
+   class java.lang.ClassLoader :: System.Reflection:Assembly {
+      method getResource(String) { pattern = ILOG.J2CsMapping.IO.IOUtility.GetResource(@0, @1); }
+      method getResourceAsStream(String) { pattern = ILOG.J2CsMapping.IO.IOUtility.GetResourceAsStream(@0, @1); }
+      method getSystemClassLoader() { name = GetEntryAssembly; }
+      method loadClass(String) { name = GetType; }
+      method loadClass(String, boolean) { name = GetType; }
+   };
+
+    //------------------------------------------------------------
+    // The language level exceptions
+	//   Mapping several Java classes to Exception!!
+	//------------------------------------------------------------
+
+	//
+	// Throwable
+	//
+	class java.lang.Throwable :: System:Exception {    
+	   // method <init>(java.lang.Throwable) { pattern = @1.Message; } 
+		
+    	method getLocalizedMessage() { property_get = Message; }
+    	method getMessage() { property_get = Message; }
+    	method getCause() { property_get = InnerException; }
+		method printStackTrace() { pattern = Console.Error.WriteLine(@0.StackTrace); }
+  		method printStackTrace(java.io.PrintStream) { pattern = @1.WriteLine(@0.StackTrace); }
+  		method printStackTrace(java.io.PrintWriter) { pattern = @1.WriteLine(@0.StackTrace); }
+  		
+  		method getStackTrace() { pattern = @0.StackTrace; }
+	};
+
+	//
+	// StackTraceElement
+	//
+	class java.lang.StackTraceElement :: System:String {
+	}
+	
+	//
+	// Error
+	//
+	class java.lang.Error :: System:Exception {
+	};
+
+	//
+	// Exception
+	//
+	class java.lang.Exception :: ILOG.J2CsMapping:Exception  {
+       // method <init>(java.lang.Throwable) { pattern = @1; }                
+	};
+
+	//
+	// RuntimeException
+	//
+	class java.lang.RuntimeException :: ILOG.J2CsMapping:RuntimeException {
+    	// method <init>(java.lang.Throwable) { pattern = @1; }      	
+	};
+
+	//------------------------------------------------------------
+	// Frequent runtime exceptions
+	//------------------------------------------------------------
+
+	//
+	// ClassNotFoundException
+	//
+	class java.lang.ClassNotFoundException :: System:TypeLoadException {
+	};
+
+	//
+	// IncompatibleClassChangeError
+	//
+	class java.lang.IncompatibleClassChangeError :: System:InvalidProgramException {
+	};
+
+	//
+	// ClassCastException
+	//
+	class java.lang.ClassCastException :: System:InvalidCastException {
+	};	
+
+	//
+	// NullPointerException
+	//
+	class java.lang.NullPointerException :: System:NullReferenceException {
+	};
+
+	//
+	// IllegalArgumentException
+	//
+	class java.lang.IllegalArgumentException :: System:ArgumentException {
+	};
+
+	//
+	// ArithmeticException
+	//
+	class java.lang.ArithmeticException :: System.ArithmeticException {
+	};
+	
+	//
+	// NoSuchFieldException
+	//	
+	class java.lang.NoSuchFieldException :: System.Exception {
+	};
+	
+	//
+	// ExceptionInInitializerError
+	//
+	class java.lang.ExceptionInInitializerError :: System.ReflectionTypeLoadException  {
+	};
+	
+	//
+	// ArrayIndexOutOfBoundsException
+	//
+	class java.lang.ArrayIndexOutOfBoundsException :: System:IndexOutOfRangeException {
+   		method <init>(String) { pattern = new IndexOutOfRangeException(@1.ToString()); }
+   		method <init>(int) { pattern = new IndexOutOfRangeException(@1.ToString()); }
+	};
+
+	//
+	// ArrayStoreException
+	//
+	class java.lang.ArrayStoreException :: System.ArrayTypeMismatchException {
+	};
+	
+	//
+	// IndexOutOfBoundsException
+	//
+	class java.lang.IndexOutOfBoundsException :: System:IndexOutOfRangeException {
+   		method <init>(String) { pattern = new IndexOutOfRangeException(@1.ToString()); }
+	};	
+
+    //
+	// StringIndexOutOfBoundsException
+	//
+	class java.lang.StringIndexOutOfBoundsException :: System:ArgumentOutOfRangeException {
+   		method <init>(String) { pattern = new ArgumentOutOfRangeException(@1.ToString()); }
+	};	
+	
+	//
+	// NegativeArraySizeException
+	//
+	class java.lang.NegativeArraySizeException :: System:IndexOutOfRangeException {
+	};
+
+	//
+	// UnsupportedOperationException
+	//
+	class java.lang.UnsupportedOperationException :: System:NotSupportedException {
+	};
+
+	//
+	// NumberFormatException
+	//
+	class java.lang.NumberFormatException :: System:FormatException {
+	};
+	
+	//------------------------------------------------------------
+	// Reflection exceptions
+	//------------------------------------------------------------
+
+	//
+	// IllegalAccessException
+	//
+	class java.lang.IllegalAccessException :: System:MemberAccessException {
+	};
+
+	//
+	// InstantiationException
+	//
+	class java.lang.InstantiationException :: System.Reflection:TargetException {
+	};
+
+	//
+	// NoSuchMethodException
+	//
+	class java.lang.NoSuchMethodException :: System.Reflection:AmbiguousMatchException {
+	};
+
+	//
+	// LinkageError
+	//
+	class java.lang.LinkageError :: System:Exception  { 
+	};
+
+	//------------------------------------------------------------
+	// Security
+	//------------------------------------------------------------
+
+	//
+	// SecurityException
+	//
+	class java.lang.SecurityException :: System.Security:SecurityException {
+	};
+	
+	//
+	// SecurityManager
+	//	
+	class java.lang.SecurityManager :: ILOG.J2CsMapping.Security:IlrSecurityManager {
+	   method checkCreateClassLoader() { name = CheckCreateAssembly; }
+	}
+
+	//
+	// IllegalStateException
+	// I can't found any appropriate exception !
+	//
+	class java.lang.IllegalStateException :: System:InvalidOperationException {
+	   method <init>(java.lang.Throwable) { pattern = new InvalidOperationException(@1.ToString()); }
+	};
+
+	//
+	// CloneNotSupportedException
+	//
+	class java.lang.CloneNotSupportedException :: System:Exception {
+	};
+
+	//
+	// NumberFormatException
+	//	
+	class java.lang.NumberFormatException :: System:FormatException {
+	};
+	
+	//
+	// Thread
+	//
+	class java.lang.Thread :: System.Threading:Thread {
+	   method currentThread() { property_get = CurrentThread;}
+	   method getName() { property_get = Name; }
+	}
+	
+	class java.lang.InterruptedException  :: System.Threading:ThreadInterruptedException {
+	}
+	
+	//
+	// JDK 6.0
+	//
+
+	//
+	// Iterable
+	//	
+	class java.lang.Iterable :: System.Collections:IEnumerable {
+	   method iterator() { pattern = new ILOG.J2CsMapping.Collections.IteratorAdapter(@0.GetEnumerator()); }
+	}
+	
+	//
+	// CharSequence
+	//	
+	class java.lang.CharSequence :: System:String {
+  	   method charAt(int) { pattern = @0[@1]; }
+  	   method length() { property_get = Length; }
+	}
+
+        class java.lang.Runtime {
+      	method availableProcessors() { pattern = (int)(Math.Log( (double)((int)System.Diagnostics.Process.GetCurrentProcess().ProcessorAffinity + 1), 2 )); }
+      }
+}
+
+//------------------------------------------------------------
+// Reflection package
+//------------------------------------------------------------
+package java.lang.reflect :: System.Reflection {
+
+	//
+	// Array
+	// 
+    // This mapping is good only for jagged array. 
+   class java.lang.reflect.Array :: ILOG.J2CsMapping.Collections.Arrays /*System:Array*/ {
+      method getLength(Object) { pattern = ((Array)@1).Length; } 
+      method get(Object,int) { pattern = ILOG.J2CsMapping.Collections.Arrays.Get(@1, @2);  } 
+      method set(Object,int,Object) { pattern = ILOG.J2CsMapping.Collections.Arrays.Set(@1, @2, @3); } 
+      
+      method newInstance(Class<?>,int) { pattern = ILOG.J2CsMapping.Collections.Arrays.NewInstance(@1, @2); } 
+      method newInstance(Class<?>,int[]) { pattern = ILOG.J2CsMapping.Collections.Arrays.NewInstance(@1, @2); } 
+   };
+
+	//
+	// Member
+	//
+   class java.lang.reflect.Member :: System.Reflection:MemberInfo {
+      method getDeclaringClass() { property_get = DeclaringType; }
+      method getName() { property_get = Name; }
+   };
+
+	//
+	// Field
+	//
+   class java.lang.reflect.Field :: System.Reflection:FieldInfo {
+      method get(Object) { name = GetValue; }
+      method getBoolean(Object) { pattern = (bool) @0.GetValue(@1); }
+      method getByte(Object) { pattern = (byte) @0.GetValue(@1); }
+      method getShort(Object) { pattern = (short) @0.GetValue(@1); }
+      method getInt(Object) { pattern = (int) @0.GetValue(@1); }
+      method getLong(Object) { pattern = (long) @0.GetValue(@1); }
+      method getFloat(Object) { pattern = (float) @0.GetValue(@1); }
+      method getDouble(Object) { pattern = (double) @0.GetValue(@1); }
+      method getChar(Object) { pattern = (char) @0.GetValue(@1); }
+      method set(Object,Object) { name = SetValue; }
+      method getName() { property_get = Name; }
+      method getModifiers() { pattern = new ILOG.J2CsMapping.Reflect.IlrModifier(@0).GetModifiers(); }
+      method getType() { property_get = FieldType; }
+      method getGenericType() { property_get = FieldType; }
+   };
+
+	//
+	// Constructor
+	//
+   class java.lang.reflect.Constructor :: System.Reflection:ConstructorInfo {
+      method getDeclaringClass() { property_get = DeclaringType; }
+      method newInstance(Object[]) { pattern = @0.Invoke(@1); }
+      method getParameterTypes() { pattern = new ILOG.J2CsMapping.Reflect.IlrMethodInfoAdapter(@0.GetParameters()).GetTypes(); }
+      method getExceptionTypes() { property_get = Attributes; }
+      method getModifiers() { pattern = new ILOG.J2CsMapping.Reflect.IlrModifier(@0).GetModifiers(); }
+      method newInstance(Object...) { pattern = ILOG.J2CsMapping.Reflect.Helper.Invoke(@0, @1); }
+      method getGenericParameterTypes() { name = GetGenericArguments; }
+   }
+
+	//
+	// AccessibleObject
+	//
+   class java.lang.reflect.AccessibleObject {
+      method isAccessible() { pattern = ILOG.J2CsMapping.Reflect.AccessibleObject.IsAccessible(@0); }
+      method setAccessible(boolean) { pattern = ILOG.J2CsMapping.Reflect.AccessibleObject.SetAccessible(@0,@1); }
+   };
+
+	//
+	// Method
+	//
+   class java.lang.reflect.Method :: System.Reflection:MethodInfo {
+      method getName() { property_get = Name; }
+      method getParameterTypes() { pattern = new ILOG.J2CsMapping.Reflect.IlrMethodInfoAdapter(@0.GetParameters()).GetTypes(); }
+      method getReturnType() { property_get = ReturnType; }
+      method getExceptionTypes() { property_get = Attributes;  }
+      method getModifiers() { pattern = new ILOG.J2CsMapping.Reflect.IlrModifier(@0).GetModifiers(); }      
+      method getGenericParameterTypes() { name = GetGenericArguments; }
+	  method getGenericReturnType() { property_get = ReturnType; }	 
+	  method invoke(Object, Object[]) { pattern = ILOG.J2CsMapping.Reflect.Helper.Invoke(@0, @1, @2); }
+   };
+
+	//
+	// Modifier
+	//
+   class java.lang.reflect.Modifier :: ILOG.J2CsMapping.Reflect:IlrModifier { 
+      method isTransient(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsTransient(@1); }
+      method isPublic(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsPublic(@1); }
+      method isPrivate(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsPrivate(@1); }
+      method isSynchronized(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsSynchronized(@1); }
+      method isVolatile(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsVolatile(@1); }
+      method isFinal(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsFinal(@1); }
+      method isInterface(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsInterface(@1); }
+      method isAbstract(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsAbstract(@1); }
+      method isStrict(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsStrict(@1); }
+      method isNative(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsNative(@1); }
+      method isStatic(int) { pattern = ILOG.J2CsMapping.Reflect.IlrModifier.IsStatic(@1); }
+   }
+   
+   	//
+	// InvocationTargetException
+	//
+	class java.lang.reflect.InvocationTargetException :: System.Reflection:TargetInvocationException {
+  		method getTargetException() { property_get = InnerException; }
+	};
+	
+	//
+	// Type
+	//
+	class java.lang.reflect.Type :: System:Type {
+
+	}
+	
+	//
+	// InvocationHandler
+	//
+	class java.lang.reflect.InvocationHandler :: ILOG.J2CsMapping.Reflect:InvocationHandler {
+	}
+	
+    //
+	// Proxy
+	//
+	class java.lang.reflect.Proxy :: ILOG.J2CsMapping.Reflect:Proxy {
+	}
+}
+
+//
+// java.lang.ref
+//	
+package java.lang.ref :: System {	   
+   
+   	//
+	// Reference
+	//
+    class java.lang.ref.Reference {
+      method get() { property_get = Target; }
+    };
+
+	//
+	// WeakReference
+	//
+    class java.lang.ref.WeakReference :: System:WeakReference {
+    };
+   
+   	//
+	// SoftReference
+	//
+    class java.lang.ref.SoftReference :: System:WeakReference {
+    };
+
+}
+
+
+//
+// java.lang.annotation
+//	
+package java.lang.annotation :: System {
+   //
+   // Target
+   //
+   class java.lang.annotation.Target :: System:AttributeTargets {
+   }	
+}

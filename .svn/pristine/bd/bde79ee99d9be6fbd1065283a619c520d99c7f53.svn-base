@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                    -->
+	<!-- java.nio.mappingml -->
+	<!--                    -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                          -->
+		<!-- package java.nio.charset -->
+		<!--                          -->
+		<package name="java.nio.charset">
+			<target name="ILOG.J2CsMapping.NIO.Charset" />
+
+			<!--                                       -->
+			<!-- class java.nio.charset.CharsetDecoder -->
+			<!--                                       -->
+			<class name="CharsetDecoder">
+				<target packageName="System.Text" name="Decoder">
+				</target>
+				<!--                                    -->
+				<!-- method decode(java.nio.ByteBuffer) -->
+				<!--                                    -->
+				<method signature="(java.nio.ByteBuffer)" name="decode">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.NIO.CharBuffer.Decode(@1,@0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                                    -->
+			<!-- class java.nio.charset.UnsupportedCharsetException -->
+			<!--                                                    -->
+			<class name="UnsupportedCharsetException">
+				<target packageName="System" name="ArgumentException">
+				</target>
+			</class>
+
+			<!--                                -->
+			<!-- class java.nio.charset.Charset -->
+			<!--                                -->
+			<class name="Charset">
+				<target packageName="System.Text" name="Encoding">
+				</target>
+				<!--                     -->
+				<!-- method newDecoder() -->
+				<!--                     -->
+				<method signature="()" name="newDecoder">
+					<target>
+						<format>
+<![CDATA[@0.GetDecoder()]]>
+						</format>
+					</target>
+				</method>
+				<!--                                  -->
+				<!-- method forName(java.lang.String) -->
+				<!--                                  -->
+				<method signature="(java.lang.String)" name="forName">
+					<target>
+						<format>
+<![CDATA[System.Text.Encoding.GetEncoding(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                     -->
+				<!-- method newEncoder() -->
+				<!--                     -->
+				<method signature="()" name="newEncoder">
+					<target>
+						<format>
+<![CDATA[@0.GetEncoder()]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                                    -->
+			<!-- class java.nio.charset.IllegalCharsetNameException -->
+			<!--                                                    -->
+			<class name="IllegalCharsetNameException">
+				<target packageName="ILOG.J2CsMapping.NIO.charset" name="IllegalCharsetNameException">
+				</target>
+			</class>
+
+			<!--                                       -->
+			<!-- class java.nio.charset.CharsetEncoder -->
+			<!--                                       -->
+			<class name="CharsetEncoder">
+				<target packageName="System.Text" name="Encoder">
+				</target>
+				<!--                               -->
+				<!-- method encode(java.nio.CharBuffer) -->
+				<!--                               -->
+				<method signature="(java.nio.CharBuffer)" name="encode">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.NIO.ByteBuffer.Encode(@1,@0)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                                 -->
+			<!-- class java.nio.charset.CharacterCodingException -->
+			<!--                                                 -->
+			<class name="CharacterCodingException">
+				<target packageName="ILOG.J2CsMapping.NIO.charset" name="CharacterCodingException">
+				</target>
+			</class>
+		</package>
+
+		<!--                           -->
+		<!-- package java.nio.channels -->
+		<!--                           -->
+		<package name="java.nio.channels">
+			<target name="ILOG.J2CsMapping.NIO.Channels" />
+
+			<!--                                             -->
+			<!-- class java.nio.channels.WritableByteChannel -->
+			<!--                                             -->
+			<class name="WritableByteChannel">
+				<target isRemove="true" removeFromImport="true">
+				</target>
+			</class>
+
+			<!--                                  -->
+			<!-- class java.nio.channels.Channels -->
+			<!--                                  -->
+			<class name="Channels">
+				<target isRemove="true" removeFromImport="true">
+				</target>
+			</class>
+
+			<!--                                             -->
+			<!-- class java.nio.channels.ReadableByteChannel -->
+			<!--                                             -->
+			<class name="ReadableByteChannel">
+				<target isRemove="true" removeFromImport="true">
+				</target>
+			</class>
+		</package>
+
+		<!--                  -->
+		<!-- package java.nio -->
+		<!--                  -->
+		<package name="java.nio">
+			<target name="ILOG.J2CsMapping.NIO" />
+
+			<!--                                         -->
+			<!-- class java.nio.BufferUnderflowException -->
+			<!--                                         -->
+			<class name="BufferUnderflowException">
+				<target packageName="ILOG.J2CsMapping.NIO" name="BufferUnderflowException">
+				</target>
+			</class>
+
+			<!--                           -->
+			<!-- class java.nio.CharBuffer -->
+			<!--                           -->
+			<class name="CharBuffer">
+				<target packageName="ILOG.J2CsMapping.NIO" name="CharBuffer">
+				</target>
+			</class>
+
+			<!--                           -->
+			<!-- class java.nio.ByteBuffer -->
+			<!--                           -->
+			<class name="ByteBuffer">
+				<target packageName="ILOG.J2CsMapping.NIO" name="ByteBuffer">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>

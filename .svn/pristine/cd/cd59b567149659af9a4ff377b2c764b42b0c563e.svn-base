@@ -1,0 +1,233 @@
+package java.lang :: System {
+   //
+   // Boolean
+   //
+   /*class java.lang.Boolean :: System:Object {
+      nullable = false;
+   
+      field TYPE { pattern = typeof(Boolean); }
+      field TRUE { pattern = true; }
+      field FALSE { pattern = false; }
+      
+      method <init>(boolean) { pattern = (bool)(@1); }
+      
+      method booleanValue() { pattern = (bool)(@0); }
+      method valueOf(String) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1); }
+      method valueOf(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1); }
+      method getBoolean(String) { pattern = Boolean.Parse(@1); }
+      method parseBoolean(String) { pattern = Boolean.Parse(@1); }
+      
+      method toString(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ToString(@1); }
+      
+      instanceOfTypeName = Boolean;
+   };*/
+     
+   class java.lang.Boolean :: System:Boolean {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Boolean); }
+      field TRUE { pattern = ILOG.J2CsMapping.Util.BooleanUtil.TRUE; }
+      field FALSE { pattern = ILOG.J2CsMapping.Util.BooleanUtil.FALSE; }
+      
+      method <init>(boolean) { pattern = (Boolean#{ insert_here:? #}) (@1); }
+      
+      method booleanValue() { pattern = @0.Value; }; /* { pattern = (bool)(@0); } */
+      method valueOf(String) { pattern = ((Boolean#{ insert_here:? #}) ILOG.J2CsMapping.Util.BooleanUtil.ValueOf(@1)); }
+      method valueOf(boolean) { pattern = ((boolean) @1); }
+      method getBoolean(String) { pattern = Boolean.Parse(@1); }
+      method parseBoolean(String) { pattern = Boolean.Parse(@1); }
+      
+      method toString(boolean) { pattern = ILOG.J2CsMapping.Util.BooleanUtil.ToString(@1); }
+      
+      instanceOfTypeName = Boolean;
+   };
+
+	//
+	// Character
+	//
+   class java.lang.Character :: System:Char {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Char); }
+      field MAX_VALUE { pattern = Char.MaxValue; }
+      field MIN_VALUE { pattern = Char.MinValue; }
+      field LINE_SEPARATOR { pattern = ILOG.J2CsMapping.Util.Character.LINE_SEPARATOR; }
+      
+      method <init>(char) { pattern = (char#{ insert_here:? #})(@1); }
+      
+      method charValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      method isLowerCase(char) { pattern = Char.IsLower(@1); }
+      method isUpperCase(char) { pattern = Char.IsUpper(@1); }
+      method toLowerCase(char) { pattern = Char.ToLower(@1); }
+      method toUpperCase(char) { pattern = Char.ToUpper(@1); }
+      method isISOControl(char) { pattern = Char.IsControl(@1);  }
+      method isSpaceChar(char) { pattern = Char.IsWhiteSpace(@1); }
+      method isWhitespace(char) { pattern = Char.IsWhiteSpace(@1); }
+      method isDigit(char) { pattern = Char.IsDigit(@1); }
+      method digit(char, int) { pattern = ILOG.J2CsMapping.Util.Character.Digit(@1, @2); }
+      method isJavaIdentifierStart(char) { pattern = ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierStart(@1); }
+      method isJavaIdentifierPart(char) { pattern = ILOG.J2CsMapping.Util.Character.IsCSharpIdentifierPart(@1); }
+      method toTitleCase(char) { pattern = @1; }
+      method valueOf(char) { pattern = ((char) @1); }
+   };
+
+	//
+	// Number
+	//
+   class java.lang.Number :: System:object {
+      method byteValue() { pattern = Convert.ToByte(@0); }
+      method shortValue() { pattern = Convert.ToInt16(@0); }
+      method intValue() { pattern = System.Convert.ToInt32(@0); }
+      method longValue() { pattern = Convert.ToInt64(@0); }
+      method floatValue() { pattern = Convert.ToSingle(@0); }
+      method doubleValue() { pattern = Convert.ToDouble(@0); }
+   };
+
+	//
+	// Byte
+	//
+   class java.lang.Byte :: System:Byte {
+      nullable = true;
+        
+      field TYPE { pattern = typeof(Byte); }
+      field MAX_VALUE { pattern = Byte.MaxValue; }
+      field MIN_VALUE { pattern = Byte.MinValue; }
+      
+      method <init>(byte) { pattern = (byte#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Byte#{ insert_here:? #}) Byte.Parse(@1)); }
+      method byteValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      
+      method valueOf(String) { pattern = Byte.Parse(@1); }
+      method valueOf(byte) { pattern = ((byte) @1); }
+   };
+
+	//
+	// Short
+	//
+   class java.lang.Short :: System:Int16 {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Int16); }
+      field MAX_VALUE { pattern = Int16.MaxValue; }
+      field MIN_VALUE { pattern = Int16.MinValue; }
+      
+      method <init>(short) { pattern = (short#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Int16#{ insert_here:? #}) Int16.Parse(@1)); }
+      method shortValue() { pattern = @0.Value; }; /* { pattern = (char)(@0); } */
+      
+      method valueOf(String) { pattern = Int16.Parse(@1); }
+      method valueOf(short) { pattern = ((short) @1); }
+   };
+   
+   	//
+	// Integer
+	//
+   class java.lang.Integer :: System:Int32 {
+      nullable = true;
+      
+      field TYPE { pattern = typeof(Int32); }
+      field MAX_VALUE { pattern = Int32.MaxValue; }
+      field MIN_VALUE { pattern = Int32.MinValue; }
+      
+      method <init>(int) { pattern = ((int#{ insert_here:? #}) (@1)); }
+      method <init>(String) { pattern = ((Int32#{ insert_here:? #}) Int32.Parse(@1)); }
+      method intValue() { pattern = @0.Value; };
+
+      method compareTo(java.lang.Integer) { pattern = ILOG.J2CsMapping.Util.Int32Helper.CompareTo(@0, @1); }
+      method decode(String) { pattern = ((Int32#{ insert_here:? #}) ILOG.J2CsMapping.Util.Int32Helper.Decode(@1)); }
+      method valueOf(int) { pattern = ((int) @1); }
+      method valueOf(String) { pattern = ((Int32#{ insert_here:? #}) Int32.Parse(@1)); }
+      method valueOf(String,int) { pattern = ((Int32#{ insert_here:? #}) Convert.ToInt32(@1, @2)); }
+      method parseInt(String) { pattern =  Int32.Parse(@1); }
+      method parseInt(String, int) { pattern = ((Int32#{ insert_here:? #}) Convert.ToInt32(@1, @2)); }
+      // I'm really not sure for the last arg (shift) :-)
+      method toBinaryString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,2); }
+      method toHexString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,16); }
+      method toString(int,int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1,@2); }
+      method toString(int) { pattern = ILOG.J2CsMapping.Util.IlNumber.ToString(@1); }
+   };
+
+	//
+	// Long
+	//
+   class java.lang.Long :: System:Int64 {
+      nullable = true;   
+   
+      field TYPE { pattern = typeof(Int64); }
+      field MAX_VALUE { pattern = Int64.MaxValue; }
+      field MIN_VALUE { pattern = Int64.MinValue; }
+      field SIZE { pattern = 64; }
+
+      method <init>(long) { pattern = (long#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1)); }
+      method longValue() { pattern = @0.Value; };
+
+      method decode(String) { pattern = ((Int64#{ insert_here:? #}) ILOG.J2CsMapping.Util.Int64Helper.Decode(@1)); }
+      
+      method toString(long) { pattern = @1.ToString(); }
+      method valueOf(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1)); }
+      method valueOf(long) { pattern = ((long) @1); }
+      method valueOf(String,int) { pattern = ((Int64#{ insert_here:? #}) Convert.ToInt64(@1, @2)); }      
+      method parseLong(String) { pattern = ((Int64#{ insert_here:? #}) Int64.Parse(@1, System.Globalization.NumberStyles.Integer)).Value; }
+      method numberOfTrailingZeros(long) { pattern = ILOG.J2CsMapping.Util.Int64Helper.NumberOfTrailingZeros(@1); }
+      method numberOfLeadingZeros(long)  { pattern = ILOG.J2CsMapping.Util.Int64Helper.NumberOfLeadingZeros(@1); }
+       method toHexString(long) { pattern = string.Format(#\"{0:x}#\", @1); }
+   };
+
+	//
+	// Float
+	//
+   class java.lang.Float :: System:Single {
+      nullable = true; 
+      
+      field TYPE { pattern = typeof(Single); }
+      field MAX_VALUE { pattern = System.Single.MaxValue; }
+      field MIN_VALUE { pattern = System.Single.MinValue; }
+      field POSITIVE_INFINITY { pattern = System.Single.PositiveInfinity; }
+      field NEGATIVE_INFINITY { pattern = System.Single.NegativeInfinity; }
+      
+      method <init>(float) { pattern = (float#{ insert_here:? #}) (@1); }
+      method <init>(double) { pattern = (float#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Single#{ insert_here:? #}) Single.Parse(@1)); }
+
+      method floatValue() { pattern = @0.Value; };
+      method compare(float, float) { pattern = @1.CompareTo(@2); }
+       
+      method isNaN(float) { pattern = Single.IsNaN(@1); }
+      method valueOf(float) { pattern = ((float) @1); }
+      method valueOf(String) { pattern = Single.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat); }
+      method parseFloat(String) { pattern = Single.Parse(@1,  ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat); }
+      method isInfinite() { pattern = Single.IsInfinity((float)@0); }
+      method intBitsToFloat(int) { pattern = BitConverter.DoubleToInt64Bits(@1); }
+      method toString(float) { pattern = String.Concat(@1); }
+   };
+
+	//
+	// Double
+	//
+    class java.lang.Double :: System:Double {
+      nullable = true; 
+      
+      field TYPE { pattern = typeof(Double); }
+      field MAX_VALUE { pattern = System.Double.MaxValue; }
+      field MIN_VALUE { pattern = System.Double.MinValue; }
+      
+      field NEGATIVE_INFINITY { pattern = System.Double.NegativeInfinity; }
+      field POSITIVE_INFINITY { pattern = System.Double.PositiveInfinity; }
+
+      method <init>(double) { pattern = (double#{ insert_here:? #}) (@1); }
+      method <init>(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1)); }
+      method doubleValue() { pattern = @0.Value; }; // TODO
+       
+      method valueOf(double) { pattern = ((double) @1); }
+      method valueOf(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)); }
+      method parseDouble(String) { pattern = ((Double#{ insert_here:? #}) Double.Parse(@1, ILOG.J2CsMapping.Util.NumberFormatProvider.NumberFormat)); }
+      method isInfinite() { pattern = Double.IsInfinity((double)@0); }
+      method isInfinite(double) { pattern = Double.IsInfinity(@1); }
+      method isNaN(double) { pattern = Double.IsNaN(@1); }
+      method longBitsToDouble(long) { pattern = BitConverter.Int64BitsToDouble(@1); }
+      method doubleToLongBits(double) { pattern = BitConverter.DoubleToInt64Bits(@1); }
+      method toString(double) { pattern = String.Concat(@1);  }   
+      method compare(double, double) { pattern = @1.CompareTo(@2); }     
+    };
+}

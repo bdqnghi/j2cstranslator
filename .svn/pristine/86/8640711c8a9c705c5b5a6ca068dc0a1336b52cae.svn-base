@@ -1,0 +1,73 @@
+//========================================================== -*- Java -*- ===
+// The irl to irls translator mapping information
+//===========================================================================
+
+//
+// JUNIT API mapping
+//
+
+//
+// junit.framework
+//
+package junit.framework :: NUnit.Framework {
+
+	//
+	// Assert
+	//
+    class junit.framework.Assert :: NUnit.Framework:Assert {
+       method assertFalse(boolean) { pattern = NUnit.Framework.Assert.IsFalse(@1); }
+	   method assertFalse(String, boolean) { pattern = NUnit.Framework.Assert.IsFalse(@2, @1); }
+	   //
+	   method assertTrue(boolean)  { pattern = NUnit.Framework.Assert.IsTrue(@1);}
+	   method assertTrue(String, boolean)  { pattern = NUnit.Framework.Assert.IsTrue(@2, @1); }
+	   // int
+	   method assertEquals(String, int, int)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	   method assertEquals(int, int)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	    // short
+	   method assertEquals(String, short, short)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	   method assertEquals(short, short)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	    // char
+	   method assertEquals(char, char)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, char, char)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	    // byte
+	   method assertEquals(byte, byte)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, byte, byte)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	    // long
+	   method assertEquals(long, long)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, long, long)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	    // object
+	   method assertEquals(Object, Object)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, Object, Object)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	    // boolean
+	   method assertEquals(boolean, boolean)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, boolean, boolean)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	    // String
+	   method assertEquals(String, String, String)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	   method assertEquals(String, String)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	    // float
+	   method assertEquals(float, float, float)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2,@3);}
+	   method assertEquals(String, float, float, float)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1);}
+	    // double
+	   method assertEquals(double, double, double)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2,@3);}
+	   method assertEquals(String, double, double, double)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1);}
+	    //
+	   method assertNotNull(String, Object)  { pattern = NUnit.Framework.Assert.IsNotNull(@2, @1);}
+	   method assertNotNull(Object)  { pattern = NUnit.Framework.Assert.IsNotNull(@1);}
+	   //
+	   method assertNull(String, Object)  { pattern = NUnit.Framework.Assert.IsNull(@2, @1);}
+	   method assertNull(Object)  { pattern = NUnit.Framework.Assert.IsNull(@1);}
+	   //
+	   method assertSame(java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreSame(@1, @2);}
+	   method assertSame(java.lang.String, java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreSame(@2,@3,@1);}
+           //
+           method assertNotSame(java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreNotSame(@1, @2);}
+	   method assertNotSame(java.lang.String, java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreNotSame(@2,@3,@1);}
+  	   
+	};
+
+	//
+	// ComparisonFailure
+	//
+	class junit.framework.ComparisonFailure :: NUnit.Framework:AssertionException {
+	}
+}

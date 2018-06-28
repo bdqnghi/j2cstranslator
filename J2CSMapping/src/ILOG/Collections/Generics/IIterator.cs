@@ -1,0 +1,40 @@
+// 
+// J2CsMapping : runtime library for J2CsTranslator
+// 
+// Copyright (c) 2008-2010 Alexandre FAU.
+// All rights reserved. This program and the accompanying materials
+// are made available under the terms of the Eclipse Public License v1.0
+// which accompanies this distribution, and is available at
+// http://www.eclipse.org/legal/epl-v10.html
+// Contributors:
+//   Alexandre FAU (IBM)
+//
+
+namespace ILOG.J2CsMapping.Collections.Generics
+{
+    /// <summary>
+    /// .NET replacement for java iterator
+    /// <p/>
+    /// An iterator over a collection.
+    /// </summary>
+    ///
+    /// <seealso cref="T:ICollection"/>
+    /// <typeparam name="T">the type of elements maintained by this iterator</typeparam>
+    public interface IIterator<T> : IIterator
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        bool HasNext();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        T Next();
+        /// <summary>
+        /// 
+        /// </summary>
+        void Remove();
+    }
+}

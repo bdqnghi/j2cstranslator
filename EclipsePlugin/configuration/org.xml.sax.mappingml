@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                       -->
+	<!-- org.xml.sax.mappingml -->
+	<!--                       -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                             -->
+		<!-- package org.xml.sax.helpers -->
+		<!--                             -->
+		<package name="org.xml.sax.helpers">
+			<!--                                          -->
+			<!-- class org.xml.sax.helpers.DefaultHandler -->
+			<!--                                          -->
+			<class name="DefaultHandler">
+				<target packageName="ILOG.J2CsMapping.XML.Sax" name="DefaultHandler">
+				</target>
+			</class>
+		</package>
+
+		<!--                     -->
+		<!-- package org.xml.sax -->
+		<!--                     -->
+		<package name="org.xml.sax">
+			<target name="System.Xml" />
+			<!--                                     -->
+			<!-- class org.xml.sax.SAXParseException -->
+			<!--                                     -->
+			<class name="SAXParseException">
+				<target packageName="ILOG.J2CsMapping.XML.Sax" name="SAXParseException">
+				</target>
+			</class>
+
+			<!--                               -->
+			<!-- class org.xml.sax.InputSource -->
+			<!--                               -->
+			<class name="InputSource">
+				<target packageName="System.Xml" name="XmlReader">
+				</target>
+				<!--                                    -->
+				<!-- method InputSource(java.io.Reader) -->
+				<!--                                    -->
+				<constructor signature="(java.io.Reader)">
+					<target>
+						<format>
+<![CDATA[XmlReader.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                                         -->
+				<!-- method InputSource(java.io.InputStream) -->
+				<!--                                         -->
+				<constructor signature="(java.io.InputStream)">
+					<target>
+						<format>
+<![CDATA[XmlReader.Create(@1)]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                                -->
+			<!-- class org.xml.sax.SAXException -->
+			<!--                                -->
+			<class name="SAXException">
+				<target packageName="ILOG.J2CsMapping.XML.SAX" name="SAXException">
+				</target>
+			</class>
+
+			<!--                           -->
+			<!-- class org.xml.sax.Locator -->
+			<!--                           -->
+			<class name="Locator">
+				<target packageName="ILOG.J2CsMapping.XML.Sax" name="ILocator">
+				</target>
+				<!--                               -->
+				<!-- method getLineNumber() -->
+				<!--                               -->
+				<method signature="()" name="getLineNumber">
+					<target propertyGet="LineNumber" />
+				</method>
+				<!--                               -->
+				<!-- method getColumnNumber() -->
+				<!--                               -->
+				<method signature="()" name="getColumnNumber">
+					<target propertyGet="ColumnNumber" />
+				</method>
+			</class>
+		</package>
+	</packages>
+</mapping>

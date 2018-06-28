@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                     -->
+	<!-- javadoc.mappingmlml -->
+	<!--                     -->
+<mapping>
+	<!--                 -->
+	<!-- javadoc mapping -->
+	<!--                 -->
+	<javadoc>
+		<tag name="javaonly" newName="excluded" />
+	</javadoc>
+</mapping>

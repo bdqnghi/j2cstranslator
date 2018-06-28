@@ -1,0 +1,94 @@
+//
+// org.w3c.dom
+//
+package org.w3c.dom :: System.Xml {
+
+	//
+	// Element
+	//
+	class org.w3c.dom.Element :: System.Xml:XmlElement {
+   		method setAttributeNS(String, String, String) { name = SetAttribute; }
+   		method getAttributeNS(String, String) { pattern =  @0.GetAttribute(@2, @1); }
+   		// method getChildNodes() { property_get = ChildNodes; }
+   		method getTagName() { property_get = Name; }
+   		// method getNodeName() { property_get = Name; }
+   		
+   		
+	}
+
+	//
+	// Document
+	// 
+	class org.w3c.dom.Document :: System.Xml:XmlDocument {
+   		method getDocumentElement() { property_get = DocumentElement;  }
+   		method createElementNS(String,String) { pattern =  @0.CreateElement(@2, @1);  }
+   //		method adoptNode(org.w3c.dom.Node) { pattern = ILOG.J2CsMapping.Util.DomUtil.AdoptNode(@0, @1);}
+   		method createCDATASection(java.lang.String) { name = CreateCDataSection; }
+	}
+
+	//
+	// NodeList
+	//
+	class org.w3c.dom.NodeList :: System.Xml:XmlNodeList {
+   		method getLength() { property_get = Count;  }
+	}
+
+	//
+	// Node
+	//
+	class org.w3c.dom.Node :: System.Xml:XmlNode {
+   		field ELEMENT_NODE { pattern =  XmlNodeType.Element;  }
+        field TEXT_NODE { pattern = XmlNodeType.Text; }
+        field CDATA_SECTION_NODE { pattern = XmlNodeType.CDATA; }
+        field PROCESSING_INSTRUCTION_NODE { pattern = XmlNodeType.ProcessingInstruction; }
+
+   		method getNamespaceURI() { property_get = NamespaceURI;  }
+   		method getLocalName() { property_get = LocalName;  }
+   		method getNodeValue() { property_get = Value; }
+   		method getNodeType() { property_get = NodeType; }
+   		method getNextSibling() { property_get = NextSibling; }
+   		method getFirstChild() { property_get = FirstChild; }
+   		method getAttributes() { property_get = Attributes; }
+   		method getChildNodes() { property_get = ChildNodes; }
+   		method getTextContent() { property_get = InnerText; }
+   		method setTextContent(String) { pattern = @0.InnerText = @1; }
+   		method getOwnerDocument() { property_get = OwnerDocument;}
+   		method getNodeName() { property_get = Name; }
+   		method getParentNode() { property_get = ParentNode; }
+	}
+
+	//
+	// CharacterData
+	//
+	class org.w3c.dom.CharacterData :: System.Xml:XmlCharacterData {
+   		method getData() { property_get = Data; }
+	}	
+	
+	//
+	// Text
+	//
+	class org.w3c.dom.Text :: System.Xml:XmlText {  
+	}	
+
+	//
+	// CDATASection
+	//
+    class org.w3c.dom.CDATASection :: System.Xml:XmlCDataSection {
+    };
+
+	//
+	// ProcessingInstruction
+	//
+	class org.w3c.dom.ProcessingInstruction :: System.Xml:XmlProcessingInstruction {
+		method getData() { pattern =  Data; }
+		method setData(java.lang.String) { pattern =  @0.Data = @1; }
+		method getTarget() { pattern =  Target; }
+	};
+	
+	//
+	// NamedNodeMap
+	//
+	class org.w3c.dom.NamedNodeMap :: System.Xml:XmlAttributeCollection {
+	   	method getLength() { property_get = Count; }
+	}
+}

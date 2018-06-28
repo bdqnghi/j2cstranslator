@@ -1,0 +1,52 @@
+//
+// java.sql
+//
+package java.sql :: System.Data.SqlClient {
+
+	//
+	// ResultSet
+	//
+	class java.sql.ResultSet :: System.Data.SqlClient:SqlDataReader {
+   		method getByte(String) { pattern = (byte) @0[@1]; }
+   		method getLong(String) { pattern = (long) @0[@1]; }
+   		method getShort(String) { pattern = (short) @0[@1]; }
+   		method getInt(String) { pattern =(int) @0[@1]; }
+   		method getFloat(String) { pattern = (float) @0[@1]; }
+   		method getDouble(String) { pattern = (double) @0[@1]; }
+   		method getBoolean(String) { pattern = (bool) @0[@1]; }
+   		method getString(String) { pattern =(string) @0[@1];   } 
+   		method next() { name = NextResult; }
+   		method wasNull() { pattern = Convert.IsDBNull(@0); }
+	}
+
+	//
+	// Connection
+	//
+	class java.sql.Connection :: System.Data.SqlClient:SqlConnection {
+   		method createStatement() { name = CreateCommand; }
+	}
+
+	//
+	// Statement
+	//
+	class java.sql.Statement :: System.Data.SqlClient:SqlCommand {
+	}
+	
+	//
+	// Time
+	//
+	class java.sql.Time :: System.Data.SqlTypes:SqlDateTime {
+	}
+	
+	//
+	// Date
+	//
+	class java.sql.Date :: System.Data.SqlTypes:SqlDateTime {
+	}
+	
+	//
+	// Timestamp
+	//
+	class java.sql.Timestamp :: System.Data.SqlTypes:SqlDateTime {
+	}
+}

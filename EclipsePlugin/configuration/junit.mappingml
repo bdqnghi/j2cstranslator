@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                 -->
+	<!-- junit.mappingml -->
+	<!--                 -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                         -->
+		<!-- package junit.framework -->
+		<!--                         -->
+		<package name="junit.framework">
+			<target name="NUnit.Framework" />
+
+			<!--                              -->
+			<!-- class junit.framework.Assert -->
+			<!--                              -->
+			<class name="Assert">
+				<target packageName="NUnit.Framework" name="Assert">
+				</target>
+				<!--                                                      -->
+				<!-- method assertNull(java.lang.String,java.lang.Object) -->
+				<!--                                                      -->
+				<method signature="(java.lang.String,java.lang.Object)" name="assertNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNull(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                              -->
+				<!-- method assertEquals(int,int) -->
+				<!--                              -->
+				<method signature="(int,int)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                         -->
+				<!-- method assertNotNull(java.lang.String,java.lang.Object) -->
+				<!--                                                         -->
+				<method signature="(java.lang.String,java.lang.Object)" name="assertNotNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNotNull(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertNotSame(java.lang.String,java.lang.Object,java.lang.Object)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.Object,java.lang.Object)"
+					name="assertNotSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreNotSame(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                       -->
+				<!-- method assertEquals(java.lang.String,boolean,boolean) -->
+				<!--                                                       -->
+				<method signature="(java.lang.String,boolean,boolean)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertEquals(java.lang.String,java.lang.String,java.lang.String)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.String,java.lang.String)"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                              -->
+				<!-- method assertFalse(java.lang.String,boolean) -->
+				<!--                                              -->
+				<method signature="(java.lang.String,boolean)" name="assertFalse">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsFalse(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                         -->
+				<!-- method assertNotSame(java.lang.Object,java.lang.Object) -->
+				<!--                                                         -->
+				<method signature="(java.lang.Object,java.lang.Object)" name="assertNotSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreNotSame(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                 -->
+				<!-- method assertEquals(java.lang.String,byte,byte) -->
+				<!--                                                 -->
+				<method signature="(java.lang.String,byte,byte)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                            -->
+				<!-- method assertEquals(java.lang.String,double,double,double) -->
+				<!--                                                            -->
+				<method signature="(java.lang.String,double,double,double)"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                         -->
+				<!-- method assertEquals(java.lang.String,float,float,float) -->
+				<!--                                                         -->
+				<method signature="(java.lang.String,float,float,float)"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                               -->
+				<!-- method assertEquals(java.lang.String,int,int) -->
+				<!--                                               -->
+				<method signature="(java.lang.String,int,int)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                   -->
+				<!-- method assertEquals(java.lang.String,short,short) -->
+				<!--                                                   -->
+				<method signature="(java.lang.String,short,short)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                        -->
+				<!-- method assertEquals(java.lang.Object,java.lang.Object) -->
+				<!--                                                        -->
+				<method signature="(java.lang.Object,java.lang.Object)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                     -->
+				<!-- method assertNull(java.lang.Object) -->
+				<!--                                     -->
+				<method signature="(java.lang.Object)" name="assertNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNull(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                        -->
+				<!-- method assertEquals(java.lang.String,java.lang.String) -->
+				<!--                                                        -->
+				<method signature="(java.lang.String,java.lang.String)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                 -->
+				<!-- method assertEquals(java.lang.String,long,long) -->
+				<!--                                                 -->
+				<method signature="(java.lang.String,long,long)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                -->
+				<!-- method assertEquals(byte,byte) -->
+				<!--                                -->
+				<method signature="(byte,byte)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                 -->
+				<!-- method assertEquals(java.lang.String,char,char) -->
+				<!--                                                 -->
+				<method signature="(java.lang.String,char,char)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                             -->
+				<!-- method assertTrue(java.lang.String,boolean) -->
+				<!--                                             -->
+				<method signature="(java.lang.String,boolean)" name="assertTrue">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsTrue(@2,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                        -->
+				<!-- method assertEquals(float,float,float) -->
+				<!--                                        -->
+				<method signature="(float,float,float)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2,@3)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                  -->
+				<!-- method assertEquals(short,short) -->
+				<!--                                  -->
+				<method signature="(short,short)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                                      -->
+				<!-- method assertSame(java.lang.Object,java.lang.Object) -->
+				<!--                                                      -->
+				<method signature="(java.lang.Object,java.lang.Object)" name="assertSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreSame(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                            -->
+				<!-- method assertTrue(boolean) -->
+				<!--                            -->
+				<method signature="(boolean)" name="assertTrue">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsTrue(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                -->
+				<!-- method assertEquals(char,char) -->
+				<!--                                -->
+				<method signature="(char,char)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                           -->
+				<!-- method assertEquals(double,double,double) -->
+				<!--                                           -->
+				<method signature="(double,double,double)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2,@3)]]>
+						</format>
+					</target>
+				</method>
+				<!--                             -->
+				<!-- method assertFalse(boolean) -->
+				<!--                             -->
+				<method signature="(boolean)" name="assertFalse">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsFalse(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertSame(java.lang.String,java.lang.Object,java.lang.Object)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.Object,java.lang.Object)"
+					name="assertSame">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreSame(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--
+				-->
+				<!--
+					method
+					assertEquals(java.lang.String,java.lang.Object,java.lang.Object)
+				-->
+				<!--
+				-->
+				<method signature="(java.lang.String,java.lang.Object,java.lang.Object)"
+					name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@2,@3,@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                      -->
+				<!-- method assertEquals(boolean,boolean) -->
+				<!--                                      -->
+				<method signature="(boolean,boolean)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                        -->
+				<!-- method assertNotNull(java.lang.Object) -->
+				<!--                                        -->
+				<method signature="(java.lang.Object)" name="assertNotNull">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.IsNotNull(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                                -->
+				<!-- method assertEquals(long,long) -->
+				<!--                                -->
+				<method signature="(long,long)" name="assertEquals">
+					<target>
+						<format>
+<![CDATA[NUnit.Framework.Assert.AreEqual(@1,@2)]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                         -->
+			<!-- class junit.framework.ComparisonFailure -->
+			<!--                                         -->
+			<class name="ComparisonFailure">
+				<target packageName="NUnit.Framework" name="AssertionException">
+				</target>
+			</class>
+			
+			<!--                                         -->
+			<!-- class junit.framework.TestCase -->
+			<!--                                -->
+			<class name="TestCase">
+				<target isRemove="true" removeFromImport="true"/>
+			</class>
+		</package>
+	</packages>
+</mapping>

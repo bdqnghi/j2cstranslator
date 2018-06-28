@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                     -->
+	<!-- variables.mappingml -->
+	<!--                     -->
+<mapping>
+	<!--                              -->
+	<!-- automatic variables renaming -->
+	<!--                              -->
+	<variables>
+		<!--                  -->
+		<!-- variable foreach -->
+		<!--                  -->
+		<variable name="foreach">
+			<alias name="fe" />
+			<alias name="each" />
+			<alias name="f" />
+		</variable>
+
+		<!--                -->
+		<!-- variable using -->
+		<!--                -->
+		<variable name="using">
+			<alias name="use" />
+			<alias name="use" />
+		</variable>
+
+		<!--                   -->
+		<!-- variable implicit -->
+		<!--                   -->
+		<variable name="implicit">
+			<alias name="impli" />
+			<alias name="implici" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable object -->
+		<!--                 -->
+		<variable name="object">
+			<alias name="obj0" />
+			<alias name="oarg" />
+			<alias name="obj2" />
+		</variable>
+
+		<!--                -->
+		<!-- variable fixed -->
+		<!--                -->
+		<variable name="fixed">
+			<alias name="fix" />
+			<alias name="fixe" />
+		</variable>
+
+		<!--                   -->
+		<!-- variable delegate -->
+		<!--                   -->
+		<variable name="delegate">
+			<alias name="delegat0" />
+		</variable>
+
+		<!--                    -->
+		<!-- variable namespace -->
+		<!--                    -->
+		<variable name="namespace">
+			<alias name="ns" />
+			<alias name="nsp" />
+			<alias name="nspace" />
+			<alias name="ns2" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable struct -->
+		<!--                 -->
+		<variable name="struct">
+			<alias name="struc0" />
+			<alias name="stc" />
+			<alias name="st" />
+		</variable>
+
+		<!--                -->
+		<!-- variable event -->
+		<!--                -->
+		<variable name="event">
+			<alias name="evt0" />
+			<alias name="earg" />
+			<alias name="evt2" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable extern -->
+		<!--                 -->
+		<variable name="extern">
+			<alias name="ext0" />
+			<alias name="ext" />
+		</variable>
+
+		<!--                -->
+		<!-- variable value -->
+		<!--                -->
+		<variable name="value">
+			<alias name="value_ren" />
+			<alias name="valu2" />
+			<alias name="val2" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable sealed -->
+		<!--                 -->
+		<variable name="sealed">
+			<alias name="seal" />
+			<alias name="s" />
+		</variable>
+
+		<!--                   -->
+		<!-- variable internal -->
+		<!--                   -->
+		<variable name="internal">
+			<alias name="intern" />
+			<alias name="inter" />
+		</variable>
+
+		<!--                    -->
+		<!-- variable unchecked -->
+		<!--                    -->
+		<variable name="unchecked">
+			<alias name="unchek" />
+			<alias name="uncheck" />
+		</variable>
+
+		<!--             -->
+		<!-- variable is -->
+		<!--             -->
+		<variable name="is">
+			<alias name="mask0" />
+			<alias name="ints" />
+			<alias name="is2" />
+		</variable>
+
+		<!--               -->
+		<!-- variable lock -->
+		<!--               -->
+		<variable name="lock">
+			<alias name="loke" />
+		</variable>
+
+		<!--             -->
+		<!-- variable as -->
+		<!--             -->
+		<variable name="as">
+			<alias name="al" />
+			<alias name="als" />
+		</variable>
+
+		<!--               -->
+		<!-- variable enum -->
+		<!--               -->
+		<variable name="enum">
+			<alias name="it0" />
+			<alias name="inum" />
+			<alias name="enumeration" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable params -->
+		<!--                 -->
+		<variable name="params">
+			<alias name="paras" />
+			<alias name="parameters" />
+		</variable>
+
+		<!--             -->
+		<!-- variable in -->
+		<!--             -->
+		<variable name="in">
+			<alias name="ins0" />
+			<alias name="input" />
+			<alias name="in2" />
+		</variable>
+
+		<!--                   -->
+		<!-- variable operator -->
+		<!--                   -->
+		<variable name="operator">
+			<alias name="operat" />
+			<alias name="oper" />
+			<alias name="_op" />
+		</variable>
+
+		<!--              -->
+		<!-- variable ref -->
+		<!--              -->
+		<variable name="ref">
+			<alias name="xref" />
+			<alias name="obj" />
+			<alias name="reference" />
+		</variable>
+
+		<!--                   -->
+		<!-- variable override -->
+		<!--                   -->
+		<variable name="override">
+			<alias name="overriden" />
+			<alias name="over" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable string -->
+		<!--                 -->
+		<variable name="string">
+			<alias name="str0" />
+			<alias name="sarg" />
+			<alias name="str2" />
+		</variable>
+
+		<!--               -->
+		<!-- variable base -->
+		<!--               -->
+		<variable name="base">
+			<alias name="bs" />
+			<alias name="bs" />
+		</variable>
+
+		<!--               -->
+		<!-- variable bool -->
+		<!--               -->
+		<variable name="bool">
+			<alias name="flag" />
+			<alias name="tag" />
+			<alias name="flag" />
+		</variable>
+
+		<!--                  -->
+		<!-- variable checked -->
+		<!--                  -->
+		<variable name="checked">
+			<alias name="chek" />
+			<alias name="check" />
+		</variable>
+
+		<!--                 -->
+		<!-- variable unsafe -->
+		<!--                 -->
+		<variable name="unsafe">
+			<alias name="unsaf0" />
+		</variable>
+
+		<!--              -->
+		<!-- variable out -->
+		<!--              -->
+		<variable name="out">
+			<alias name="xout" />
+			<alias name="xout2" />
+		</variable>
+
+	</variables>
+</mapping>

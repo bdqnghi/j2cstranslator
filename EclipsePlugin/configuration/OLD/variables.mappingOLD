@@ -1,0 +1,43 @@
+//========================================================== -*- Java -*- ===
+// The Java to C# translator mapping information
+//===========================================================================
+
+//------------------------------------------------------------
+// Variable renaming
+//   The body provides replacement names. The last element of the body
+//   is a prefix. If the body is empty, then the prefix is the variable
+//   name itself. When a same variable is defined more than once, the
+//   last one overrides the previous definitions.
+//------------------------------------------------------------
+
+variable namespace { ns, nsp, nspace, ns2 };
+variable object { obj0, oarg, obj2 };
+variable value { value_ren, valu2, val2 };
+variable virtual { virt, virtual_ren};
+variable partial{ part, partial_ren};
+variable string { str0, sarg, str2 };
+variable event { evt0, earg, evt2 };
+variable enum { it0, inum, enumeration };
+variable out { xout, xout2 };
+variable ref { xref, obj, reference };
+variable operator { operat, oper, _op };
+variable struct { struc0, stc, st };
+variable bool { flag, tag, flag };
+variable is { mask0, ints, is2 };
+variable in { ins0, input, in2 };
+variable extern { ext0, ext };
+variable using { use, use };
+variable internal { intern, inter };
+variable base { bs, bs };
+variable foreach { fe, each, f };
+variable sealed { seal, s };
+variable params { paras, parameters };
+variable as { al , als };
+variable implicit { impli, implici };
+variable checked { chek, check };
+variable override { overriden, over };
+variable lock { loke };
+variable delegate { delegat0 };
+variable unsafe { unsaf0 };
+variable unchecked { unchek, uncheck };
+variable fixed { fix, fixe};

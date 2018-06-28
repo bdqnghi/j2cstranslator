@@ -1,0 +1,11 @@
+//
+// javax.swing.event
+//
+package javax.swing.event :: ILOG.Util {
+
+	//
+	// EventListenerList
+	//
+	class javax.swing.event.EventListenerList :: ILOG.J2CsMapping.Util:IEventListenerList {
+    }
+}

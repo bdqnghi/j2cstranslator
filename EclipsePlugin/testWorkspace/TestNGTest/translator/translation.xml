@@ -1,0 +1,9 @@
+<translation class_filter="" 
+             package_filter="" 
+             output="c:\Temp" 
+             debug="false"
+             vsproject="true"
+             simulation="false" 
+             unitTestLibrary="testng"
+             generateconffile="true">
+</translation>

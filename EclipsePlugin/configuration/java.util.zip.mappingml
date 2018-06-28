@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                         -->
+	<!-- java.util.zip.mappingml -->
+	<!--                         -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                       -->
+		<!-- package java.util.zip -->
+		<!--                       -->
+		<package name="java.util.zip">
+			<target name="ILOG.J2CsMapping.IO.Zip" />
+
+			<!--                              -->
+			<!-- class java.util.zip.Inflater -->
+			<!--                              -->
+			<class name="Inflater">
+				<target isRemove="true">
+				</target>
+			</class>
+
+			<!--                                     -->
+			<!-- class java.util.zip.GZIPInputStream -->
+			<!--                                     -->
+			<class name="GZIPInputStream">
+				<target packageName="ILOG.J2CsMapping.IO" name="GZipReader">
+				</target>
+				<!--                               -->
+				<!-- method GZIPInputStream(java.io.InputStream,int) -->
+				<!--                               -->
+				<constructor signature="(java.io.InputStream,int)">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method GZIPInputStream(java.io.InputStream) -->
+				<!--                               -->
+				<constructor signature="(java.io.InputStream)">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.util.zip.GZIPOutputStream -->
+			<!--                                      -->
+			<class name="GZIPOutputStream">
+				<target packageName="ILOG.J2CsMapping.IO" name="GZipWriter">
+				</target>
+				<!--                               -->
+				<!-- method GZIPOutputStream(java.io.OutputStream,int) -->
+				<!--                               -->
+				<constructor signature="(java.io.OutputStream,int)">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                               -->
+				<!-- method GZIPOutputStream(java.io.OutputStream) -->
+				<!--                               -->
+				<constructor signature="(java.io.OutputStream)">
+					<target>
+						<format>
+<![CDATA[@1]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                                    -->
+			<!-- class java.util.zip.ZipInputStream -->
+			<!--                                    -->
+			<class name="ZipInputStream">
+				<target isRemove="true">
+				</target>
+			</class>
+
+			<!--                              -->
+			<!-- class java.util.zip.Deflater -->
+			<!--                              -->
+			<class name="Deflater">
+				<target isRemove="true">
+				</target>
+			</class>
+
+			<!--                             -->
+			<!-- class java.util.zip.ZipFile -->
+			<!--                             -->
+			<class name="ZipFile">
+				<target packageName="System.IO.Packaging" name="ZipPackage">
+				</target>
+			</class>
+
+			<!--                              -->
+			<!-- class java.util.zip.ZipEntry -->
+			<!--                              -->
+			<class name="ZipEntry">
+				<target packageName="System.IO.Packaging" name="ZipPackagePart">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>

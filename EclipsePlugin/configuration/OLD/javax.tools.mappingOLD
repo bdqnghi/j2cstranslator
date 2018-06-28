@@ -1,0 +1,11 @@
+//
+// javax.tools
+//
+package javax.tools {
+ 	//
+ 	// SimpleJavaFileObject
+ 	//
+    class javax.tools.SimpleJavaFileObject :: ILOG.J2CsMapping.IO:SimpleFileObject {
+      generation = false;
+    }
+}   

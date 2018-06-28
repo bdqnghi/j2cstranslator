@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                         -->
+	<!-- java.security.mappingml -->
+	<!--                         -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+
+		<!--                       -->
+		<!-- package java.security -->
+		<!--                       -->
+		<package name="java.security">
+			<target name="System" />
+			<!--                                              -->
+			<!-- class java.security.NoSuchAlgorithmException -->
+			<!--                                              -->
+			<class name="NoSuchAlgorithmException">
+				<target packageName="System" name="Exception">
+				</target>
+			</class>
+
+			<!--                                            -->
+			<!-- class java.security.AccessControlException -->
+			<!--                                            -->
+			<class name="AccessControlException">
+				<target packageName="ILOG.J2CsMapping" name="RuntimeException">
+				</target>
+			</class>
+
+			<!--                                   -->
+			<!-- class java.security.MessageDigest -->
+			<!--                                   -->
+			<class name="MessageDigest">
+				<target packageName="System.Security.Cryptography" name="MD5">
+				</target>
+				<!--                                      -->
+				<!-- method getInstance(java.lang.String) -->
+				<!--                                      -->
+				<method signature="(java.lang.String)" name="getInstance">
+					<target>
+						<format>
+<![CDATA[@0.Create()]]>
+						</format>
+					</target>
+				</method>
+				<!--                       -->
+				<!-- method update(byte[]) -->
+				<!--                       -->
+				<method signature="(byte[])" name="update">
+					<target>
+						<format>
+<![CDATA[@0.ComputeHash(@1)]]>
+						</format>
+					</target>
+				</method>
+				<!--                -->
+				<!-- method reset() -->
+				<!--                -->
+				<method signature="()" name="reset">
+					<target>
+						<format>
+<![CDATA[@0.Initialize()]]>
+						</format>
+					</target>
+				</method>
+				<!--                 -->
+				<!-- method digest() -->
+				<!--                 -->
+				<method signature="()" name="digest">
+					<target>
+						<format>
+<![CDATA[@0.Hash]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                                               -->
+			<!-- class java.security.PrivilegedActionException -->
+			<!--                                               -->
+			<class name="PrivilegedActionException">
+				<target packageName="ILOG.J2CsMapping" name="RuntimeException">
+				</target>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.security.PrivilegedAction -->
+			<!--                                      -->
+			<class name="PrivilegedAction">
+				<target packageName="System" name="Object" removeGenerics="true">
+				</target>
+			</class>
+
+			<!--                                               -->
+			<!-- class java.security.PrivilegedExceptionAction -->
+			<!--                                               -->
+			<class name="PrivilegedExceptionAction">
+				<target packageName="System" name="Object">
+				</target>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.security.AccessController -->
+			<!--                                      -->
+			<class name="AccessController">
+				<target packageName="System" name="Object">
+				</target>
+				<!--                                                              -->
+				<!-- method doPrivileged(java.security.PrivilegedAction&lt;T&gt;) -->
+				<!--                                                              -->
+				<method signature="(java.security.PrivilegedAction&lt;T&gt;)"
+					name="doPrivileged">
+					<target>
+						<format>
+<![CDATA[@1.Run()]]>
+						</format>
+					</target>
+				</method>
+			</class>
+		</package>
+
+	</packages>
+</mapping>

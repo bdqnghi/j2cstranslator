@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="mappings" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="target">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="comments" type="xs:string" minOccurs="0" />
+        <xs:element name="format" type="xs:string" minOccurs="0" />
+        <xs:element name="codeReplacement" type="xs:string" minOccurs="0" />
+        <xs:element name="modifiers" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="add" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="value" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="remove" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="value" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+		<xs:element name="hierarchy" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="add" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="remove" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+			<xs:attribute name="newSupeClassName" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+		<xs:element name="imports" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="add" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="remove" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="memberMappingBehavior" type="xs:string" />
+      <xs:attribute name="packageMappingBehavior" type="xs:string" />
+      <xs:attribute name="packageName" type="xs:string" />
+      <xs:attribute name="typeParameters" type="xs:string" />
+      <xs:attribute name="removeGenerics" type="xs:string" />
+      <xs:attribute name="renamed" type="xs:string" />
+      <xs:attribute name="removeStaticInitializers" type="xs:string" />
+      <xs:attribute name="instanceOfTypeName" type="xs:string" />
+      <xs:attribute name="isPartial" type="xs:string" />
+      <xs:attribute name="isRemoved" type="xs:string" />
+      <xs:attribute name="nullable" type="xs:string" />
+      <xs:attribute name="processDoc" type="xs:string" />
+      <xs:attribute name="propertyGet" type="xs:string" />
+      <xs:attribute name="genericsIf" type="xs:string" />
+      <xs:attribute name="indexerSet" type="xs:string" />
+      <xs:attribute name="indexerGet" type="xs:string" />
+      <xs:attribute name="covariant" type="xs:string" />
+      <xs:attribute name="genericsTest" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="disclaimer" type="xs:string" minOccurs="0" />
+        <xs:element name="javadoc" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tag" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="newName" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="keywords" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="keyword" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="alias" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="variables" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="variable" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="alias" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="packages" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="package" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="target" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="class" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="target" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element name="constructor" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="target" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="signature" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="method" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="target" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="signature" type="xs:string" />
+                              <xs:attribute name="name" type="xs:string" />
+                              <xs:attribute name="isExcluded" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="field" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="target" minOccurs="0" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="name" type="xs:string" />
+                              <xs:attribute name="isExcluded" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="packageName" type="xs:string" />
+                        <xs:attribute name="name" type="xs:string" />
+                        <xs:attribute name="typeParameters" type="xs:string" />
+                        <xs:attribute name="generics" type="xs:string" />
+                        <xs:attribute name="removeGenerics" type="xs:string" />
+                        <xs:attribute name="isRemoved" type="xs:string" />
+                        <xs:attribute name="isExcluded" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="isExcluded" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

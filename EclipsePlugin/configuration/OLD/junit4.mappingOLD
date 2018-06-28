@@ -1,0 +1,94 @@
+//========================================================== -*- Java -*- ===
+// The irl to irls translator mapping information
+//===========================================================================
+
+//
+// JUNIT API mapping
+//
+//
+// org.junit JUnit4 !
+//
+package org.junit :: NUnit.Framework {
+
+    //
+    // org.junit.Assert 
+    //
+	class org.junit.Assert :: NUnit.Framework:Assert {
+	   method assertFalse(boolean) { pattern = NUnit.Framework.Assert.IsFalse(@1); }
+	   method assertFalse(String, boolean) { pattern = NUnit.Framework.Assert.IsFalse(@2, @1); }
+	   //
+	   method assertTrue(boolean)  { pattern = NUnit.Framework.Assert.IsTrue(@1);}
+	   method assertTrue(String, boolean)  { pattern = NUnit.Framework.Assert.IsTrue(@2, @1); }
+	   // float
+//	   method assertEquals(float, float, float)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2,@3);}
+//	   method assertEquals(String, float, float, float)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1);}
+	   // double
+	   method assertEquals(double, double, double)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2,@3);}
+	   method assertEquals(String, double, double, double)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@4,@1);}
+	   // double
+	   method assertEquals(double, double)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   // long
+	   method assertEquals(long, long)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+           method assertEquals(String, long, long)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3, @1);}
+	   // object
+	   method assertEquals(Object, Object)  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, Object, Object)  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	   // object[]
+	   method assertEquals(Object[], Object[])  { pattern = NUnit.Framework.Assert.AreEqual(@1,@2);}
+	   method assertEquals(String, Object[], Object[])  { pattern = NUnit.Framework.Assert.AreEqual(@2,@3,@1);}
+	   //
+	   method assertNotNull(String, Object)  { pattern = NUnit.Framework.Assert.IsNotNull(@2, @1);}
+	   method assertNotNull(Object)  { pattern = NUnit.Framework.Assert.IsNotNull(@1);}
+	   //
+	   method assertNull(String, Object)  { pattern = NUnit.Framework.Assert.IsNull(@2, @1);}
+	   method assertNull(Object)  { pattern = NUnit.Framework.Assert.IsNull(@1);}
+	   //
+	   method assertSame(java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreSame(@1, @2);}
+	   method assertSame(java.lang.String, java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreSame(@2,@3,@1);}	
+	   //
+	   method assertNotSame(java.lang.Object, java.lang.Object) { pattern = NUnit.Framework.Assert.AreNotSame(@1, @2);}
+	   method assertNotSame(java.lang.String, java.lang.Object, java.lang.Object) { pattern = 
+NUnit.Framework.Assert.AreNotSame(@2,@3,@1);}
+       //
+	   method fail(String) { pattern = NUnit.Framework.Assert.Fail(@1); }
+	};
+	
+	//
+	// org.junit.Test
+	//
+	class org.junit.Test :: NUnit.Framework:TestCase {
+	}
+
+
+	//
+	// org.junit.After
+	//
+	class org.junit.After {
+	   remove = true;
+	   generation = false;
+	}	
+	
+	//
+	// org.junit.Before
+	//
+	class org.junit.Before {
+	   remove = true;
+	   generation = false;
+	}	
+	
+	//
+	// org.junit.AfterClass
+	//
+	class org.junit.AfterClass {
+	   remove = true;
+	   generation = false;
+	}	
+	
+	//
+	// org.junit.Before
+	//
+	class org.junit.BeforeClass {
+	   remove = true;
+	   generation = false;
+	}	
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--                     -->
+	<!-- java.text.mappingml -->
+	<!--                     -->
+<mapping>
+	<!--          -->
+	<!-- packages -->
+	<!--          -->
+	<packages>
+		<!--                   -->
+		<!-- package java.text -->
+		<!--                   -->
+		<package name="java.text">
+			<target name="System" />
+
+			<!--                               -->
+			<!-- class java.text.MessageFormat -->
+			<!--                               -->
+			<class name="MessageFormat">
+				<target packageName="ILOG.J2CsMapping.Text" name="MessageFormat">
+				</target>
+			</class>
+
+			<!--                          -->
+			<!-- class java.text.Collator -->
+			<!--                          -->
+			<class name="Collator">
+				<target packageName="System.Globalization" name="ComparatorInfo">
+				</target>
+			</class>
+
+			<!--                              -->
+			<!-- class java.text.NumberFormat -->
+			<!--                              -->
+			<class name="NumberFormat">
+				<target packageName="ILOG.J2CsMapping.Text" name="NumberFormat">
+				</target>
+			</class>
+
+			<!--                                   -->
+			<!-- class java.text.CharacterIterator -->
+			<!--                                   -->
+			<class name="CharacterIterator">
+				<target packageName="ILOG.J2CsMapping.Text" name="ICharacterIterator">
+				</target>
+				<!--            -->
+				<!-- Field DONE -->
+				<!--            -->
+				<field name="DONE">
+					<target>
+						<format>
+<![CDATA[ILOG.J2CsMapping.Text.CharacterIterator.Done]]>
+						</format>
+					</target>
+				</field>
+			</class>
+
+			<!--                                         -->
+			<!-- class java.text.StringCharacterIterator -->
+			<!--                                         -->
+			<class name="StringCharacterIterator">
+				<target packageName="ILOG.J2CsMapping.Text" name="StringCharacterIterator">
+				</target>
+			</class>
+
+			<!--                            -->
+			<!-- class java.text.DateFormat -->
+			<!--                            -->
+			<class name="DateFormat">
+				<target packageName="ILOG.J2CsMapping.Text" name="DateFormat">
+				</target>
+			</class>
+
+			<!--                                      -->
+			<!-- class java.text.DecimalFormatSymbols -->
+			<!--                                      -->
+			<class name="DecimalFormatSymbols">
+				<target packageName="System.Globalization" name="NumberFormatInfo">
+				</target>
+				<!--                               -->
+				<!-- method getGroupingSeparator() -->
+				<!--                               -->
+				<method signature="()" name="getGroupingSeparator">
+					<target>
+						<format>
+<![CDATA[@0.NumberGroupSeparator[0]]]>
+						</format>
+					</target>
+				</method>
+				<!--                               -->
+				<!-- method DecimalFormatSymbols(java.util.Locale) -->
+				<!--                               -->
+				<constructor signature="(java.util.Locale)">
+					<target>
+						<format>
+<![CDATA[NumberFormatInfo.GetInstance(@1)]]>
+						</format>
+					</target>
+				</constructor>
+				<!--                              -->
+				<!-- method getDecimalSeparator() -->
+				<!--                              -->
+				<method signature="()" name="getDecimalSeparator">
+					<target>
+						<format>
+<![CDATA[@0.NumberDecimalSeparator[0]]]>
+						</format>
+					</target>
+				</method>
+			</class>
+
+			<!--                               -->
+			<!-- class java.text.DecimalFormat -->
+			<!--                               -->
+			<class name="DecimalFormat">
+				<target packageName="ILOG.J2CsMapping.Text" name="DummyFormat">
+				</target>
+			</class>
+
+			<!--                        -->
+			<!-- class java.text.Format -->
+			<!--                        -->
+			<class name="Format">
+				<target packageName="ILOG.J2CsMapping.Text" name="IlFormat">
+				</target>
+			</class>
+
+			<!--                                -->
+			<!-- class java.text.ParseException -->
+			<!--                                -->
+			<class name="ParseException">
+				<target packageName="ILOG.J2CsMapping.Util" name="ParseException">
+				</target>
+				<!--                                             -->
+				<!-- method ParseException(java.lang.String,int) -->
+				<!--                                             -->
+				<constructor signature="(java.lang.String,int)">
+					<target>
+						<format>
+<![CDATA[new ILOG.J2CsMapping.Util.ParseException(@1+@2)]]>
+						</format>
+					</target>
+				</constructor>
+			</class>
+
+			<!--                                  -->
+			<!-- class java.text.SimpleDateFormat -->
+			<!--                                  -->
+			<class name="SimpleDateFormat">
+				<target packageName="ILOG.J2CsMapping.Text" name="SimpleDateFormat">
+				</target>
+			</class>
+		</package>
+	</packages>
+</mapping>
